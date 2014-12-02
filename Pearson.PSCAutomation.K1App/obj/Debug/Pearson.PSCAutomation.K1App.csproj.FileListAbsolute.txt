@@ -1,0 +1,10 @@
+C:\Automation\Pearson.PSCAutomation\Pearson.PSCAutomation.K1App\obj\Debug\Pearson.PSCAutomation.K1App.csprojResolveAssemblyReference.cache
+C:\Automation\Pearson.PSCAutomation\Pearson.PSCAutomation.K1App\bin\Debug\Pearson.PSCAutomation.K1App.dll
+C:\Automation\Pearson.PSCAutomation\Pearson.PSCAutomation.K1App\bin\Debug\Pearson.PSCAutomation.K1App.pdb
+C:\Automation\Pearson.PSCAutomation\Pearson.PSCAutomation.K1App\bin\Debug\Pearson.PSCAutomation.Framework.dll
+C:\Automation\Pearson.PSCAutomation\Pearson.PSCAutomation.K1App\bin\Debug\imageClient.dll
+C:\Automation\Pearson.PSCAutomation\Pearson.PSCAutomation.K1App\bin\Debug\CookComputing.XmlRpcV2.dll
+C:\Automation\Pearson.PSCAutomation\Pearson.PSCAutomation.K1App\bin\Debug\Pearson.PSCAutomation.Framework.pdb
+C:\Automation\Pearson.PSCAutomation\Pearson.PSCAutomation.K1App\bin\Debug\imageClient.xml
+C:\Automation\Pearson.PSCAutomation\Pearson.PSCAutomation.K1App\obj\Debug\Pearson.PSCAutomation.K1App.dll
+C:\Automation\Pearson.PSCAutomation\Pearson.PSCAutomation.K1App\obj\Debug\Pearson.PSCAutomation.K1App.pdb

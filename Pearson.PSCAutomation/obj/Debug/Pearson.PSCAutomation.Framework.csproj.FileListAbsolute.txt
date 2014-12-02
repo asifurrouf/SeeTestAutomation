@@ -1,0 +1,8 @@
+C:\Automation\Pearson.PSCAutomation\Pearson.PSCAutomation\bin\Debug\Pearson.PSCAutomation.Framework.dll.config
+C:\Automation\Pearson.PSCAutomation\Pearson.PSCAutomation\bin\Debug\Pearson.PSCAutomation.Framework.dll
+C:\Automation\Pearson.PSCAutomation\Pearson.PSCAutomation\bin\Debug\Pearson.PSCAutomation.Framework.pdb
+C:\Automation\Pearson.PSCAutomation\Pearson.PSCAutomation\bin\Debug\CookComputing.XmlRpcV2.dll
+C:\Automation\Pearson.PSCAutomation\Pearson.PSCAutomation\bin\Debug\imageClient.dll
+C:\Automation\Pearson.PSCAutomation\Pearson.PSCAutomation\bin\Debug\imageClient.xml
+C:\Automation\Pearson.PSCAutomation\Pearson.PSCAutomation\obj\Debug\Pearson.PSCAutomation.Framework.dll
+C:\Automation\Pearson.PSCAutomation\Pearson.PSCAutomation\obj\Debug\Pearson.PSCAutomation.Framework.pdb
