@@ -36,11 +36,13 @@ namespace Pearson.PSCAutomation.Framework
             this.launchingAppName = ConfigurationManager.AppSettings["LaunchingAppName"].ToString();
             this.osName = ConfigurationManager.AppSettings["OS"].ToString();
             //Load the rootXElement from controls.xml
+            string startupPath = System.IO.Directory.GetCurrentDirectory();
             string outPutDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase);
             string xmlfilepath = Path.Combine(outPutDirectory, "Xml\\212Controls.xml");
             string xmlfile_path = new Uri(xmlfilepath).LocalPath;
-            this.projectBaseDirectory = outPutDirectory + "\\" + ConfigurationManager.AppSettings["ProjectBaseDirectory"].ToString();
-            this.reporterFolder = projectBaseDirectory + "\\" + ConfigurationManager.AppSettings["ReporterFolder"].ToString();
+            this.projectBaseDirectory = new Uri(outPutDirectory + "\\" + ConfigurationManager.AppSettings["ProjectBaseDirectory"].ToString()).LocalPath;
+            //this.reporterFolder = new Uri(outPutDirectory.Remove(outPutDirectory.Length - 10) + "\\" + ConfigurationManager.AppSettings["ProjectBaseDirectory"].ToString() + "\\" + ConfigurationManager.AppSettings["ReporterFolder"].ToString()).LocalPath;
+            this.reporterFolder = ConfigurationManager.AppSettings["ReporterFolder"].ToString();
             this.rootXElement = XElement.Load(xmlfile_path).Elements("OS").Where(os => os.Attribute("OSName").Value == this.osName).FirstOrDefault<XElement>();            
             InitializeClient();
         }
@@ -105,14 +107,23 @@ namespace Pearson.PSCAutomation.Framework
             XElement controlXElement = this.rootXElement.Elements("View").Where(view => view.Attribute("ViewName").Value == viewName).Elements("Control").Where(control => control.Attribute("ControlName").Value == controlName).FirstOrDefault<XElement>();
             this.control = new Control(controlXElement);
         }
+
+        private void PopulateDynamicControl(string viewName, string controlName, string dynamicVariable)
+        {
+            XElement controlXElement = this.rootXElement.Elements("View").Where(view => view.Attribute("ViewName").Value == viewName).Elements("Control").Where(control => control.Attribute("ControlName").Value == controlName).FirstOrDefault<XElement>();
+            this.control = new Control(controlXElement);
+            string updatedElement= this.control.Element.Replace("()",dynamicVariable);
+            string updatedControlText = this.control.ControlText.Replace("()", dynamicVariable);
+            this.control.Element = updatedElement;
+            this.control.ControlText = updatedControlText;
+        }
         /// <summary>
         /// Initializes the Client and Launches the App
         /// </summary>
         private void InitializeClient()
-        {
-            string reportsdirectory = ProjectBaseDirectory + "\\" + ConfigurationManager.AppSettings["ReporterFolder"].ToString();
+        {            
             client.SetProjectBaseDirectory(ProjectBaseDirectory);
-            client.SetReporter("xml", reportsdirectory, testDetails);
+            client.SetReporter("xml", this.reporterFolder, testDetails);
             client.SetDevice(device.SeeTestDeviceName);
             client.Launch(launchingAppName, true, false);
         }
@@ -136,6 +147,22 @@ namespace Pearson.PSCAutomation.Framework
             }
             client.Click(this.control.Zone, this.control.Element, this.control.Index, clickCount);
         }
+
+        public bool WaitforElement(string viewName, string controlName, string dynamicVariable, int waitTime = WaitTime.DefaultWaitTime)
+        {
+            this.PopulateDynamicControl(viewName, controlName, dynamicVariable);
+            return client.WaitForElement(this.control.Zone, this.control.Element, this.control.Index, waitTime);
+        }
+        public void Click(string viewName, string controlName, string dynamicVariable, int clickCount = 1, int waitTime = WaitTime.DefaultWaitTime)
+        {
+            this.PopulateDynamicControl(viewName, controlName, dynamicVariable);
+            if (client.WaitForElement(this.control.Zone, this.control.Element, this.control.Index, waitTime))
+            {
+                // If statement
+            }
+            client.Click(this.control.Zone, this.control.Element, this.control.Index, clickCount);
+        }
+
         /// <summary>
         /// Sets the Text to textbox controls
         /// </summary>
@@ -151,7 +178,6 @@ namespace Pearson.PSCAutomation.Framework
                 // If statement
             }
             client.ElementSendText(this.control.Zone, this.control.Element, this.control.Index, textToSet);
-            
         }
         /// <summary>
         /// Waits for the Control to exist on the screen
@@ -291,6 +317,29 @@ namespace Pearson.PSCAutomation.Framework
             return client.ElementGetText(this.control.Zone, this.control.Element, this.control.Index);
         }
 
+        /// <summary>
+        /// Performs pinch in/zoom in action on the screen at the given x & Y coordinates of the screen. Not supplying any parameters, performs pinch in at the center of the screen with a radius 100 pixels.
+        /// </summary>
+        /// <param name="xCoordinate">X Co ordinate where pinch in should be performed, default is 0</param>
+        /// <param name="yCoordinate">Y Co ordinate where pinch in should be performed, default is 0</param>
+        /// <param name="pinchRadius">Radius of pinch circle. default is 100</param>
+        /// <returns>bool value indicating action success or failure</returns>
+        public bool PinchIn(int xCoordinate=0, int yCoordinate=0, int pinchRadius=100)
+        {
+            return client.Pinch(true, xCoordinate, yCoordinate, pinchRadius);
+        }
+
+        /// <summary>
+        /// Performs pinch out/zoom out action on the screen at the given x & Y coordinates of the screen. Not supplying any parameters, performs pinch out at the center of the screen with a radius 100 pixels.
+        /// </summary>
+        /// <param name="xCoordinate">X Co ordinate where pinch out should be performed, default is 0</param>
+        /// <param name="yCoordinate">Y Co ordinate where pinch out should be performed, default is 0</param>
+        /// <param name="pinchRadius">Radius of pinch out circle. default is 100</param>
+        /// <returns>bool value indicating action success or failure</returns>
+        public bool PinchOut(int xCoordinate = 0, int yCoordinate = 0, int pinchRadius = 100)
+        {
+            return client.Pinch(false, xCoordinate, yCoordinate, pinchRadius);
+        }
         public void InstallApp(string path)
         {
             client.Install(path, true, true);
@@ -322,6 +371,7 @@ namespace Pearson.PSCAutomation.Framework
 
         public void Dispose()
         {
+            this.client.GenerateReport(false);
             this.clientDevice.IsClientReady = true;
         }
     }

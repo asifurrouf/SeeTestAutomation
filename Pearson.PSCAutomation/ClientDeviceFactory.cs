@@ -45,7 +45,7 @@ namespace Pearson.PSCAutomation.Framework
         private static void PopulateClientDevices()
         {
             var outPutDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase);
-            var xmlfilepath = Path.Combine(outPutDirectory, "Xml\\212Controls.xml");
+            var xmlfilepath = Path.Combine(outPutDirectory, "Xml\\Devices.xml");
             string xmlfile_path = new Uri(xmlfilepath).LocalPath;
             IEnumerable<XElement> rootXElement = XElement.Load(xmlfile_path).Elements("OS").Where(os => os.Attribute("OSName").Value == ConfigurationManager.AppSettings["OS"].ToString()).Where(device => device.Attribute("IsDeviceAvailable").Value=="true");
             foreach(XElement deviceXElement in rootXElement)

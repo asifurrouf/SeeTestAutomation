@@ -54,6 +54,10 @@ namespace Pearson.PSCAutomation.Framework
             {
                 return element;
             }
+            set
+            {
+                element = value;
+            }
         }
         public string ControlName
         {
@@ -74,6 +78,10 @@ namespace Pearson.PSCAutomation.Framework
             get
             {
                 return controlText;
+            }
+            set
+            {
+                controlText = value;
             }
         }
         public int Index

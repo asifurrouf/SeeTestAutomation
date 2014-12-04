@@ -60,15 +60,11 @@
     <Compile Include="212SeeTestProject\scenarios\AutomationUI.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="212SeeTestProject\scenarios\launchapp.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
-    <Compile Include="212SeeTestProject\scenarios\Untitled.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
+    <Compile Include="CommonReadCommonMethods.cs" />
     <Compile Include="NavigationCommonMethods.cs" />
     <Compile Include="NavigationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CommonReadTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Pearson.PSCAutomation\Pearson.PSCAutomation.Framework.csproj">
@@ -129,22 +125,10 @@
     <Content Include="212SeeTestProject\default\T.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="212SeeTestProject\reports\212Reports.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="212SeeTestProject\scenarios\AutomationUI.java">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="212SeeTestProject\scenarios\AutomationUI.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="212SeeTestProject\scenarios\launchapp.java">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="212SeeTestProject\scenarios\launchapp.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="212SeeTestProject\scenarios\Untitled.java">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="212SeeTestProject\scenes\scene.1415138467215.png">

@@ -12,39 +12,46 @@
       <Control ControlName="Password">
         <Zone>Native</Zone>
         <Element>placeholder=Password</Element>
-        <Index>1</Index>
+        <Index>0</Index>
         <ControlType>TextBox</ControlType>
         <ControlText>Password</ControlText>
       </Control>
       <Control ControlName="Login">
         <Zone>Native</Zone>
         <Element>accessibilityLabel=LOG IN</Element>
-        <Index>2</Index>
+        <Index>0</Index>
         <ControlType>Button</ControlType>
         <ControlText>Login</ControlText>
       </Control>
       </View>
-    <View ViewName="TopMenuView">
+    <View ViewName="SystemTrayMenuView">
       <Control ControlName="SystemTrayButton">
         <Zone>Native</Zone>
         <Element>accessibilityLabel=button tray normal</Element>
-        <Index>2</Index>
+        <Index>0</Index>
         <ControlType>Button</ControlType>
         <ControlText>None</ControlText>
       </Control>
       <Control ControlName="LogOutButton">
         <Zone>Native</Zone>
         <Element>accessibilityIdentifier=SystemTray.LogOutButton</Element>
-        <Index>2</Index>
+        <Index>0</Index>
         <ControlType>Button</ControlType>
         <ControlText>Logout</ControlText>
       </Control>
-        <Control ControlName="ELAButton">
+        <Control ControlName="ELAUnitsButton">
         <Zone>Native</Zone>
         <Element>accessibilityIdentifier=SystemTray.UnitLibrary.ELAButton</Element>
-        <Index>1</Index>
+        <Index>0</Index>
         <ControlType>Button</ControlType>
-        <ControlText>ELA</ControlText>
+        <ControlText>ELA Units</ControlText>
+      </Control>
+      <Control ControlName="MathUnitsButton">
+        <Zone>Native</Zone>
+        <Element>accessibilityIdentifier=SystemTray.UnitLibrary.MathButton</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>Math Units</ControlText>
       </Control>
         <Control ControlName="UnitLibrary">
         <Zone>Native</Zone>
@@ -53,7 +60,124 @@
         <ControlType>Button</ControlType>
         <ControlText>Unit Library</ControlText>
       </Control>      
-    </View>  
+    </View>
+  <View ViewName="GradeSelectionMenuView">
+    <Control ControlName="ELAGradeButton">
+        <Zone>Native</Zone>
+        <Element>accessibilityLabel=Grade ()</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+  <Control ControlName="MathGradeButton">
+        <Zone>Native</Zone>
+        <Element>accessibilityLabel=Grade ()</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+  </View>
+    <View ViewName="UnitLibraryView">
+      <Control ControlName="ELAUnitTile">
+        <Zone>Native</Zone>
+        <Element>accessibilityIdentifier=unitTileView.button.()</Element>
+        <Index>0</Index>
+        <ControlType>TileView</ControlType>
+        <ControlText>UNIT ()</ControlText>
+      </Control>
+     <Control ControlName="MathUnitTile">
+        <Zone>Native</Zone>
+        <Element>accessibilityIdentifier=unitTileView.button.()</Element>
+        <Index>0</Index>
+        <ControlType>TileView</ControlType>
+        <ControlText>UNIT ()</ControlText>
+      </Control>
+    </View>
+  <View ViewName="UnitOverView">
+      <Control ControlName="ELAUnitStartButton">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@accessibilityLabel='button start ela' and ./preceding-sibling::*[@text='UNIT ()']]</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>START</ControlText>
+      </Control>
+      <Control ControlName="MathUnitStartButton">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@accessibilityLabel='button start math' and ./preceding-sibling::*[@text='UNIT ()']]</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>START</ControlText>
+      </Control>
+    </View>
+  <View ViewName="LessonBrowserView">
+      <Control ControlName="ELALessonTile">
+        <Zone>Native</Zone>
+        <Element>accessibilityIdentifier='LessonBrowser.ELALesson1_()</Element>
+        <Index>0</Index>
+        <ControlType>TileView</ControlType>
+        <ControlText>LESSON ()</ControlText>
+      </Control>
+  <Control ControlName="MathLessonTile">
+        <Zone>Native</Zone>
+        <Element>accessibilityIdentifier=LessonBrowser.MathLesson()</Element>
+        <Index>0</Index>
+        <ControlType>TileView</ControlType>
+        <ControlText>LESSON ()</ControlText>
+      </Control>
+    </View>
+  <View ViewName="LessonsOverView">
+      <Control ControlName="ELALessonStartButton">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@accessibilityLabel='button start ela' and ./preceding-sibling::*[@text='Lesson ()']]</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>START</ControlText>
+      </Control>
+  <Control ControlName="ELALessonContinueButton">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@accessibilityLabel='ELA continue button' and ./preceding-sibling::*[@text='Lesson ()']]</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>CONTINUE</ControlText>
+      </Control>
+   <Control ControlName="MathLessonStartButton">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@accessibilityLabel='button start math' and ./preceding-sibling::*[@text='LESSON ()']]</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>START</ControlText>
+      </Control>
+  <Control ControlName="MathLessonContinueButton">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@accessibilityLabel='MATH continue button' and ./preceding-sibling::*[@text='LESSON ()']]</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>CONTINUE</ControlText>
+      </Control>
+    </View>
+  <View ViewName="LessonView">
+      <Control ControlName="PreviousButton">
+        <Zone>Web</Zone>
+        <Element>id=LessonScreen.PreviousButton</Element>
+        <Index>0</Index>
+        <ControlType>Li</ControlType>
+        <ControlText>&lt;</ControlText>
+      </Control>
+  <Control ControlName="CurrentPageLabel">
+        <Zone>Web</Zone>
+        <Element>id=LessonScreen.CurrentPageLabel</Element>
+        <Index>0</Index>
+        <ControlType>Li</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+  <Control ControlName="NextButton">
+        <Zone>Web</Zone>
+        <Element>id=LessonScreen.NextButton</Element>
+        <Index>0</Index>
+        <ControlType>Li</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+    </View>
   </OS>
   <OS OSName="Android">
     <View ViewName="LoginView">

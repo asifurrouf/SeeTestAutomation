@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Pearson.PSCAutomation.Framework;
 using experitestClient;
 
@@ -20,22 +21,145 @@ namespace Pearson.PSCAutomation._212App
 
         public static void Logout(AutomationAgent navigationAutomationAgent)
         {
-            navigationAutomationAgent.Click("TopMenuView", "SystemTrayButton");
-            navigationAutomationAgent.Click("TopMenuView", "LogOutButton");            
+            navigationAutomationAgent.Click("SystemTrayMenuView", "SystemTrayButton");
+            navigationAutomationAgent.Click("SystemTrayMenuView", "LogOutButton");            
         }
 
         public static void NavigateToELA(AutomationAgent navigationAutomationAgent)
         {
-            navigationAutomationAgent.Click("TopMenuView", "SystemTrayButton");
-            if (navigationAutomationAgent.WaitforElement("TopMenuView", "ELAButton", WaitTime.SmallWaitTime))
+            navigationAutomationAgent.Click("SystemTrayMenuView", "SystemTrayButton");
+            if (navigationAutomationAgent.WaitforElement("SystemTrayMenuView", "ELAUnitsButton", WaitTime.SmallWaitTime))
             {
-                navigationAutomationAgent.Click("TopMenuView", "ELAButton");
+                navigationAutomationAgent.Click("SystemTrayMenuView", "ELAUnitsButton");
             }
             else
             {
-                navigationAutomationAgent.Click("TopMenuView", "UnitLibrary");
-                navigationAutomationAgent.Click("TopMenuView", "ELAButton");
+                navigationAutomationAgent.Click("SystemTrayMenuView", "UnitLibrary");
+                navigationAutomationAgent.Click("SystemTrayMenuView", "ELAUnitsButton");
             }
+        }
+
+        public static void NavigateToMath(AutomationAgent navigationAutomationAgent)
+        {
+            navigationAutomationAgent.Click("SystemTrayMenuView", "SystemTrayButton");
+            if (navigationAutomationAgent.WaitforElement("SystemTrayMenuView", "MathUnitsButton", WaitTime.SmallWaitTime))
+            {
+                navigationAutomationAgent.Click("SystemTrayMenuView", "MathUnitsButton");
+            }
+            else
+            {
+                navigationAutomationAgent.Click("SystemTrayMenuView", "UnitLibrary");
+                navigationAutomationAgent.Click("SystemTrayMenuView", "MathUnitsButton");
+            }
+        }
+
+        public static void NavigateToELAGrade(AutomationAgent navigationAutomationAgent, int gradeNumber)
+        {
+            NavigateToELA(navigationAutomationAgent);
+            if(gradeNumber>12 && gradeNumber <2)
+            {
+                Assert.Fail("Grade entered ("+gradeNumber.ToString()+") is invalid");
+            }
+            navigationAutomationAgent.Click("GradeSelectionMenuView", "ELAGradeButton", gradeNumber.ToString());
+        }
+
+        public static void NavigateToMathGrade(AutomationAgent navigationAutomationAgent, int gradeNumber)
+        {
+            NavigateToELA(navigationAutomationAgent);
+            if (gradeNumber > 11 && gradeNumber < 2)
+            {
+                Assert.Fail("Grade entered (" + gradeNumber.ToString() + ") is invalid");
+            }
+            navigationAutomationAgent.Click("GradeSelectionMenuView", "MathGradeButton", gradeNumber.ToString());
+        }
+
+        public static void StartELAUnitFromUnitLibrary(AutomationAgent navigationAutomationAgent, int unitNumber)
+        {
+            navigationAutomationAgent.Click("UnitLibraryView", "ELAUnitTile", unitNumber.ToString());
+            navigationAutomationAgent.Click("UnitOverView", "ELAUnitStartButton", unitNumber.ToString());
+        }
+
+        public static void StartMathUnitFromUnitLibrary(AutomationAgent navigationAutomationAgent, int unitNumber)
+        {
+            navigationAutomationAgent.Click("UnitLibraryView", "MathUnitTile", unitNumber.ToString());
+            navigationAutomationAgent.Click("UnitOverView", "MathUnitStartButton", unitNumber.ToString());
+        }
+        public static void OpenELALessonFromLessonBrowser(AutomationAgent navigationAutomationAgent, int lessonNumber)
+        {
+            navigationAutomationAgent.Click("LessonBrowserView", "ELALessonTile", (lessonNumber - 1).ToString());
+            if(navigationAutomationAgent.WaitforElement("LessonsOverView", "ELALessonStartButton",lessonNumber.ToString()))
+            {
+                navigationAutomationAgent.Click("LessonsOverView", "ELALessonStartButton", lessonNumber.ToString());
+            }
+            else if (navigationAutomationAgent.WaitforElement("LessonsOverView", "ELALessonContinueButton", lessonNumber.ToString()))
+            {
+                navigationAutomationAgent.Click("LessonsOverView", "ELALessonContinueButton", lessonNumber.ToString());
+            }
+            else
+            {
+                navigationAutomationAgent.CaptureScreenshot("Neither Start nor Continue button are found on the screen");
+                Assert.Fail("Neither Start nor Continue button are found on the screen");
+            }
+        }
+
+        public static void OpenMathLessonFromLessonBrowser(AutomationAgent navigationAutomationAgent, int lessonNumber)
+        {
+            navigationAutomationAgent.Click("LessonBrowserView", "MathLessonTile", (lessonNumber - 1).ToString());
+            if (navigationAutomationAgent.WaitforElement("LessonsOverView", "MathLessonStartButton", lessonNumber.ToString()))
+            {
+                navigationAutomationAgent.Click("LessonsOverView", "MathLessonStartButton", lessonNumber.ToString());
+            }
+            else if (navigationAutomationAgent.WaitforElement("LessonsOverView", "MathLessonContinueButton", lessonNumber.ToString()))
+            {
+                navigationAutomationAgent.Click("LessonsOverView", "MathLessonContinueButton", lessonNumber.ToString());
+            }
+            else
+            {
+                navigationAutomationAgent.CaptureScreenshot("Neither Start nor Continue button are found on the screen");
+                Assert.Fail("Neither Start nor Continue button are found on the screen");
+            }
+        }
+
+        public static void NavigateToTaskPageInLesson(AutomationAgent navigationAutomationAgent, int taskNumber)
+        {
+           int currentTaskNumber = int.Parse(navigationAutomationAgent.GetElementText("LessonView", "CurrentPageLabel"));
+           int numberOfPagesToTraverse=0;
+           if(currentTaskNumber>taskNumber)
+           {
+               numberOfPagesToTraverse = currentTaskNumber - taskNumber;
+               for(int i=0; i<numberOfPagesToTraverse; i++)
+               {
+                   navigationAutomationAgent.Click("LessonView", "PreviousButton");
+                   System.Threading.Thread.Sleep(500);
+               }
+           }
+           else if(currentTaskNumber<taskNumber)
+           {
+               numberOfPagesToTraverse =  taskNumber - currentTaskNumber;
+               for (int i = 0; i < numberOfPagesToTraverse; i++)
+               {
+                   navigationAutomationAgent.Click("LessonView", "NextButton");
+                   System.Threading.Thread.Sleep(500);
+               }
+           }
+        }
+
+        public static void NavigateELATaskfromSytemTrayMenu(AutomationAgent navigationAutomationAgent, int gradeNumber, int unitNumber, int lessonNumber, int taskNumber)
+        {
+            NavigateToELA(navigationAutomationAgent);
+            NavigateToELAGrade(navigationAutomationAgent, gradeNumber);
+            StartELAUnitFromUnitLibrary(navigationAutomationAgent, unitNumber);
+            OpenELALessonFromLessonBrowser(navigationAutomationAgent, lessonNumber);
+            NavigateToTaskPageInLesson(navigationAutomationAgent, taskNumber);
+        }
+
+        public static void NavigateMathTaskfromSytemTrayMenu(AutomationAgent navigationAutomationAgent, int gradeNumber, int unitNumber, int lessonNumber, int taskNumber)
+        {
+            NavigateToMath(navigationAutomationAgent);
+            NavigateToMathGrade(navigationAutomationAgent, gradeNumber);
+            StartMathUnitFromUnitLibrary(navigationAutomationAgent, unitNumber);
+            OpenMathLessonFromLessonBrowser(navigationAutomationAgent, lessonNumber);
+            NavigateToTaskPageInLesson(navigationAutomationAgent, taskNumber);
         }
     }
 }
