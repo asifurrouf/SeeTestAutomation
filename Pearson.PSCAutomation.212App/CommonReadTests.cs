@@ -24,7 +24,11 @@ namespace Pearson.PSCAutomation._212App
             using (commonReadAutomationAgent = new AutomationAgent("TC1005:Pinch out in Vellum mode on a common read"))
             {
                 NavigationCommonMethods.Login(commonReadAutomationAgent, "apatton1", "sch00lnet");
-                NavigationCommonMethods.NavigateELATaskfromSytemTrayMenu(commonReadAutomationAgent, 6, 1, 1, 1);                
+                NavigationCommonMethods.NavigateELATaskfromSytemTrayMenu(commonReadAutomationAgent, 6, 1, 1, 4);
+                CommonReadCommonMethods.OpenCommonRead(commonReadAutomationAgent);
+                CommonReadCommonMethods.ToggleVellumMode(commonReadAutomationAgent);
+                Assert.IsFalse(NavigationCommonMethods.PinchOutOnScreen(commonReadAutomationAgent));
+                CommonReadCommonMethods.ClickOnDoneButton(commonReadAutomationAgent);
                 NavigationCommonMethods.Logout(commonReadAutomationAgent);
             }
         }

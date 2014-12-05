@@ -28,7 +28,7 @@ namespace Pearson.PSCAutomation._212App
         public static void NavigateToELA(AutomationAgent navigationAutomationAgent)
         {
             navigationAutomationAgent.Click("SystemTrayMenuView", "SystemTrayButton");
-            if (navigationAutomationAgent.WaitforElement("SystemTrayMenuView", "ELAUnitsButton", WaitTime.SmallWaitTime))
+            if (navigationAutomationAgent.WaitForElement("SystemTrayMenuView", "ELAUnitsButton", WaitTime.SmallWaitTime))
             {
                 navigationAutomationAgent.Click("SystemTrayMenuView", "ELAUnitsButton");
             }
@@ -42,7 +42,7 @@ namespace Pearson.PSCAutomation._212App
         public static void NavigateToMath(AutomationAgent navigationAutomationAgent)
         {
             navigationAutomationAgent.Click("SystemTrayMenuView", "SystemTrayButton");
-            if (navigationAutomationAgent.WaitforElement("SystemTrayMenuView", "MathUnitsButton", WaitTime.SmallWaitTime))
+            if (navigationAutomationAgent.WaitForElement("SystemTrayMenuView", "MathUnitsButton", WaitTime.SmallWaitTime))
             {
                 navigationAutomationAgent.Click("SystemTrayMenuView", "MathUnitsButton");
             }
@@ -55,7 +55,6 @@ namespace Pearson.PSCAutomation._212App
 
         public static void NavigateToELAGrade(AutomationAgent navigationAutomationAgent, int gradeNumber)
         {
-            NavigateToELA(navigationAutomationAgent);
             if(gradeNumber>12 && gradeNumber <2)
             {
                 Assert.Fail("Grade entered ("+gradeNumber.ToString()+") is invalid");
@@ -86,7 +85,7 @@ namespace Pearson.PSCAutomation._212App
         }
         public static void OpenELALessonFromLessonBrowser(AutomationAgent navigationAutomationAgent, int lessonNumber)
         {
-            navigationAutomationAgent.Click("LessonBrowserView", "ELALessonTile", (lessonNumber - 1).ToString());
+            navigationAutomationAgent.Click("LessonBrowserView", "ELALessonTile", lessonNumber.ToString());
             if(navigationAutomationAgent.WaitforElement("LessonsOverView", "ELALessonStartButton",lessonNumber.ToString()))
             {
                 navigationAutomationAgent.Click("LessonsOverView", "ELALessonStartButton", lessonNumber.ToString());
@@ -160,6 +159,18 @@ namespace Pearson.PSCAutomation._212App
             StartMathUnitFromUnitLibrary(navigationAutomationAgent, unitNumber);
             OpenMathLessonFromLessonBrowser(navigationAutomationAgent, lessonNumber);
             NavigateToTaskPageInLesson(navigationAutomationAgent, taskNumber);
+        }
+
+        public static void ClickCancelInSelectGrade(AutomationAgent navigationAutomationAgent)
+        {
+            navigationAutomationAgent.WaitforElement("SelectGradeView", "GradeLabel", "5", 10000);
+            navigationAutomationAgent.Click("SelectGradeView", "CancelButton");
+            Assert.IsTrue(navigationAutomationAgent.WaitForElement("LoginView", "Login", 10000), "User didn't log out after clicking cancel button");
+        }
+
+        public static bool PinchOutOnScreen(AutomationAgent navigationAutomationAgent)
+        {
+            return navigationAutomationAgent.PinchOut();
         }
     }
 }

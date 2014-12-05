@@ -6,3 +6,11 @@ C:\Automation\Pearson.PSCAutomation\Pearson.PSCAutomation\bin\Debug\imageClient.
 C:\Automation\Pearson.PSCAutomation\Pearson.PSCAutomation\bin\Debug\imageClient.xml
 C:\Automation\Pearson.PSCAutomation\Pearson.PSCAutomation\obj\Debug\Pearson.PSCAutomation.Framework.dll
 C:\Automation\Pearson.PSCAutomation\Pearson.PSCAutomation\obj\Debug\Pearson.PSCAutomation.Framework.pdb
+C:\Users\Pearson\Documents\SeeTestAutomation\Pearson.PSCAutomation\bin\Debug\Pearson.PSCAutomation.Framework.dll.config
+C:\Users\Pearson\Documents\SeeTestAutomation\Pearson.PSCAutomation\bin\Debug\Pearson.PSCAutomation.Framework.dll
+C:\Users\Pearson\Documents\SeeTestAutomation\Pearson.PSCAutomation\bin\Debug\Pearson.PSCAutomation.Framework.pdb
+C:\Users\Pearson\Documents\SeeTestAutomation\Pearson.PSCAutomation\bin\Debug\CookComputing.XmlRpcV2.dll
+C:\Users\Pearson\Documents\SeeTestAutomation\Pearson.PSCAutomation\bin\Debug\imageClient.dll
+C:\Users\Pearson\Documents\SeeTestAutomation\Pearson.PSCAutomation\bin\Debug\imageClient.xml
+C:\Users\Pearson\Documents\SeeTestAutomation\Pearson.PSCAutomation\obj\Debug\Pearson.PSCAutomation.Framework.dll
+C:\Users\Pearson\Documents\SeeTestAutomation\Pearson.PSCAutomation\obj\Debug\Pearson.PSCAutomation.Framework.pdb

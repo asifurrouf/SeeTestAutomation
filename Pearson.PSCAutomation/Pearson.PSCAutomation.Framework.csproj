@@ -36,10 +36,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CookComputing.XmlRpcV2">
-      <HintPath>..\..\..\Program Files (x86)\Experitest\SeeTest\clients\C#\CookComputing.XmlRpcV2.dll</HintPath>
+      <HintPath>..\..\..\..\..\Program Files (x86)\Experitest\SeeTest\clients\C#\CookComputing.XmlRpcV2.dll</HintPath>
     </Reference>
     <Reference Include="imageClient">
-      <HintPath>..\..\..\Program Files (x86)\Experitest\SeeTest\clients\C#\imageClient.dll</HintPath>
+      <HintPath>..\..\..\..\..\Program Files (x86)\Experitest\SeeTest\clients\C#\imageClient.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />

@@ -140,5 +140,19 @@ namespace Pearson.PSCAutomation._212App
                 NavigationCommonMethods.Logout(navigationAutomationAgent);
             }
         }
+
+        [TestMethod()]
+        [TestCategory("Navigation Tests")]
+        [TestProperty("RallyId", "TC7355")]
+        [Priority(1)]
+        [Owner("Kiran Kumar Anantapalli(kiran.anantapalli)")]
+        public void LoginAndCancelAddGrades()
+        {
+            using (navigationAutomationAgent = new AutomationAgent("TC7355: Log in and cancel add grades"))
+            {
+                NavigationCommonMethods.Login(navigationAutomationAgent, "awhite", "sch00lnet");
+                NavigationCommonMethods.ClickCancelInSelectGrade(navigationAutomationAgent);
+            }
+        }
     }
 }

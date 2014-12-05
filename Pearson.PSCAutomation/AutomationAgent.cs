@@ -185,7 +185,7 @@ namespace Pearson.PSCAutomation.Framework
         /// <param name="viewName">Provide a valid viewname from controls.xml</param>
         /// <param name="controlName">Provide a valid controlname under the viewname from controls.xml</param>
         /// <param name="waitTime">Max Time to wait for the control existence</param>
-        public bool WaitforElement(string viewName, string controlName,   int waitTime = WaitTime.DefaultWaitTime)
+        public bool WaitForElement(string viewName, string controlName,   int waitTime = WaitTime.DefaultWaitTime)
         {
             this.PopulateControl(viewName, controlName);
             return client.WaitForElement(this.control.Zone, this.control.Element, this.control.Index, waitTime);
@@ -196,7 +196,7 @@ namespace Pearson.PSCAutomation.Framework
         /// </summary>
         /// <param name="viewName">Provide a valid viewname from controls.xml</param>
         /// <param name="controlName">Provide a valid controlname under the viewname from controls.xml</param>
-        public void VerifyElementNotFoud(string viewName, string controlName)
+        public void VerifyElementNotFound(string viewName, string controlName)
         {
             System.Threading.Thread.Sleep(WaitTime.DefaultWaitTime);
             this.PopulateControl(viewName,controlName);
@@ -221,10 +221,10 @@ namespace Pearson.PSCAutomation.Framework
         /// <param name="viewName">Provide a valid viewname from controls.xml</param>
         /// <param name="controlName">Provide a valid controlname under the viewname from controls.xml</param>
         /// <param name="waitTime">Default wait time is 10 sec. Provide an integer representing milli seconds to wait</param>
-        public void WaitForElementToVanish(string viewName, string controlName, int waitTime = WaitTime.DefaultWaitTime)
+        public bool WaitForElementToVanish(string viewName, string controlName, int waitTime = WaitTime.DefaultWaitTime)
         {
             this.PopulateControl(viewName, controlName);
-            client.WaitForElementToVanish(this.control.Zone, this.control.Element, this.control.Index, waitTime);
+            return client.WaitForElementToVanish(this.control.Zone, this.control.Element, this.control.Index, waitTime);
         }
 
         /// <summary>
@@ -330,15 +330,16 @@ namespace Pearson.PSCAutomation.Framework
         }
 
         /// <summary>
-        /// Performs pinch out/zoom out action on the screen at the given x & Y coordinates of the screen. Not supplying any parameters, performs pinch out at the center of the screen with a radius 100 pixels.
+        /// Performs pinch out or zoom out action on the screen at the given x and Y coordinates of the screen
+        /// Not supplying any parameters, performs pinch out at the center of the screen with a radius 100 pixels.
         /// </summary>
-        /// <param name="xCoordinate">X Co ordinate where pinch out should be performed, default is 0</param>
-        /// <param name="yCoordinate">Y Co ordinate where pinch out should be performed, default is 0</param>
-        /// <param name="pinchRadius">Radius of pinch out circle. default is 100</param>
+        /// <param name="xCoordinate">X Co ordinate where pinch out should be performed default is 0</param>
+        /// <param name="yCoordinate">Y Co ordinate where pinch out should be performed default is 0</param>
+        /// <param name="pinchRadius">Radius of pinch out circle default is 100</param>
         /// <returns>bool value indicating action success or failure</returns>
         public bool PinchOut(int xCoordinate = 0, int yCoordinate = 0, int pinchRadius = 100)
         {
-            return client.Pinch(false, xCoordinate, yCoordinate, pinchRadius);
+            return client.Pinch(false, xCoordinate, yCoordinate, pinchRadius);            
         }
         public void InstallApp(string path)
         {
@@ -363,16 +364,19 @@ namespace Pearson.PSCAutomation.Framework
         public void ClickCoordinate(int x, int y, int clickCount=1)
         {
             client.ClickCoordinate(x, y, clickCount);
-        }
-
-        
+        } 
 
         #endregion
 
+        public void GenerateReportAndReleaseClient()
+        {
+            this.client.GenerateReport(true);
+            this.clientDevice.IsClientReady = true;            
+        }
+
         public void Dispose()
         {
-            this.client.GenerateReport(false);
-            this.clientDevice.IsClientReady = true;
+            this.GenerateReportAndReleaseClient();
         }
     }
 }
