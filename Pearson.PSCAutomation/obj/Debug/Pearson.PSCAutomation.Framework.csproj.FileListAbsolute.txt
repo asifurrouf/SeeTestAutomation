@@ -14,3 +14,11 @@ C:\Users\Pearson\Documents\SeeTestAutomation\Pearson.PSCAutomation\bin\Debug\ima
 C:\Users\Pearson\Documents\SeeTestAutomation\Pearson.PSCAutomation\bin\Debug\imageClient.xml
 C:\Users\Pearson\Documents\SeeTestAutomation\Pearson.PSCAutomation\obj\Debug\Pearson.PSCAutomation.Framework.dll
 C:\Users\Pearson\Documents\SeeTestAutomation\Pearson.PSCAutomation\obj\Debug\Pearson.PSCAutomation.Framework.pdb
+C:\Automation\SeeTestAutomation_Github\Pearson.PSCAutomation\bin\Debug\Pearson.PSCAutomation.Framework.dll.config
+C:\Automation\SeeTestAutomation_Github\Pearson.PSCAutomation\bin\Debug\Pearson.PSCAutomation.Framework.dll
+C:\Automation\SeeTestAutomation_Github\Pearson.PSCAutomation\bin\Debug\Pearson.PSCAutomation.Framework.pdb
+C:\Automation\SeeTestAutomation_Github\Pearson.PSCAutomation\bin\Debug\CookComputing.XmlRpcV2.dll
+C:\Automation\SeeTestAutomation_Github\Pearson.PSCAutomation\bin\Debug\imageClient.dll
+C:\Automation\SeeTestAutomation_Github\Pearson.PSCAutomation\bin\Debug\imageClient.xml
+C:\Automation\SeeTestAutomation_Github\Pearson.PSCAutomation\obj\Debug\Pearson.PSCAutomation.Framework.dll
+C:\Automation\SeeTestAutomation_Github\Pearson.PSCAutomation\obj\Debug\Pearson.PSCAutomation.Framework.pdb
