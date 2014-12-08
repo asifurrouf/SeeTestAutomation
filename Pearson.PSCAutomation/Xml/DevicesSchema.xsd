@@ -16,7 +16,7 @@
                 <xs:complexType>
                   <xs:sequence>
                     <xs:element name="Host" type="xs:string" minOccurs="1" maxOccurs="1"/>
-                    <xs:element name="SeeTestName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                    <xs:element name="SeeTestDeviceName" type="xs:string" minOccurs="1" maxOccurs="1"/>
                     <xs:element name="Version" type="xs:string" minOccurs="1" maxOccurs="1"/>
                     <xs:element name="ConnectedOver" type="xs:string" minOccurs="1" maxOccurs="1"/>
                     <xs:element name="Port" type="xs:unsignedShort" minOccurs="1" maxOccurs="1"/>

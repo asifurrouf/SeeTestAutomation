@@ -14,7 +14,7 @@ namespace Pearson.PSCAutomation.Framework
 {
     public class ClientDeviceFactory
     {
-        private static List<ClientDevice> clientDevices=null;
+        private static List<ClientDevice> clientDevices = new List<ClientDevice>();
         private static ClientDevice clientDeviceInstance;
         private static object objLock = new object();
         private static ClientDevice GetAvailableClientDevice()
@@ -28,18 +28,21 @@ namespace Pearson.PSCAutomation.Framework
                     System.Threading.Thread.Sleep(1000);
                 }
                 clientDeviceInstance.IsClientReady = false;
+                return clientDeviceInstance;
             }
-            return clientDeviceInstance;
         }
         public static ClientDevice AvailableClientDevice
         {
             get
             {
-                if(clientDevices==null)
+                lock (objLock)
                 {
-                    PopulateClientDevices();                    
+                    if (clientDevices.Count == 0)
+                    {
+                        PopulateClientDevices();
+                    }
+                    return GetAvailableClientDevice();
                 }
-                return GetAvailableClientDevice();
             }
         }
         private static void PopulateClientDevices()
@@ -47,7 +50,7 @@ namespace Pearson.PSCAutomation.Framework
             var outPutDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase);
             var xmlfilepath = Path.Combine(outPutDirectory, "Xml\\Devices.xml");
             string xmlfile_path = new Uri(xmlfilepath).LocalPath;
-            IEnumerable<XElement> rootXElement = XElement.Load(xmlfile_path).Elements("OS").Where(os => os.Attribute("OSName").Value == ConfigurationManager.AppSettings["OS"].ToString()).Where(device => device.Attribute("IsDeviceAvailable").Value=="true");
+            IEnumerable<XElement> rootXElement = XElement.Load(xmlfile_path).Elements("OS").Where(os => os.Attribute("OSName").Value == ConfigurationManager.AppSettings["OS"].ToString()).Elements("Device").Where(device => device.Attribute("IsDeviceOnline").Value == "true");
             foreach(XElement deviceXElement in rootXElement)
             {
                 clientDevices.Add(new ClientDevice(deviceXElement));

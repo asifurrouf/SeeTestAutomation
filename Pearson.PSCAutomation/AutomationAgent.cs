@@ -27,8 +27,15 @@ namespace Pearson.PSCAutomation.Framework
 
         public AutomationAgent(string testDetails)
         {
-            this.clientDevice = SingletonClientDevice.clientDevice;
-            clientDevice.IsClientReady = false;
+            if (ConfigurationManager.AppSettings["IsParallelTestExecution"].ToString() == "true")
+            {
+                this.clientDevice = ClientDeviceFactory.AvailableClientDevice;
+            }
+            else
+            {
+                this.clientDevice = SingletonClientDevice.clientDevice;
+                clientDevice.IsClientReady = false;
+            }            
             this.client = this.clientDevice.Client;
             this.device = this.clientDevice.Device;
             this.testDetails = testDetails;
@@ -38,13 +45,13 @@ namespace Pearson.PSCAutomation.Framework
             //Load the rootXElement from controls.xml
             string startupPath = System.IO.Directory.GetCurrentDirectory();
             string outPutDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase);
-            string xmlfilepath = Path.Combine(outPutDirectory, "Xml\\212Controls.xml");
+            string xmlfilepath = Path.Combine(outPutDirectory, "Xml\\Controls.xml");
             string xmlfile_path = new Uri(xmlfilepath).LocalPath;
             this.projectBaseDirectory = new Uri(outPutDirectory + "\\" + ConfigurationManager.AppSettings["ProjectBaseDirectory"].ToString()).LocalPath;
             //this.reporterFolder = new Uri(outPutDirectory.Remove(outPutDirectory.Length - 10) + "\\" + ConfigurationManager.AppSettings["ProjectBaseDirectory"].ToString() + "\\" + ConfigurationManager.AppSettings["ReporterFolder"].ToString()).LocalPath;
             this.reporterFolder = ConfigurationManager.AppSettings["ReporterFolder"].ToString();
             this.rootXElement = XElement.Load(xmlfile_path).Elements("OS").Where(os => os.Attribute("OSName").Value == this.osName).FirstOrDefault<XElement>();            
-            InitializeClient();
+            //InitializeClientAndLaunchApp();
         }
 
         #region Properites
@@ -120,7 +127,7 @@ namespace Pearson.PSCAutomation.Framework
         /// <summary>
         /// Initializes the Client and Launches the App
         /// </summary>
-        private void InitializeClient()
+        private void InitializeClientAndLaunchApp()
         {            
             client.SetProjectBaseDirectory(ProjectBaseDirectory);
             client.SetReporter("xml", this.reporterFolder, testDetails);
@@ -366,11 +373,16 @@ namespace Pearson.PSCAutomation.Framework
             client.ClickCoordinate(x, y, clickCount);
         } 
 
+        public string GetDeviceLog()
+        {
+            return client.GetDeviceLog();
+        }
+
         #endregion
 
         public void GenerateReportAndReleaseClient()
         {
-            this.client.GenerateReport(true);
+            //this.client.GenerateReport(true);
             this.clientDevice.IsClientReady = true;            
         }
 

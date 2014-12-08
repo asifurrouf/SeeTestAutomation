@@ -28,7 +28,7 @@ namespace Pearson.PSCAutomation.Framework
         public ClientDevice(XElement deviceXElement)
         {
             this.hostName = deviceXElement.Element("Host").Value;
-            this.seeTestDeviceName = deviceXElement.Element("SeeTestName").Value;
+            this.seeTestDeviceName = deviceXElement.Element("SeeTestDeviceName").Value;
             this.version = deviceXElement.Element("Version").Value;
             this.connectedOver = deviceXElement.Element("ConnectedOver").Value;
             this.port = int.Parse(deviceXElement.Element("Port").Value);
