@@ -99,6 +99,7 @@ namespace Pearson.PSCAutomation._212App
 
         [TestMethod()]
         [TestCategory("Navigation Tests")]
+        [TestProperty("RallyId", "TC7352")]
         [Priority(1)]
         [Owner("Kiran Kumar Anantapalli(kiran.anantapalli)")]
         public void LoginAndLogout()
@@ -112,6 +113,7 @@ namespace Pearson.PSCAutomation._212App
 
         [TestMethod()]
         [TestCategory("Navigation Tests")]
+        [TestProperty("RallyId","TC7353")]
         [Priority(1)]
         [Owner ("Kiran Kumar Anantapalli(kiran.anantapalli)")]
         public void LoginAndLogout2()
@@ -126,6 +128,7 @@ namespace Pearson.PSCAutomation._212App
 
         [TestMethod()]
         [TestCategory("Navigation Tests")]
+        [TestProperty("RallyId", "TC7354")]
         [Priority(1)]
         [Owner("Kiran Kumar Anantapalli(kiran.anantapalli)")]
         public void UnitOverviewVerification()
@@ -140,6 +143,7 @@ namespace Pearson.PSCAutomation._212App
 
         [TestMethod()]
         [TestCategory("Navigation Tests")]
+        [TestProperty("RallyId", "TC7355")]
         [Priority(1)]
         [Owner("Kiran Kumar Anantapalli(kiran.anantapalli)")]
         public void LoginAndCancelAddGrades()

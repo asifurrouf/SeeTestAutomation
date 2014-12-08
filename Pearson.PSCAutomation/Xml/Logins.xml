@@ -1,43 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Logins>
-    <OS OSName="iOS">
-      <Login LoginName="Teacher1">
-        <UserName>apatton1</UserName>
-        <Password>sch00lnet</Password>
-        <UserType>Teacher</UserType>
-        <SectionedGrades>8,9,10</SectionedGrades>
-      </Login>
-      <Login LoginName="Teacher2">
-        <UserName>jgrimm2</UserName>
-        <Password>sch00lnet</Password>
-        <UserType>Teacher</UserType>
-        <SectionedGrades>7,8,9</SectionedGrades>
-      </Login>
-      <Login LoginName="Student1">
-      <UserName>1027005</UserName>
-      <Password>sch00lnet</Password>
-      <UserType>Student</UserType>
-      <SectionedGrades>7,8,9</SectionedGrades>
-    </Login>
-    </OS>
-    <OS OSName="Android">
-      <Login LoginName="Teacher1">
-        <UserName>apatton1</UserName>
-        <Password>sch00lnet</Password>
-        <UserType>Teacher</UserType>
-        <SectionedGrades>8,9,10</SectionedGrades>
-      </Login>
-      <Login LoginName="Teacher2">
+  <App Name="212">
+    <OS Name="iOS">
+  <User Name="Teacher1">
+    <UserName>apatton1</UserName>
+    <Password>sch00lnet</Password>
+    <UserType>Teacher</UserType>
+    <SectionedGrades>8,9,10</SectionedGrades>
+  </User>
+      <User Name="Teacher2">
         <UserName>ajgrimm2</UserName>
         <Password>sch00lnet</Password>
         <UserType>Teacher</UserType>
         <SectionedGrades>7,8,9</SectionedGrades>
-      </Login>
-      <Login LoginName="Student1">
+      </User>
+      <User Name="Student1">
         <UserName>1027005</UserName>
         <Password>sch00lnet</Password>
         <UserType>Student</UserType>
         <SectionedGrades>7,8,9</SectionedGrades>
-      </Login>
+      </User>
     </OS>
+    <OS Name="Android">
+      <User Name="Teacher1">
+        <UserName>apatton1</UserName>
+        <Password>sch00lnet</Password>
+        <UserType>Teacher</UserType>
+        <SectionedGrades>8,9,10</SectionedGrades>
+      </User>
+      <User Name="Teacher2">
+        <UserName>ajgrimm2</UserName>
+        <Password>sch00lnet</Password>
+        <UserType>Teacher</UserType>
+        <SectionedGrades>7,8,9</SectionedGrades>
+      </User>
+      <User Name="Student1">
+        <UserName>1027005</UserName>
+        <Password>sch00lnet</Password>
+        <UserType>Student</UserType>
+        <SectionedGrades>7,8,9</SectionedGrades>
+      </User>
+    </OS>
+  </App>
 </Logins>

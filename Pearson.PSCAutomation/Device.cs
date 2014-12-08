@@ -27,7 +27,7 @@ namespace Pearson.PSCAutomation.Framework
         public Device(XElement deviceXElement)
         {
             name = deviceXElement.Attribute("DeviceName").Value;
-            seeTestDeviceName = deviceXElement.Element("SeeTestDeviceName").Value;
+            seeTestDeviceName = deviceXElement.Element("SeeTestName").Value;
             version = deviceXElement.Element("Version").Value;
             connectedOver = deviceXElement.Element("ConnectedOver").Value;
             port = int.Parse(deviceXElement.Element("Port").Value);

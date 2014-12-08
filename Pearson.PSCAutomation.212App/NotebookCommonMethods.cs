@@ -24,12 +24,12 @@ namespace Pearson.PSCAutomation._212App
 
         public static void ClickLeftArrowIcon(AutomationAgent notebookAutomationAgent)
         {
-            notebookAutomationAgent.Click("NotebookTopMenuView", "LeftArrow");
+            notebookAutomationAgent.Click("NotebookTopMenuView", "LeftPage");
         }
 
         public static void ClickRightArrowIcon(AutomationAgent notebookAutomationAgent)
         {
-            notebookAutomationAgent.Click("NotebookTopMenuView", "RightArrow");
+            notebookAutomationAgent.Click("NotebookTopMenuView", "RightPage");
         }
 
         public static void DeleteNotebookPage(AutomationAgent notebookAutomationAgent)
@@ -38,14 +38,14 @@ namespace Pearson.PSCAutomation._212App
             notebookAutomationAgent.Click("NotebookBottomMenuView", "ContinueLabel");
         }
         
-        public static void VerifyLeftArrowNotExists(AutomationAgent notebookAutomationAgent)
+        public static void VerifyLeftArrowExists(AutomationAgent notebookAutomationAgent)
         {
-            notebookAutomationAgent.VerifyElementNotFound("NotebookTopMenuView", "LeftArrow");
+            notebookAutomationAgent.VerifyElementNotFound("NotebookTopMenuView", "LeftPage");
         }
 
-        public static void VerifyRightArrowNotExists(AutomationAgent notebookAutomationAgent)
+        public static void VerifyRightArrowExists(AutomationAgent notebookAutomationAgent)
         {
-            notebookAutomationAgent.VerifyElementNotFound("NotebookTopMenuView", "RightArrow");
+            notebookAutomationAgent.VerifyElementNotFound("NotebookTopMenuView", "RightPage");
         }
 
         public static string GetDeleteIconEnabledStatus(AutomationAgent notebookAutomationAgent)

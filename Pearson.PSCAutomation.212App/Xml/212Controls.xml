@@ -241,14 +241,14 @@
         <ControlType>Button</ControlType>
         <ControlText>None</ControlText>
       </Control>
-      <Control ControlName="LeftArrow">
+      <Control ControlName="LeftPage">
         <Zone>Native</Zone>
         <Element>accessibilityLabel=notebook left arrow icon</Element>
         <Index>0</Index>
         <ControlType>Button</ControlType>
         <ControlText>None</ControlText>
       </Control>
-      <Control ControlName="RightArrow">
+      <Control ControlName="RightPage">
         <Zone>Native</Zone>
         <Element>accessibilityLabel=notebook right arrow icon</Element>
         <Index>0</Index>

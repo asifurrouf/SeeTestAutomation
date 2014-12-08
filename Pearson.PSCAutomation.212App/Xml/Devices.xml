@@ -1,39 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Devices>
   <OS OSName="iOS">
-  <Device DeviceName="1" IsDeviceOnline="true">
+  <Device DeviceName="1" IsDeviceConnected="true">
     <Host>localhost</Host>
-    <SeeTestDeviceName>ios_app:Lab11-Ipad</SeeTestDeviceName>
+    <SeeTestName>ios_app:Lab11-ipadmini</SeeTestName>
     <Version>7.7.2</Version>
     <ConnectedOver>USB</ConnectedOver>
     <Port>8889</Port>   
   </Device>
-    <Device DeviceName="3" IsDeviceOnline="false">
+    <Device DeviceName="3" IsDeviceConnected="true">
     <Host>localhost</Host>
-    <SeeTestDeviceName>ios_app:Lab11_Wifi</SeeTestDeviceName>
+    <SeeTestName>ios_app:Lab11_Wifi</SeeTestName>
     <Version>7.7.2</Version>
     <ConnectedOver>Wifi</ConnectedOver>
-    <Port>8890</Port>      
+    <Port>8889</Port>      
   </Device>
-    <Device DeviceName="2" IsDeviceOnline="true">
+    <Device DeviceName="2" IsDeviceConnected="true">
       <Host>localhost</Host>
-    <SeeTestDeviceName>ios_app:Lab13-Ipad</SeeTestDeviceName>
+    <SeeTestName>ios_app:Lab13-ipadmini</SeeTestName>
     <Version>7.7.2</Version>
     <ConnectedOver>USB</ConnectedOver>
-    <Port>8891</Port>
+    <Port>8890</Port>
   </Device>
 </OS>
   <OS OSName="Android">
-  <Device DeviceName="1" IsDeviceOnline="true">
+  <Device DeviceName="1" IsDeviceConnected="true">
     <Host>localhost</Host>
-    <SeeTestDeviceName>ios_app:Lab11-ipadmini</SeeTestDeviceName>
+    <SeeTestName>ios_app:Lab11-ipadmini</SeeTestName>
     <Version>7.7.2</Version>
     <ConnectedOver>USB</ConnectedOver>
     <Port>8889</Port>
   </Device>
-    <Device DeviceName="2" IsDeviceOnline="true">
+    <Device DeviceName="2" IsDeviceConnected="true">
       <Host>localhost</Host>
-    <SeeTestDeviceName>ios_app:Lab13-ipadmini</SeeTestDeviceName>
+    <SeeTestName>ios_app:Lab13-ipadmini</SeeTestName>
     <Version>7.7.2</Version>
     <ConnectedOver>USB</ConnectedOver>
     <Port>8890</Port>

@@ -12,33 +12,17 @@ namespace Pearson.PSCAutomation._212App
     public static class NavigationCommonMethods
     {
 
-        public static void Login(AutomationAgent navigationAutomationAgent, string userName, string password)
+        public static void Login(AutomationAgent navigationAutomationAgent, string login, string password)
         {
-            navigationAutomationAgent.SetText("LoginView", "UserName", userName);
+            navigationAutomationAgent.SetText("LoginView", "UserName", login);
             navigationAutomationAgent.SetText("LoginView", "Password", password);
             navigationAutomationAgent.Click("LoginView", "Login");
         }
 
-        public static void Login(AutomationAgent navigationAutomationAgent, Login login)
-        {
-            navigationAutomationAgent.SetText("LoginView", "UserName", login.UserName);
-            navigationAutomationAgent.SetText("LoginView", "Password", login.Password);
-            navigationAutomationAgent.Click("LoginView", "Login");
-        }
-
         public static void Logout(AutomationAgent navigationAutomationAgent)
-        {            
+        {
             navigationAutomationAgent.Click("SystemTrayMenuView", "SystemTrayButton");
             navigationAutomationAgent.Click("SystemTrayMenuView", "LogOutButton");            
-        }
-
-        public static void LogoutOnException(AutomationAgent navigationAutomationAgent)
-        {            
-            if (navigationAutomationAgent.WaitForElement("SystemTrayMenuView", "SystemTrayButton"))
-            {
-                navigationAutomationAgent.Click("SystemTrayMenuView", "SystemTrayButton");
-                navigationAutomationAgent.Click("SystemTrayMenuView", "LogOutButton");
-            }
         }
 
         public static void NavigateToELA(AutomationAgent navigationAutomationAgent)

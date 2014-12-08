@@ -16,7 +16,7 @@ namespace Pearson.PSCAutomation._212App
 
         [TestMethod()]
         [TestCategory("Common Read Tests")]
-        [WorkItem(1005)]
+        [TestProperty("RallyId", "TC1005")]
         [Priority(1)]
         [Owner("Kiran Kumar Anantapalli(kiran.anantapalli)")]
         public void PinchOutInVellumMode()
