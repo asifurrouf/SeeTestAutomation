@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestSettings
+  id="1b966ebb-8952-47b9-bce6-1fe31009884d"
+  name="ParallelTestSettings"
+  enableDefaultDataCollectors="false"
+  xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Description><!--_locID_text="Description1"-->These are default test settings for a local test run.</Description>
+  <Deployment enabled="false" />
+  <Execution parallelTestCount="5">
+    <ExecutionThread apartmentState="MTA"/>
+  </Execution>
+</TestSettings>

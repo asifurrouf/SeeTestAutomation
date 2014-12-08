@@ -64,17 +64,17 @@ namespace Pearson.PSCAutomation._212App
         [AssemblyInitialize]
         public static void _212AssemblyInitialize(TestContext testContext)
         {
-            
+
         }
 
         [ClassInitialize]
         public static void NavigationTestsClassInitialize(TestContext testContext)
         {
-            }
+        }
         [TestInitialize]
         public void NavigationTestsTestInitialize()
         {
-           
+
         }
 
 
@@ -99,7 +99,6 @@ namespace Pearson.PSCAutomation._212App
 
         [TestMethod()]
         [TestCategory("Navigation Tests")]
-        [TestProperty("RallyId", "TC7352")]
         [Priority(1)]
         [Owner("Kiran Kumar Anantapalli(kiran.anantapalli)")]
         public void LoginAndLogout()
@@ -113,22 +112,20 @@ namespace Pearson.PSCAutomation._212App
 
         [TestMethod()]
         [TestCategory("Navigation Tests")]
-        [TestProperty("RallyId","TC7353")]
         [Priority(1)]
-        [Owner ("Kiran Kumar Anantapalli(kiran.anantapalli)")]
+        [Owner("Kiran Kumar Anantapalli(kiran.anantapalli)")]
         public void LoginAndLogout2()
         {
             using (navigationAutomationAgent = new AutomationAgent("TC7353: Log in logout2"))
             {
                 NavigationCommonMethods.Login(navigationAutomationAgent, "apatton1", "sch00lnet");
                 NavigationCommonMethods.Logout(navigationAutomationAgent);
-                
+
             }
         }
 
         [TestMethod()]
         [TestCategory("Navigation Tests")]
-        [TestProperty("RallyId", "TC7354")]
         [Priority(1)]
         [Owner("Kiran Kumar Anantapalli(kiran.anantapalli)")]
         public void UnitOverviewVerification()
@@ -143,7 +140,6 @@ namespace Pearson.PSCAutomation._212App
 
         [TestMethod()]
         [TestCategory("Navigation Tests")]
-        [TestProperty("RallyId", "TC7355")]
         [Priority(1)]
         [Owner("Kiran Kumar Anantapalli(kiran.anantapalli)")]
         public void LoginAndCancelAddGrades()

@@ -65,7 +65,7 @@ namespace Pearson.PSCAutomation._212App
 
         [TestMethod()]
         [TestCategory("Notebook Tests")]
-        [TestProperty("RallyId", "TC8191")]
+        [WorkItem(8191)]
         [Priority(1)]
         [Owner("Isha Jain(isha.jain)")]
         public void DeletePageInAscending()
@@ -74,7 +74,7 @@ namespace Pearson.PSCAutomation._212App
             {
                 try
                 {
-                    NavigationCommonMethods.Login(notebookAutomationAgent, "efoster16", "sch00lnet");
+                    NavigationCommonMethods.Login(notebookAutomationAgent, Login.GetLogin("Teacher1"));
                     NavigationCommonMethods.NavigateELATaskfromSytemTrayMenu(notebookAutomationAgent, 6, 1, 1, 1);
                     NotebookCommonMethods.ClickOnNotebookIcon(notebookAutomationAgent);
                     NotebookCommonMethods.AddNewNotebookPage(notebookAutomationAgent);
@@ -84,13 +84,22 @@ namespace Pearson.PSCAutomation._212App
                     NotebookCommonMethods.ClickRightArrowIcon(notebookAutomationAgent);
                     NotebookCommonMethods.DeleteNotebookPage(notebookAutomationAgent);
                     NotebookCommonMethods.ClickLeftArrowIcon(notebookAutomationAgent);
-                    NotebookCommonMethods.VerifyLeftArrowExists(notebookAutomationAgent);
+                    NotebookCommonMethods.VerifyLeftArrowNotExists(notebookAutomationAgent);
                     NotebookCommonMethods.DeleteNotebookPage(notebookAutomationAgent);
                     NavigationCommonMethods.Logout(notebookAutomationAgent);
                 }
-                catch(Exception ex)
+                catch (AssertFailedException ex)
                 {
+                    notebookAutomationAgent.CaptureScreenshot(ex.Message);
                     NavigationCommonMethods.Logout(notebookAutomationAgent);
+                    notebookAutomationAgent.GenerateReportAndReleaseClient();
+                    throw ex;
+                }
+                catch (Exception ex)
+                {
+                    notebookAutomationAgent.CaptureScreenshot(ex.Message);
+                    notebookAutomationAgent.GetDeviceLog();
+                    NavigationCommonMethods.LogoutOnException(notebookAutomationAgent);
                     notebookAutomationAgent.GenerateReportAndReleaseClient();
                     throw ex;
                 }
@@ -100,7 +109,7 @@ namespace Pearson.PSCAutomation._212App
 
         [TestMethod()]
         [TestCategory("Notebook Tests")]
-        [TestProperty("RallyId", "TC8192")]
+        [WorkItem(8192)]
         [Priority(1)]
         [Owner("Isha Jain(isha.jain)")]
         public void DeletePageInDescending()
@@ -115,7 +124,7 @@ namespace Pearson.PSCAutomation._212App
                 NotebookCommonMethods.ClickLeftArrowIcon(notebookAutomationAgent);
                 NotebookCommonMethods.DeleteNotebookPage(notebookAutomationAgent);
                 NotebookCommonMethods.ClickLeftArrowIcon(notebookAutomationAgent);
-                NotebookCommonMethods.VerifyLeftArrowExists(notebookAutomationAgent);
+                NotebookCommonMethods.VerifyLeftArrowNotExists(notebookAutomationAgent);
                 NotebookCommonMethods.DeleteNotebookPage(notebookAutomationAgent);
                 NavigationCommonMethods.Logout(notebookAutomationAgent);
             }
@@ -123,7 +132,7 @@ namespace Pearson.PSCAutomation._212App
 
         [TestMethod()]
         [TestCategory("Notebook Tests")]
-        [TestProperty("RallyId", "TC8194")]
+        [WorkItem(8194)]
         [Priority(1)]
         [Owner("Isha Jain(isha.jain)")]
         public void SinglePageNotebookDeleteIconInactive()
@@ -133,8 +142,8 @@ namespace Pearson.PSCAutomation._212App
                 NavigationCommonMethods.Login(notebookAutomationAgent, "efoster16", "sch00lnet");
                 NavigationCommonMethods.NavigateELATaskfromSytemTrayMenu(notebookAutomationAgent, 6, 1, 1, 1);
                 NotebookCommonMethods.ClickOnNotebookIcon(notebookAutomationAgent);
-                NotebookCommonMethods.VerifyLeftArrowExists(notebookAutomationAgent);
-                NotebookCommonMethods.VerifyRightArrowExists(notebookAutomationAgent);
+                NotebookCommonMethods.VerifyLeftArrowNotExists(notebookAutomationAgent);
+                NotebookCommonMethods.VerifyRightArrowNotExists(notebookAutomationAgent);
                 NotebookCommonMethods.AddNewNotebookPage(notebookAutomationAgent);
                 NotebookCommonMethods.DeleteNotebookPage(notebookAutomationAgent);
                 Assert.AreEqual<string>("false", NotebookCommonMethods.GetDeleteIconEnabledStatus(notebookAutomationAgent));

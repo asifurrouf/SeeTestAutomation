@@ -15,7 +15,7 @@ namespace Pearson.PSCAutomation.Framework
         private string version;
         private int port;
 
-        public Device(string name, string seeTestDeviceName, string connectedOver, string version, int port=8889)
+        public Device(string name, string seeTestDeviceName, string connectedOver, string version, int port = 8889)
         {
             this.name = name;
             this.seeTestDeviceName = seeTestDeviceName;
@@ -27,14 +27,14 @@ namespace Pearson.PSCAutomation.Framework
         public Device(XElement deviceXElement)
         {
             name = deviceXElement.Attribute("DeviceName").Value;
-            seeTestDeviceName = deviceXElement.Element("SeeTestName").Value;
+            seeTestDeviceName = deviceXElement.Element("SeeTestDeviceName").Value;
             version = deviceXElement.Element("Version").Value;
             connectedOver = deviceXElement.Element("ConnectedOver").Value;
             port = int.Parse(deviceXElement.Element("Port").Value);
         }
 
         public string Name
-        { 
+        {
             get
             {
                 return name;

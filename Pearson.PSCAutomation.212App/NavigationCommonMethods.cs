@@ -12,17 +12,33 @@ namespace Pearson.PSCAutomation._212App
     public static class NavigationCommonMethods
     {
 
-        public static void Login(AutomationAgent navigationAutomationAgent, string login, string password)
+        public static void Login(AutomationAgent navigationAutomationAgent, string userName, string password)
         {
-            navigationAutomationAgent.SetText("LoginView", "UserName", login);
+            navigationAutomationAgent.SetText("LoginView", "UserName", userName);
             navigationAutomationAgent.SetText("LoginView", "Password", password);
+            navigationAutomationAgent.Click("LoginView", "Login");
+        }
+
+        public static void Login(AutomationAgent navigationAutomationAgent, Login login)
+        {
+            navigationAutomationAgent.SetText("LoginView", "UserName", login.UserName);
+            navigationAutomationAgent.SetText("LoginView", "Password", login.Password);
             navigationAutomationAgent.Click("LoginView", "Login");
         }
 
         public static void Logout(AutomationAgent navigationAutomationAgent)
         {
             navigationAutomationAgent.Click("SystemTrayMenuView", "SystemTrayButton");
-            navigationAutomationAgent.Click("SystemTrayMenuView", "LogOutButton");            
+            navigationAutomationAgent.Click("SystemTrayMenuView", "LogOutButton");
+        }
+
+        public static void LogoutOnException(AutomationAgent navigationAutomationAgent)
+        {
+            if (navigationAutomationAgent.WaitForElement("SystemTrayMenuView", "SystemTrayButton"))
+            {
+                navigationAutomationAgent.Click("SystemTrayMenuView", "SystemTrayButton");
+                navigationAutomationAgent.Click("SystemTrayMenuView", "LogOutButton");
+            }
         }
 
         public static void NavigateToELA(AutomationAgent navigationAutomationAgent)
@@ -55,9 +71,9 @@ namespace Pearson.PSCAutomation._212App
 
         public static void NavigateToELAGrade(AutomationAgent navigationAutomationAgent, int gradeNumber)
         {
-            if(gradeNumber>12 && gradeNumber <2)
+            if (gradeNumber > 12 && gradeNumber < 2)
             {
-                Assert.Fail("Grade entered ("+gradeNumber.ToString()+") is invalid");
+                Assert.Fail("Grade entered (" + gradeNumber.ToString() + ") is invalid");
             }
             navigationAutomationAgent.Click("GradeSelectionMenuView", "ELAGradeButton", gradeNumber.ToString());
         }
@@ -86,7 +102,7 @@ namespace Pearson.PSCAutomation._212App
         public static void OpenELALessonFromLessonBrowser(AutomationAgent navigationAutomationAgent, int lessonNumber)
         {
             navigationAutomationAgent.Click("LessonBrowserView", "ELALessonTile", lessonNumber.ToString());
-            if(navigationAutomationAgent.WaitforElement("LessonsOverView", "ELALessonStartButton",lessonNumber.ToString()))
+            if (navigationAutomationAgent.WaitforElement("LessonsOverView", "ELALessonStartButton", lessonNumber.ToString()))
             {
                 navigationAutomationAgent.Click("LessonsOverView", "ELALessonStartButton", lessonNumber.ToString());
             }
@@ -121,26 +137,26 @@ namespace Pearson.PSCAutomation._212App
 
         public static void NavigateToTaskPageInLesson(AutomationAgent navigationAutomationAgent, int taskNumber)
         {
-           int currentTaskNumber = int.Parse(navigationAutomationAgent.GetElementText("LessonView", "CurrentPageLabel"));
-           int numberOfPagesToTraverse=0;
-           if(currentTaskNumber>taskNumber)
-           {
-               numberOfPagesToTraverse = currentTaskNumber - taskNumber;
-               for(int i=0; i<numberOfPagesToTraverse; i++)
-               {
-                   navigationAutomationAgent.Click("LessonView", "PreviousButton");
-                   System.Threading.Thread.Sleep(500);
-               }
-           }
-           else if(currentTaskNumber<taskNumber)
-           {
-               numberOfPagesToTraverse =  taskNumber - currentTaskNumber;
-               for (int i = 0; i < numberOfPagesToTraverse; i++)
-               {
-                   navigationAutomationAgent.Click("LessonView", "NextButton");
-                   System.Threading.Thread.Sleep(500);
-               }
-           }
+            int currentTaskNumber = int.Parse(navigationAutomationAgent.GetElementText("LessonView", "CurrentPageLabel"));
+            int numberOfPagesToTraverse = 0;
+            if (currentTaskNumber > taskNumber)
+            {
+                numberOfPagesToTraverse = currentTaskNumber - taskNumber;
+                for (int i = 0; i < numberOfPagesToTraverse; i++)
+                {
+                    navigationAutomationAgent.Click("LessonView", "PreviousButton");
+                    System.Threading.Thread.Sleep(500);
+                }
+            }
+            else if (currentTaskNumber < taskNumber)
+            {
+                numberOfPagesToTraverse = taskNumber - currentTaskNumber;
+                for (int i = 0; i < numberOfPagesToTraverse; i++)
+                {
+                    navigationAutomationAgent.Click("LessonView", "NextButton");
+                    System.Threading.Thread.Sleep(500);
+                }
+            }
         }
 
         public static void NavigateELATaskfromSytemTrayMenu(AutomationAgent navigationAutomationAgent, int gradeNumber, int unitNumber, int lessonNumber, int taskNumber)

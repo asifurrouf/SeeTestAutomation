@@ -11,7 +11,7 @@
         <UserName>jgrimm2</UserName>
         <Password>sch00lnet</Password>
         <UserType>Teacher</UserType>
-        <SectionedGrades>7,8,9</SectionedGrades>
+        <SectionedGrades>7,8,9,10</SectionedGrades>
       </Login>
       <Login LoginName="Student1">
       <UserName>1027005</UserName>

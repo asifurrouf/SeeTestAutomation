@@ -69,15 +69,14 @@
     <Compile Include="Login.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Xml\K1Controls.xml" />
-    <Content Include="Xml\Logins.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config" />
     <None Include="Xml\ControlsSchema.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Xml\DevicesSchema.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Xml\LoginsSchema.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

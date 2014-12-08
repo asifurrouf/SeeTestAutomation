@@ -22,13 +22,20 @@ namespace Pearson.PSCAutomation.Framework
         string appName;
         string launchingAppName;
         string osName;
-        private Control control=null;
+        private Control control = null;
         XElement rootXElement;
 
         public AutomationAgent(string testDetails)
         {
-            this.clientDevice = SingletonClientDevice.clientDevice;
-            clientDevice.IsClientReady = false;
+            if (ConfigurationManager.AppSettings["IsParallelTestExecution"].ToString() == "true")
+            {
+                this.clientDevice = ClientDeviceFactory.AvailableClientDevice;
+            }
+            else
+            {
+                this.clientDevice = SingletonClientDevice.clientDevice;
+                clientDevice.IsClientReady = false;
+            }
             this.client = this.clientDevice.Client;
             this.device = this.clientDevice.Device;
             this.testDetails = testDetails;
@@ -38,13 +45,13 @@ namespace Pearson.PSCAutomation.Framework
             //Load the rootXElement from controls.xml
             string startupPath = System.IO.Directory.GetCurrentDirectory();
             string outPutDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase);
-            string xmlfilepath = Path.Combine(outPutDirectory, "Xml\\212Controls.xml");
+            string xmlfilepath = Path.Combine(outPutDirectory, "Xml\\Controls.xml");
             string xmlfile_path = new Uri(xmlfilepath).LocalPath;
             this.projectBaseDirectory = new Uri(outPutDirectory + "\\" + ConfigurationManager.AppSettings["ProjectBaseDirectory"].ToString()).LocalPath;
             //this.reporterFolder = new Uri(outPutDirectory.Remove(outPutDirectory.Length - 10) + "\\" + ConfigurationManager.AppSettings["ProjectBaseDirectory"].ToString() + "\\" + ConfigurationManager.AppSettings["ReporterFolder"].ToString()).LocalPath;
             this.reporterFolder = ConfigurationManager.AppSettings["ReporterFolder"].ToString();
-            this.rootXElement = XElement.Load(xmlfile_path).Elements("OS").Where(os => os.Attribute("OSName").Value == this.osName).FirstOrDefault<XElement>();            
-            InitializeClient();
+            this.rootXElement = XElement.Load(xmlfile_path).Elements("OS").Where(os => os.Attribute("OSName").Value == this.osName).FirstOrDefault<XElement>();
+            InitializeClientAndLaunchApp();
         }
 
         #region Properites
@@ -70,7 +77,7 @@ namespace Pearson.PSCAutomation.Framework
                 return projectBaseDirectory;
             }
         }
-        
+
         public string AppName
         {
             get
@@ -112,7 +119,7 @@ namespace Pearson.PSCAutomation.Framework
         {
             XElement controlXElement = this.rootXElement.Elements("View").Where(view => view.Attribute("ViewName").Value == viewName).Elements("Control").Where(control => control.Attribute("ControlName").Value == controlName).FirstOrDefault<XElement>();
             this.control = new Control(controlXElement);
-            string updatedElement= this.control.Element.Replace("()",dynamicVariable);
+            string updatedElement = this.control.Element.Replace("()", dynamicVariable);
             string updatedControlText = this.control.ControlText.Replace("()", dynamicVariable);
             this.control.Element = updatedElement;
             this.control.ControlText = updatedControlText;
@@ -120,8 +127,8 @@ namespace Pearson.PSCAutomation.Framework
         /// <summary>
         /// Initializes the Client and Launches the App
         /// </summary>
-        private void InitializeClient()
-        {            
+        private void InitializeClientAndLaunchApp()
+        {
             client.SetProjectBaseDirectory(ProjectBaseDirectory);
             client.SetReporter("xml", this.reporterFolder, testDetails);
             client.SetDevice(device.SeeTestDeviceName);
@@ -138,7 +145,7 @@ namespace Pearson.PSCAutomation.Framework
         /// <param name="controlName">Provide a valid controlname under the viewname from controls.xml</param>
         /// <param name="clickCount">Default click count is 1. Provide a valid integer value</param>
         /// <param name="waitTime">Default wait time is 10 sec. Provide an integer representing milli seconds to wait</param>
-        public void Click(string viewName, string controlName, int clickCount = 1,  int waitTime = WaitTime.DefaultWaitTime)
+        public void Click(string viewName, string controlName, int clickCount = 1, int waitTime = WaitTime.DefaultWaitTime)
         {
             this.PopulateControl(viewName, controlName);
             if (client.WaitForElement(this.control.Zone, this.control.Element, this.control.Index, waitTime))
@@ -170,7 +177,7 @@ namespace Pearson.PSCAutomation.Framework
         /// <param name="controlName">Provide a valid controlname under the viewname from controls.xml</param>
         /// <param name="textToSet">Text to Set to textbox control</param>
         /// <param name="waitTime">Default wait time is 10 sec. Provide an integer representing milli seconds to wait</param>
-        public void SetText(string viewName, string controlName, string textToSet,  int waitTime = WaitTime.DefaultWaitTime)
+        public void SetText(string viewName, string controlName, string textToSet, int waitTime = WaitTime.DefaultWaitTime)
         {
             this.PopulateControl(viewName, controlName);
             if (client.WaitForElement(this.control.Zone, this.control.Element, this.control.Index, WaitTime.SmallWaitTime))
@@ -185,7 +192,7 @@ namespace Pearson.PSCAutomation.Framework
         /// <param name="viewName">Provide a valid viewname from controls.xml</param>
         /// <param name="controlName">Provide a valid controlname under the viewname from controls.xml</param>
         /// <param name="waitTime">Max Time to wait for the control existence</param>
-        public bool WaitForElement(string viewName, string controlName,   int waitTime = WaitTime.DefaultWaitTime)
+        public bool WaitForElement(string viewName, string controlName, int waitTime = WaitTime.DefaultWaitTime)
         {
             this.PopulateControl(viewName, controlName);
             return client.WaitForElement(this.control.Zone, this.control.Element, this.control.Index, waitTime);
@@ -199,7 +206,7 @@ namespace Pearson.PSCAutomation.Framework
         public void VerifyElementNotFound(string viewName, string controlName)
         {
             System.Threading.Thread.Sleep(WaitTime.DefaultWaitTime);
-            this.PopulateControl(viewName,controlName);
+            this.PopulateControl(viewName, controlName);
             client.VerifyElementNotFound(this.control.Zone, this.control.Element, this.control.Index);
         }
 
@@ -260,7 +267,7 @@ namespace Pearson.PSCAutomation.Framework
             {
                 // If statement
             }
-            client.ElementSetProperty(this.control.Zone, this.control.Element, this.control.Index, property,value);
+            client.ElementSetProperty(this.control.Zone, this.control.Element, this.control.Index, property, value);
         }
 
         public void SwipeElement(string viewName, string controlName, Direction direction, int offSet, int swipeTime)
@@ -297,7 +304,7 @@ namespace Pearson.PSCAutomation.Framework
             this.PopulateControl(viewName, controlName);
             return client.IsElementFound(this.control.Zone, this.control.Element);
         }
-        public void DragElement(string viewName, string controlName,int xOffset, int yOffset)
+        public void DragElement(string viewName, string controlName, int xOffset, int yOffset)
         {
             this.PopulateControl(viewName, controlName);
             client.Drag(this.control.Zone, this.control.Element, this.control.Index, xOffset, yOffset);
@@ -324,7 +331,7 @@ namespace Pearson.PSCAutomation.Framework
         /// <param name="yCoordinate">Y Co ordinate where pinch in should be performed, default is 0</param>
         /// <param name="pinchRadius">Radius of pinch circle. default is 100</param>
         /// <returns>bool value indicating action success or failure</returns>
-        public bool PinchIn(int xCoordinate=0, int yCoordinate=0, int pinchRadius=100)
+        public bool PinchIn(int xCoordinate = 0, int yCoordinate = 0, int pinchRadius = 100)
         {
             return client.Pinch(true, xCoordinate, yCoordinate, pinchRadius);
         }
@@ -339,7 +346,7 @@ namespace Pearson.PSCAutomation.Framework
         /// <returns>bool value indicating action success or failure</returns>
         public bool PinchOut(int xCoordinate = 0, int yCoordinate = 0, int pinchRadius = 100)
         {
-            return client.Pinch(false, xCoordinate, yCoordinate, pinchRadius);            
+            return client.Pinch(false, xCoordinate, yCoordinate, pinchRadius);
         }
         public void InstallApp(string path)
         {
@@ -350,7 +357,7 @@ namespace Pearson.PSCAutomation.Framework
         {
             client.Uninstall(appName);
         }
-        
+
         public void AddDevice(string serialNumber, string deviceName)
         {
             client.AddDevice(serialNumber, deviceName);
@@ -361,17 +368,22 @@ namespace Pearson.PSCAutomation.Framework
             client.Capture(screenshotMessage);
         }
 
-        public void ClickCoordinate(int x, int y, int clickCount=1)
+        public void ClickCoordinate(int x, int y, int clickCount = 1)
         {
             client.ClickCoordinate(x, y, clickCount);
-        } 
+        }
+
+        public string GetDeviceLog()
+        {
+            return client.GetDeviceLog();
+        }
 
         #endregion
 
         public void GenerateReportAndReleaseClient()
         {
             this.client.GenerateReport(true);
-            this.clientDevice.IsClientReady = true;            
+            this.clientDevice.IsClientReady = true;
         }
 
         public void Dispose()

@@ -18,6 +18,17 @@ namespace Pearson.PSCAutomation.Framework
         private int xcoordinate;
         private int ycoordinate;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="zone"></param>
+        /// <param name="element"></param>
+        /// <param name="controlName"></param>
+        /// <param name="controlType"></param>
+        /// <param name="controlText"></param>
+        /// <param name="xcoordinate"></param>
+        /// <param name="ycoordinate"></param>
+        /// <param name="index"></param>
         public Control(string zone, string element, string controlName, string controlType, string controlText, int xcoordinate, int ycoordinate, int index=0)
         {
             this.zone = zone;

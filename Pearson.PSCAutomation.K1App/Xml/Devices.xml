@@ -24,7 +24,7 @@
   </Device>
 </OS>
   <OS OSName="Android">
-  <Device DeviceName="1" IsDeviceOnline="true">
+  <Device DeviceName="Android1" IsDeviceOnline="true">
     <Host>localhost</Host>
     <SeeTestDeviceName>ios_app:Lab11-ipadmini</SeeTestDeviceName>
     <Version>7.7.2</Version>

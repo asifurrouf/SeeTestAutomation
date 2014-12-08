@@ -239,7 +239,7 @@
         <Element>accessibilityLabel=notebook add page icon</Element>
         <Index>0</Index>
         <ControlType>Button</ControlType>
-        <ControlText>None</ControlText>
+        <ControlText>PlusSign</ControlText>
       </Control>
       <Control ControlName="LeftArrow">
         <Zone>Native</Zone>
