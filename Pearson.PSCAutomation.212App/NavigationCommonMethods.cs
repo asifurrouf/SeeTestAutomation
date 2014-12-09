@@ -188,5 +188,15 @@ namespace Pearson.PSCAutomation._212App
         {
             return navigationAutomationAgent.PinchOut();
         }
+
+        public static void LogoutOnExceptionAndReleaseClient(AutomationAgent navigationAutomationAgent)
+        {
+            if (navigationAutomationAgent.WaitForElement("SystemTrayMenuView", "SystemTrayButton"))
+            {
+                navigationAutomationAgent.Click("SystemTrayMenuView", "SystemTrayButton");
+                navigationAutomationAgent.Click("SystemTrayMenuView", "LogOutButton");
+            }
+            navigationAutomationAgent.GenerateReportAndReleaseClient();
+        }
     }
 }
