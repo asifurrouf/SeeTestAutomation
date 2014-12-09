@@ -52,5 +52,48 @@ namespace Pearson.PSCAutomation._212App
         {
             return notebookAutomationAgent.GetElementPropery("NotebookBottomMenuView", "DeleteIcon", "enabled");
         }
+
+        public static void VerifyTaskNotebookFound(AutomationAgent notebookAutomationAgent)
+        {
+            notebookAutomationAgent.VerifyElementFound("NotebookTopMenuView", "TaskNotebookName");
+        }
+
+        public static void NotebookWorkBrowserView(AutomationAgent notebookAutomationAgent)
+        {
+            notebookAutomationAgent.Click("NotebookWorkBrowserView", "WorkBrowserIcon");
+        }
+
+        public static void ClickPersonalNotesLink(AutomationAgent notebookAutomationAgent)
+        {
+            notebookAutomationAgent.Click("NotebookWorkBrowserView", "PersonalNotes");
+        }
+
+        public static void ClickCreateNoteInpersonalNote(AutomationAgent notebookAutomationAgent)
+        {
+            notebookAutomationAgent.Click("PersonalNotesView", "PersonalNoteCreateNote");
+            notebookAutomationAgent.Click("PersonalNotesView", "PersonalNoteCreateButton");
+        }
+
+        public static void VerifyPersonalNoteFound(AutomationAgent notebookAutomationAgent)
+        {
+            notebookAutomationAgent.VerifyElementFound("PersonalNotesTopView", "PersonalNoteName");
+        }
+
+        public static void CancelDeleteNotebookPage(AutomationAgent notebookAutomationAgent)
+        {
+            notebookAutomationAgent.Click("NotebookBottomMenuView", "DeleteIcon");
+            notebookAutomationAgent.Click("NotebookBottomMenuView", "CancelLabel");
+        }
+
+        public static void CreatetextboxInsideNotebook(AutomationAgent notebookAutomationAgent)
+        {
+            notebookAutomationAgent.Click("NotebookView", "NotebookPanel");
+            notebookAutomationAgent.Click("NotebookView", "NotebookTextBox");
+        }
+
+        public static void ClickTextIconInNotebook(AutomationAgent notebookAutomationAgent)
+        {
+            notebookAutomationAgent.Click("NotebookBottomMenuView", "TextIcon");
+        }
     }
 }

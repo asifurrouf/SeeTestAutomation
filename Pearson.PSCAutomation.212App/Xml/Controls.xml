@@ -255,6 +255,70 @@
         <ControlType>Button</ControlType>
         <ControlText>None</ControlText>
       </Control>
+      <Control ControlName="TaskNotebookName">
+        <Zone>Native</Zone>
+        <Element>accessibilityLabel=A Taxi Trip (1/1)</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+    </View>
+    <View ViewName="NotebookWorkBrowserView">
+      <Control ControlName="WorkBrowserIcon">
+        <Zone>Native</Zone>
+        <Element>accessibilityLabel=notebook browser nonshared rec</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="PersonalNotes">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@accessibilityLabel='Personal Notes (11)' and @class='UIButton']</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+    </View>
+    <View ViewName="PersonalNotesView">
+      <Control ControlName="PersonalNoteCreateNote">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@class='WorkBrowserCreateNoteCell']</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="PersonalNoteCreateButton">
+        <Zone>Native</Zone>
+        <Element>accessibilityLabel=create btn</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+    </View>
+    <View ViewName="PersonalNotesTopView">
+      <Control ControlName="PersonalNoteName">
+        <Zone>Native</Zone>
+        <Element>accessibilityLabel=My Personal Note 12/… (1/1)</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+    </View>
+    <View ViewName="NotebookView">
+      <Control ControlName="NotebookPanel">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@class='UIView' and @height>0 and ./parent::*[@class='UIView'] and ./following-sibling::*[@class='CCNotebookDrawView']]</Element>
+        <Index>0</Index>
+        <ControlType>Label</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="NotebookTextBox">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@class='UIView' and @height>0 and ./*[@text='']]</Element>
+        <Index>0</Index>
+        <ControlType>Label</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
     </View>
     <View ViewName="NotebookBottomMenuView">
       <Control ControlName="DeleteIcon">
@@ -271,6 +335,21 @@
         <ControlType>Label</ControlType>
         <ControlText>None</ControlText>
       </Control>
+      <Control ControlName="CancelLabel">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@text='Cancel' and @class='_UIModalItemTableViewCell']</Element>
+        <Index>0</Index>
+        <ControlType>Label</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="TextIcon">
+        <Zone>Native</Zone>
+        <Element>accessibilityLabel=notebook toolbar text icon</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+    </View>
      </View>
     <View ViewName="SelectGradeView">
       <Control ControlName="CancelButton">
