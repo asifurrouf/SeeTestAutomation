@@ -87,7 +87,7 @@
     <None Include="212SeeTestProject\default\E.properties">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="212SeeTestProject\default\LogIn.properties">
+    <None Include="212SeeTestProject\default\GistAnnotationLabel.properties">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="212SeeTestProject\default\S.properties">
@@ -96,18 +96,14 @@
     <None Include="212SeeTestProject\default\T.properties">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="212SeeTestProject\scenes\scene.1415138467215.png.properties">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="212SeeTestProject\scenes\scene.1415145717171.png.properties">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="212SeeTestProject\statistics.data">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="212SeeTestProject\scenes\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="212SeeTestProject\default.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -118,7 +114,7 @@
     <Content Include="212SeeTestProject\default\E.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="212SeeTestProject\default\LogIn.PNG">
+    <Content Include="212SeeTestProject\default\GistAnnotationLabel.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="212SeeTestProject\default\S.PNG">
@@ -133,19 +129,10 @@
     <Content Include="212SeeTestProject\scenarios\AutomationUI.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="212SeeTestProject\scenes\scene.1415138467215.png">
+    <Content Include="Xml\Controls.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
-    <Content Include="212SeeTestProject\scenes\scene.1415138467215.png.dump.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="212SeeTestProject\scenes\scene.1415145717171.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="212SeeTestProject\scenes\scene.1415145717171.png.dump.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Xml\Controls.xml" />
     <Content Include="Xml\Devices.xml">
       <SubType>Designer</SubType>
     </Content>

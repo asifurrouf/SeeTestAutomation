@@ -32,5 +32,89 @@ namespace Pearson.PSCAutomation._212App
                 NavigationCommonMethods.Logout(commonReadAutomationAgent);
             }
         }
+
+        [TestMethod()]
+        [TestCategory("Common Read Tests")]
+        [WorkItem(1006)]
+        [Priority(1)]
+        [Owner("Kiran Kumar Anantapalli(kiran.anantapalli)")]
+        public void EReaderZoomInAndZoomOut()
+        {
+            using (commonReadAutomationAgent = new AutomationAgent("TC1006:Zoom In and Zoom Out on a common read"))
+            {
+                NavigationCommonMethods.Login(commonReadAutomationAgent, "apatton1", "sch00lnet");
+                NavigationCommonMethods.NavigateELATaskfromSytemTrayMenu(commonReadAutomationAgent, 6, 1, 1, 4);
+                CommonReadCommonMethods.OpenCommonRead(commonReadAutomationAgent);
+                commonReadAutomationAgent.ClickOnScreen(500, 500, 2);
+                commonReadAutomationAgent.Sleep();
+                commonReadAutomationAgent.ClickOnScreen(500, 500, 2);
+                CommonReadCommonMethods.ClickOnGistAnnotationsSideLabel(commonReadAutomationAgent);
+                commonReadAutomationAgent.ClickOnScreen(500, 500, 1);
+                CommonReadCommonMethods.VerifyAnnotationsPanelExists(commonReadAutomationAgent);
+                CommonReadCommonMethods.ClickOnDoneButton(commonReadAutomationAgent);
+                NavigationCommonMethods.Logout(commonReadAutomationAgent);
+            }
+        }
+
+        [TestMethod()]
+        [TestCategory("Common Read Tests")]
+        [WorkItem(1293)]
+        [Priority(1)]
+        [Owner("Kiran Kumar Anantapalli(kiran.anantapalli)")]
+        public void VerifyTypingAnnotations()
+        {
+            using (commonReadAutomationAgent = new AutomationAgent("TC1293:When typing in the annotation screen, the typed words should display"))
+            {
+                NavigationCommonMethods.Login(commonReadAutomationAgent, "apatton1", "sch00lnet");
+                NavigationCommonMethods.NavigateELATaskfromSytemTrayMenu(commonReadAutomationAgent, 6, 1, 1, 4);
+                CommonReadCommonMethods.OpenCommonRead(commonReadAutomationAgent);
+                //Implement Annotation Type & Selecting specific text from common read
+                CommonReadCommonMethods.CreateAnnotation(commonReadAutomationAgent, AnnotationType.Gist, "Test");
+                CommonReadCommonMethods.ClickOnDoneButton(commonReadAutomationAgent);
+                NavigationCommonMethods.Logout(commonReadAutomationAgent);
+            }
+        }
+
+        [TestMethod()]
+        [TestCategory("Common Read Tests")]
+        [WorkItem(1267)]
+        [Priority(1)]
+        [Owner("Kiran Kumar Anantapalli(kiran.anantapalli)")]
+        public void VerifyZoomInSelectingDrawingTools()
+        {
+            using (commonReadAutomationAgent = new AutomationAgent("TC1267:Vellum mode- Book is zoomed in when user tap in drawing/ erasing/clearing popups or toolbar"))
+            {
+                NavigationCommonMethods.Login(commonReadAutomationAgent, "apatton1", "sch00lnet");
+                NavigationCommonMethods.NavigateELATaskfromSytemTrayMenu(commonReadAutomationAgent, 6, 1, 1, 4);
+                CommonReadCommonMethods.OpenCommonRead(commonReadAutomationAgent);
+                CommonReadCommonMethods.ToggleVellumMode(commonReadAutomationAgent);
+                //Implement Annotation Type & Selecting specific text from common read
+                CommonReadCommonMethods.CreateAnnotation(commonReadAutomationAgent, AnnotationType.Gist, "Test");
+                CommonReadCommonMethods.ClickOnDoneButton(commonReadAutomationAgent);
+                NavigationCommonMethods.Logout(commonReadAutomationAgent);
+            }
+        }
+
+        [TestMethod()]
+        [TestCategory("Common Read Tests")]
+        [WorkItem(1185)]
+        [Priority(1)]
+        [Owner("Kiran Kumar Anantapalli(kiran.anantapalli)")]
+        public void VerifyConfirmationDeletingAnnotations()
+        {
+            using (commonReadAutomationAgent = new AutomationAgent("TC1185:Confirmation popup for deleting annotations"))
+            {
+                NavigationCommonMethods.Login(commonReadAutomationAgent, "apatton1", "sch00lnet");
+                NavigationCommonMethods.NavigateELATaskfromSytemTrayMenu(commonReadAutomationAgent, 6, 1, 1, 4);
+                CommonReadCommonMethods.OpenCommonRead(commonReadAutomationAgent);
+                //Implement Annotation Type & Selecting specific text from common read
+                CommonReadCommonMethods.CreateAnnotation(commonReadAutomationAgent, AnnotationType.Gist, "Test");
+                CommonReadCommonMethods.EditAnnotation(commonReadAutomationAgent, AnnotationType.Gist);
+
+                CommonReadCommonMethods.ClickOnDoneButton(commonReadAutomationAgent);
+                NavigationCommonMethods.Logout(commonReadAutomationAgent);
+            }
+        }
+
     }
 }

@@ -186,6 +186,17 @@ namespace Pearson.PSCAutomation.Framework
             }
             client.ElementSendText(this.control.Zone, this.control.Element, this.control.Index, textToSet);
         }
+
+        public void SetText(string textToSet)
+        {
+            client.SendText(textToSet);
+        }
+
+        public void ClickOnScreen(int x=0, int y=0, int clickCount=1)
+        {
+            client.ClickCoordinate(x, y, clickCount);
+        }
+        
         /// <summary>
         /// Waits for the Control to exist on the screen
         /// </summary>
@@ -268,6 +279,16 @@ namespace Pearson.PSCAutomation.Framework
                 // If statement
             }
             client.ElementSetProperty(this.control.Zone, this.control.Element, this.control.Index, property, value);
+        }
+
+        public void LongClick(string viewName, string controlName, int clickCount=1, int X=0, int Y=0)
+        {
+            this.PopulateControl(viewName, controlName);
+            if (client.WaitForElement(this.control.Zone, this.control.Element, this.control.Index, WaitTime.SmallWaitTime))
+            {
+                // If statement
+            }
+            client.LongClick(this.control.Zone, this.control.Element, this.control.Index, clickCount, X, Y);
         }
 
         public void SwipeElement(string viewName, string controlName, Direction direction, int offSet, int swipeTime)
@@ -367,16 +388,16 @@ namespace Pearson.PSCAutomation.Framework
         {
             client.Capture(screenshotMessage);
         }
-
-        public void ClickCoordinate(int x, int y, int clickCount = 1)
-        {
-            client.ClickCoordinate(x, y, clickCount);
-        }
-
+       
         public string GetDeviceLog()
         {
             return client.GetDeviceLog();
         }
+
+        public void Sleep(int milliSeconds = WaitTime.DefaultWaitTime)
+        {
+            System.Threading.Thread.Sleep(milliSeconds);
+        }        
 
         #endregion
 

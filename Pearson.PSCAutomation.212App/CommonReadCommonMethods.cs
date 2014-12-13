@@ -30,5 +30,49 @@ namespace Pearson.PSCAutomation._212App
             commonReadAutomationAgent.Click("CommonReadTopMenuView", "DoneButton");
         }
 
+
+        public  static void ClickOnGistAnnotationsSideLabel(AutomationAgent commonReadAutomationAgent)
+        {
+            commonReadAutomationAgent.Click("CommonReadPageView", "GistAnnotationsLabel");
+        }
+
+        public static void VerifyAnnotationsPanelExists(AutomationAgent commonReadAutomationAgent)
+        {
+            commonReadAutomationAgent.VerifyElementNotFound("CommonReadAnnotationsPanelView", "EditButton");
+        }
+
+        public static void CreateAnnotation(AutomationAgent commonReadAutomationAgent, AnnotationType annotationType, string annotationText)
+        {
+            commonReadAutomationAgent.LongClick("CommonReadContentView", "CommonReadContent");
+            commonReadAutomationAgent.Sleep();
+            commonReadAutomationAgent.Click("CommonReadContextMenuView", "AnnotateLabel");
+            commonReadAutomationAgent.Sleep();
+            commonReadAutomationAgent.SetText(annotationText);
+        }
+
+        public static void EditAnnotation(AutomationAgent commonReadAutomationAgent, AnnotationType annotationType)
+        {
+            ClickOnGistAnnotationsSideLabel(commonReadAutomationAgent);
+            ClickEditButton(commonReadAutomationAgent);
+            ClickDeleteButton(commonReadAutomationAgent);
+        }
+
+        public static void ClickDeleteButton(AutomationAgent commonReadAutomationAgent)
+        {
+            commonReadAutomationAgent.Click("CommonReadAnnotationsPanelView", "DeleteButton");
+        }
+
+        public static void ClickEditButton(AutomationAgent commonReadAutomationAgent)
+        {
+            commonReadAutomationAgent.Click("CommonReadAnnotationsPanelView", "EditButton");
+        }
+    }
+
+    public enum AnnotationType
+    {
+        Gist,
+        NewThinking,
+        NewWord,
+        Other
     }
 }

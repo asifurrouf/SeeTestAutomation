@@ -224,6 +224,65 @@
         <ControlText>None</ControlText>
       </Control>      
     </View>
+    <View ViewName="CommonReadPageView">
+      <Control ControlName="GistAnnotationsLabel">
+        <Zone>default</Zone>
+        <Element>GistAnnotationLabel</Element>
+        <Index>0</Index>
+        <ControlType>Label</ControlType>
+        <ControlText>None</ControlText>
+      </Control>      
+    </View>
+    <View ViewName="CommonReadContextMenuView">
+      <Control ControlName="AnnotateLabel">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@accessibilityLabel='Annotate' and @text='Annotate']</Element>
+        <Index>0</Index>
+        <ControlType>Label</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+    </View>
+    <View ViewName="CommonReadContentView">
+      <Control ControlName="CommonReadContent">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@class='CommonReadWebView' and ./*[./*[@text]]]</Element>
+        <Index>0</Index>
+        <ControlType>Label</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+    </View>
+    <View ViewName="CommonReadAnnotationsPanelView">
+      <Control ControlName="EditButton">
+        <Zone>web</Zone>
+        <Element>xpath=//*[@text='Edit' and @width>0]</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>Edit</ControlText>
+      </Control>
+      <Control ControlName="DoneButton">
+        <Zone>web</Zone>
+        <Element>xpath=//*[@text='done']</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>Done</ControlText>
+      </Control>
+      <Control ControlName="DeleteButton">
+        <Zone>web</Zone>
+        <Element>xpath=//*[@text='delete']</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>Delete</ControlText>
+      </Control>
+    </View>
+    <View ViewName="CommonReadAnnotationsView">
+      <Control ControlName="EditButton">
+        <Zone>web</Zone>
+        <Element>xpath=//*[@text='Edit']</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>Edit</ControlText>
+      </Control>
+    </View>    
     <View ViewName="TasksTopMenuView">
       <Control ControlName="NotebookIcon">
         <Zone>Native</Zone>
@@ -350,7 +409,6 @@
         <ControlText>None</ControlText>
       </Control>
     </View>
-     </View>
     <View ViewName="SelectGradeView">
       <Control ControlName="CancelButton">
         <Zone>Native</Zone>

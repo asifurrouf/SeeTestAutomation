@@ -70,10 +70,10 @@ namespace Pearson.PSCAutomation._212App
         [Owner("Isha Jain(isha.jain)")]
         public void DeletePageInAscending()
         { 
-            try
-            { 
-                using (notebookAutomationAgent = new AutomationAgent("TC8191:Delete Page in Ascending Order from Notebook"))
-                {                    
+            using (notebookAutomationAgent = new AutomationAgent("TC8191:Delete Page in Ascending Order from Notebook"))
+            {
+                try
+                {
                     NavigationCommonMethods.Login(notebookAutomationAgent, Login.GetLogin("Teacher1"));
                     NavigationCommonMethods.NavigateELATaskfromSytemTrayMenu(notebookAutomationAgent, 6, 1, 1, 1);
                     NotebookCommonMethods.ClickOnNotebookIcon(notebookAutomationAgent);
@@ -88,22 +88,22 @@ namespace Pearson.PSCAutomation._212App
                     NotebookCommonMethods.DeleteNotebookPage(notebookAutomationAgent);
                     NavigationCommonMethods.Logout(notebookAutomationAgent);
                 }
-                
+                catch (AssertFailedException ex)
+                {
+                    notebookAutomationAgent.CaptureScreenshot(ex.Message);
+                    NavigationCommonMethods.Logout(notebookAutomationAgent);
+                    notebookAutomationAgent.GenerateReportAndReleaseClient();
+                    throw ex;
+                }
+                catch (Exception ex)
+                {
+                    notebookAutomationAgent.CaptureScreenshot(ex.Message);
+                    notebookAutomationAgent.GetDeviceLog();
+                    NavigationCommonMethods.LogoutOnExceptionAndReleaseClient(notebookAutomationAgent);
+                    throw ex;
+                } 
             }
-            catch (AssertFailedException ex)
-            {
-                notebookAutomationAgent.CaptureScreenshot(ex.Message);
-                NavigationCommonMethods.Logout(notebookAutomationAgent);
-                notebookAutomationAgent.GenerateReportAndReleaseClient();
-                throw ex;
-            }
-            catch (Exception ex)
-            {
-                notebookAutomationAgent.CaptureScreenshot(ex.Message);
-                notebookAutomationAgent.GetDeviceLog();
-                NavigationCommonMethods.LogoutOnExceptionAndReleaseClient(notebookAutomationAgent);
-                throw ex;
-            }                       
+                                 
         }
 
         [TestMethod()]
