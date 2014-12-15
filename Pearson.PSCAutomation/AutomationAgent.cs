@@ -186,6 +186,11 @@ namespace Pearson.PSCAutomation.Framework
             }
             client.ElementSendText(this.control.Zone, this.control.Element, this.control.Index, textToSet);
         }
+
+        public void SendText(string text)
+        {
+            client.SendText(text);
+        }
         /// <summary>
         /// Waits for the Control to exist on the screen
         /// </summary>
@@ -242,7 +247,7 @@ namespace Pearson.PSCAutomation.Framework
         /// <param name="property">Property name to get the value</param>
         /// <param name="waitTime">Default wait time is 10 sec. Provide an integer representing milli seconds to wait</param>
         /// <returns>returns the property string</returns>
-        public string GetElementPropery(string viewName, string controlName, string property, int waitTime = WaitTime.DefaultWaitTime)
+        public string GetElementProperty(string viewName, string controlName, string property, int waitTime = WaitTime.DefaultWaitTime)
         {
             this.PopulateControl(viewName, controlName);
             if (client.WaitForElement(this.control.Zone, this.control.Element, this.control.Index, WaitTime.SmallWaitTime))
@@ -260,7 +265,7 @@ namespace Pearson.PSCAutomation.Framework
         /// <param name="property"></param>
         /// <param name="value"></param>
         /// <param name="waitTime"></param>
-        public void GetElementPropery(string viewName, string controlName, string property, string value, int waitTime = WaitTime.DefaultWaitTime)
+        public void GetElementProperty(string viewName, string controlName, string property, string value, int waitTime = WaitTime.DefaultWaitTime)
         {
             this.PopulateControl(viewName, controlName);
             if (client.WaitForElement(this.control.Zone, this.control.Element, this.control.Index, WaitTime.SmallWaitTime))

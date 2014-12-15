@@ -231,7 +231,14 @@
         <Index>0</Index>
         <ControlType>Button</ControlType>
         <ControlText>None</ControlText>
-      </Control>      
+      </Control>
+      <Control ControlName="SharedWorkIcon">
+        <Zone>Native</Zone>
+        <Element>accessibilityLabel=notebook</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
     </View>
     <View ViewName="NotebookTopMenuView">
       <Control ControlName="AddNewPage">
@@ -245,21 +252,85 @@
         <Zone>Native</Zone>
         <Element>accessibilityLabel=notebook left arrow icon</Element>
         <Index>0</Index>
-        <ControlType>Button</ControlType>
+        <ControlType>Label</ControlType>
         <ControlText>None</ControlText>
       </Control>
       <Control ControlName="RightArrow">
         <Zone>Native</Zone>
         <Element>accessibilityLabel=notebook right arrow icon</Element>
         <Index>0</Index>
-        <ControlType>Button</ControlType>
+        <ControlType>Label</ControlType>
         <ControlText>None</ControlText>
       </Control>
       <Control ControlName="TaskNotebookName">
         <Zone>Native</Zone>
-        <Element>accessibilityLabel=A Taxi Trip (1/1)</Element>
+        <Element>xpath=//*[@accessibilityLabel[starts-with(.,'A Taxi Trip')]]</Element>
         <Index>0</Index>
-        <ControlType>Button</ControlType>
+        <ControlType>Label</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="ShareIcon">
+        <Zone>Native</Zone>
+        <Element>accessibilityLabel=notebook share icon</Element>
+        <Index>0</Index>
+        <ControlType>Label</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="CommentIcon">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@accessibilityLabel='shared notebook comments icon ']</Element>
+        <Index>0</Index>
+        <ControlType>Label</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+    </View>
+    <View ViewName="ReceivedWorkView">
+      <Control ControlName="LatestSharedWork">
+        <Zone>Native</Zone>
+        <Element>xpath=(//*/*/*[@class='UserWorkSnapshotTileView'])[1]</Element>
+        <Index>0</Index>
+        <ControlType>Label</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="ReceivedWorkTitle">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@text[starts-with(.,'Received Work')]</Element>
+        <Index>0</Index>
+        <ControlType>Label</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+    </View>
+    <View ViewName="WorkBrowserView">
+      <Control ControlName="WorkBrowserTitle">
+        <Zone>Native</Zone>
+        <Element>accessibilityIdentifier=ScreenHeader.TitleLabel</Element>
+        <Index>0</Index>
+        <ControlType>Label</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+    </View>
+    <View ViewName="PersonalNotesTopView">
+      <Control ControlName="PersonalNotesTitle">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@accessibilityLabel[starts-with(.,'My Personal Note')]]</Element>
+        <Index>0</Index>
+        <ControlType>Label</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+    </View>
+    <View ViewName="PersonalNotesView">
+      <Control ControlName="PersonalNotesHeader">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@text[starts-with(.,'Personal Notes')]]</Element>
+        <Index>0</Index>
+        <ControlType>Label</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="PersonalNotesTitle">
+        <Zone>Native</Zone>
+        <Element></Element>
+        <Index>0</Index>
+        <ControlType>Label</ControlType>
         <ControlText>None</ControlText>
       </Control>
     </View>
@@ -273,9 +344,37 @@
       </Control>
       <Control ControlName="PersonalNotes">
         <Zone>Native</Zone>
-        <Element>xpath=//*[@accessibilityLabel='Personal Notes (11)' and @class='UIButton']</Element>
+        <Element>xpath=//*[@accessibilityLabel[starts-with(.,'Personal Notes')] and @class='UIButton']</Element>
         <Index>0</Index>
-        <ControlType>Button</ControlType>
+        <ControlType>Label</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="ReceivedNotebook">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@accessibilityLabel[starts-with(.,'Received Notebooks')] and @class='UIButton']</Element>
+        <Index>0</Index>
+        <ControlType>Label</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="WorkBrowserButton">
+        <Zone>Native</Zone>
+        <Element>accessibilityLabel=WorkBrowserNavigateButton</Element>
+        <Index>0</Index>
+        <ControlType>Label</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="TaskFourTitle">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@accessibilityLabel='Student Discussion Guidelines' and @class='UIButton']</Element>
+        <Index>0</Index>
+        <ControlType>Label</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="TaskOneTitle">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@accessibilityLabel='A Taxi Trip' and @class='UIButton']</Element>
+        <Index>0</Index>
+        <ControlType>Label</ControlType>
         <ControlText>None</ControlText>
       </Control>
     </View>
@@ -292,13 +391,27 @@
         <Element>accessibilityLabel=create btn</Element>
         <Index>0</Index>
         <ControlType>Button</ControlType>
+        <ControlText>Create</ControlText>
+      </Control>
+      <Control ControlName="PersonalNoteCancelButton">
+        <Zone>Native</Zone>
+        <Element>accessibilityLabel=cancel btn</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>Cancel</ControlText>
+      </Control>
+      <Control ControlName="PersonalNoteNameTextbox">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@accessibilityLabel='' and ./*[@class='_UITextFieldRoundedRectBackgroundViewNeue']]</Element>
+        <Index>0</Index>
+        <ControlType>Textbox</ControlType>
         <ControlText>None</ControlText>
       </Control>
     </View>
     <View ViewName="PersonalNotesTopView">
       <Control ControlName="PersonalNoteName">
         <Zone>Native</Zone>
-        <Element>accessibilityLabel=My Personal Note 12/… (1/1)</Element>
+        <Element>xpath=//*[@accessibilityLabel[starts-with(.,'My Personal Note')]]</Element>
         <Index>0</Index>
         <ControlType>Button</ControlType>
         <ControlText>None</ControlText>
@@ -315,6 +428,69 @@
       <Control ControlName="NotebookTextBox">
         <Zone>Native</Zone>
         <Element>xpath=//*[@class='UIView' and @height>0 and ./*[@text='']]</Element>
+        <Index>0</Index>
+        <ControlType>Label</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="AlphabetT">
+        <Zone>default</Zone>
+        <Element>T</Element>
+        <Index>0</Index>
+        <ControlType>Image</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="AlphabetE">
+        <Zone>default</Zone>
+        <Element>E</Element>
+        <Index>0</Index>
+        <ControlType>Image</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="AlphabetS">
+        <Zone>default</Zone>
+        <Element>S</Element>
+        <Index>0</Index>
+        <ControlType>Image</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="CloseKeyboard">
+        <Zone>default</Zone>
+        <Element>CloseKeyboard</Element>
+        <Index>0</Index>
+        <ControlType>Image</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="Enteredtext">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@class='UIView' and @height>0 and ./*[@text='Test']]</Element>
+        <Index>0</Index>
+        <ControlType>Image</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="RemoveText">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@class='UIView' and @height>0 and ./parent::*[@class='UIView'] and ./following-sibling::*[@class='CCNotebookDrawView']]</Element>
+        <Index>0</Index>
+        <ControlType>Image</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="NotebookBoundingRemove">
+        <Zone>Native</Zone>
+        <Element>accessibilityLabel=notebook bounding remove</Element>
+        <Index>0</Index>
+        <ControlType>Image</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="CommentText">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@text='Test']</Element>
+        <Index>0</Index>
+        <ControlType>Label</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="StudentName">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@text='Zainab HAVER']</Element>
         <Index>0</Index>
         <ControlType>Label</ControlType>
         <ControlText>None</ControlText>
@@ -349,8 +525,74 @@
         <ControlType>Button</ControlType>
         <ControlText>None</ControlText>
       </Control>
+      <Control ControlName="PenIcon">
+        <Zone>Native</Zone>
+        <Element>accessibilityLabel=notebook toolbar pen icon</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
     </View>
-     </View>
+    <View ViewName="SelectRecipientsView">
+      <Control ControlName="TeacherRow">
+        <Zone>Native</Zone>
+        <Element>accessibilityLabel=Kyeara Shidone</Element>
+        <Index>0</Index>
+        <ControlType>Label</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="NextButton">
+        <Zone>Native</Zone>
+        <Element>accessibilityLabel=Next</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="CancelButton">
+        <Zone>Native</Zone>
+        <Element>accessibilityLabel=Cancel</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="SendButton">
+        <Zone>Native</Zone>
+        <Element>accessibilityLabel=Send</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="MessageTextbox">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@class='UITextView' and ./*[./*[@class='UITextSelectionView']]]</Element>
+        <Index>0</Index>
+        <ControlType>Textbox</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+    </View>
+    <View ViewName="PopUpView">
+      <Control ControlName="NotebookShareMessage">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@text='Your work will be sent.']</Element>
+        <Index>0</Index>
+        <ControlType>Label</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="NotebookShareOkLabel">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@class='_UIModalItemTableViewCell']</Element>
+        <Index>0</Index>
+        <ControlType>Label</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="NotebookShareSuccessMessage">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@text='Success']</Element>
+        <Index>0</Index>
+        <ControlType>Label</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+    </View>
     <View ViewName="SelectGradeView">
       <Control ControlName="CancelButton">
         <Zone>Native</Zone>
@@ -379,6 +621,29 @@
         <Index>0</Index>
         <ControlType>Button</ControlType>
         <ControlText>Grade ()</ControlText>
+      </Control>
+    </View>
+    <View ViewName="AnnotationView">
+      <Control ControlName="CommonReadImage">
+        <Zone>Web</Zone>
+        <Element>xpath=//*[@nodeName='IMG' and @width>0 and ./parent::*[./parent::*[./parent::*[@text='					                                    ']]]]</Element>
+        <Index>0</Index>
+        <ControlType>Image</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="CourteousImage">
+        <Zone>default</Zone>
+        <Element>CourteousImage</Element>
+        <Index>0</Index>
+        <ControlType>Image</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="AnnotationLink">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@accessibilityLabel='Annotate' and @class='UICalloutBarButton']</Element>
+        <Index>0</Index>
+        <ControlType>Label</ControlType>
+        <ControlText>None</ControlText>
       </Control>
     </View>
   </OS>

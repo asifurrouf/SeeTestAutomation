@@ -67,6 +67,8 @@
     <Compile Include="NotebookTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CommonReadTests.cs" />
+    <Compile Include="AnnotationTests.cs" />
+    <Compile Include="AnnotationCommonMethods.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Pearson.PSCAutomation\Pearson.PSCAutomation.Framework.csproj">
@@ -105,7 +107,9 @@
     <None Include="212SeeTestProject\statistics.data">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -145,7 +149,10 @@
     <Content Include="212SeeTestProject\scenes\scene.1415145717171.png.dump.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Xml\Controls.xml" />
+    <Content Include="Xml\Controls.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Xml\Devices.xml">
       <SubType>Designer</SubType>
     </Content>
