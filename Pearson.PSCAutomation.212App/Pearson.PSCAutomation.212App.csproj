@@ -87,9 +87,6 @@
     <None Include="212SeeTestProject\default\E.properties">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="212SeeTestProject\default\GistAnnotationLabel.properties">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="212SeeTestProject\default\S.properties">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -112,9 +109,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="212SeeTestProject\default\E.PNG">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="212SeeTestProject\default\GistAnnotationLabel.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="212SeeTestProject\default\S.PNG">

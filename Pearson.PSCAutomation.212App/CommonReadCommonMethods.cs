@@ -47,7 +47,7 @@ namespace Pearson.PSCAutomation._212App
             commonReadAutomationAgent.Sleep();
             commonReadAutomationAgent.Click("CommonReadContextMenuView", "AnnotateLabel");
             commonReadAutomationAgent.Sleep();
-            commonReadAutomationAgent.SetText(annotationText);
+            commonReadAutomationAgent.SendText(annotationText);
         }
 
         public static void EditAnnotation(AutomationAgent commonReadAutomationAgent, AnnotationType annotationType)

@@ -187,9 +187,9 @@ namespace Pearson.PSCAutomation.Framework
             client.ElementSendText(this.control.Zone, this.control.Element, this.control.Index, textToSet);
         }
 
-        public void SetText(string textToSet)
+        public void SendText(string text)
         {
-            client.SendText(textToSet);
+            client.SendText(text);
         }
 
         public void ClickOnScreen(int x=0, int y=0, int clickCount=1)
@@ -253,7 +253,7 @@ namespace Pearson.PSCAutomation.Framework
         /// <param name="property">Property name to get the value</param>
         /// <param name="waitTime">Default wait time is 10 sec. Provide an integer representing milli seconds to wait</param>
         /// <returns>returns the property string</returns>
-        public string GetElementPropery(string viewName, string controlName, string property, int waitTime = WaitTime.DefaultWaitTime)
+        public string GetElementProperty(string viewName, string controlName, string property, int waitTime = WaitTime.DefaultWaitTime)
         {
             this.PopulateControl(viewName, controlName);
             if (client.WaitForElement(this.control.Zone, this.control.Element, this.control.Index, WaitTime.SmallWaitTime))
@@ -271,7 +271,7 @@ namespace Pearson.PSCAutomation.Framework
         /// <param name="property"></param>
         /// <param name="value"></param>
         /// <param name="waitTime"></param>
-        public void GetElementPropery(string viewName, string controlName, string property, string value, int waitTime = WaitTime.DefaultWaitTime)
+        public void GetElementProperty(string viewName, string controlName, string property, string value, int waitTime = WaitTime.DefaultWaitTime)
         {
             this.PopulateControl(viewName, controlName);
             if (client.WaitForElement(this.control.Zone, this.control.Element, this.control.Index, WaitTime.SmallWaitTime))
@@ -389,15 +389,22 @@ namespace Pearson.PSCAutomation.Framework
             client.Capture(screenshotMessage);
         }
        
-        public string GetDeviceLog()
+       
+        public void ClickCoordinate(int x, int y, int clickCount = 1)
         {
-            return client.GetDeviceLog();
+            
+            client.ClickCoordinate(x, y, clickCount);
         }
 
         public void Sleep(int milliSeconds = WaitTime.DefaultWaitTime)
         {
+            
             System.Threading.Thread.Sleep(milliSeconds);
-        }        
+        }
+        public string GetDeviceLog()
+        {
+            return client.GetDeviceLog();
+        }  
 
         #endregion
 
