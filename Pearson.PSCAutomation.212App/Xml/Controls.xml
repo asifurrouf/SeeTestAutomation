@@ -231,7 +231,21 @@
         <Index>0</Index>
         <ControlType>Label</ControlType>
         <ControlText>None</ControlText>
-      </Control>      
+      </Control>
+      <Control ControlName="SharedAnnotation">
+        <Zone>default</Zone>
+        <Element>SharedAnnotate</Element>
+        <Index>0</Index>
+        <ControlType>Label</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="SharedTextAnnotation">
+        <Zone>default</Zone>
+        <Element>SharedAnnotateText</Element>
+        <Index>0</Index>
+        <ControlType>Label</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
     </View>
     <View ViewName="CommonReadContextMenuView">
       <Control ControlName="AnnotateLabel">
@@ -282,6 +296,41 @@
         <ControlType>Button</ControlType>
         <ControlText>Edit</ControlText>
       </Control>
+      <Control ControlName="CommonReadImage">
+        <Zone>Web</Zone>
+        <Element>xpath=//*[@nodeName='IMG' and @width>0 and ./parent::*[./parent::*[./parent::*[@text='					                                    ']]]]</Element>
+        <Index>0</Index>
+        <ControlType>Image</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="CourteousImage">
+        <Zone>default</Zone>
+        <Element>CourteousImage</Element>
+        <Index>0</Index>
+        <ControlType>Image</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="HighlightCourteous">
+        <Zone>default</Zone>
+        <Element>HighlightCourteous</Element>
+        <Index>0</Index>
+        <ControlType>Image</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="AnnotationLink">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@accessibilityLabel='Annotate' and @class='UICalloutBarButton']</Element>
+        <Index>0</Index>
+        <ControlType>Label</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="ShareAnnotation">
+        <Zone>default</Zone>
+        <Element>ShareButton</Element>
+        <Index>0</Index>
+        <ControlType>Image</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
     </View>    
     <View ViewName="TasksTopMenuView">
       <Control ControlName="NotebookIcon">
@@ -291,9 +340,16 @@
         <ControlType>Button</ControlType>
         <ControlText>None</ControlText>
       </Control>
-      <Control ControlName="SharedWorkIcon">
+      <Control ControlName="NotebookSharedWorkIcon">
         <Zone>Native</Zone>
         <Element>accessibilityLabel=notebook</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="SharedWorkIcon">
+        <Zone>Native</Zone>
+        <Element>accessibilityLabel=navBarSharedNotebookButton</Element>
         <Index>0</Index>
         <ControlType>Button</ControlType>
         <ControlText>None</ControlText>
@@ -347,6 +403,20 @@
       <Control ControlName="LatestSharedWork">
         <Zone>Native</Zone>
         <Element>xpath=(//*/*/*[@class='UserWorkSnapshotTileView'])[1]</Element>
+        <Index>0</Index>
+        <ControlType>Label</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="LatestAnnotationShare">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@text[starts-with(.,'Zainab Haver sent you annotations for')]]</Element>
+        <Index>0</Index>
+        <ControlType>Label</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="DownloadAnnotation">
+        <Zone>Native</Zone>
+        <Element>xpath=(//*/*[@class='UIImageView' and @width>0 and @height>0])[30]</Element>
         <Index>0</Index>
         <ControlType>Label</ControlType>
         <ControlText>None</ControlText>
@@ -775,29 +845,6 @@
         <Index>0</Index>
         <ControlType>Button</ControlType>
         <ControlText>Grade ()</ControlText>
-      </Control>
-    </View>
-    <View ViewName="AnnotationView">
-      <Control ControlName="CommonReadImage">
-        <Zone>Web</Zone>
-        <Element>xpath=//*[@nodeName='IMG' and @width>0 and ./parent::*[./parent::*[./parent::*[@text='					                                    ']]]]</Element>
-        <Index>0</Index>
-        <ControlType>Image</ControlType>
-        <ControlText>None</ControlText>
-      </Control>
-      <Control ControlName="CourteousImage">
-        <Zone>default</Zone>
-        <Element>CourteousImage</Element>
-        <Index>0</Index>
-        <ControlType>Image</ControlType>
-        <ControlText>None</ControlText>
-      </Control>
-      <Control ControlName="AnnotationLink">
-        <Zone>Native</Zone>
-        <Element>xpath=//*[@accessibilityLabel='Annotate' and @class='UICalloutBarButton']</Element>
-        <Index>0</Index>
-        <ControlType>Label</ControlType>
-        <ControlText>None</ControlText>
       </Control>
     </View>
   </OS>

@@ -136,19 +136,7 @@ namespace Pearson.PSCAutomation._212App
             notebookAutomationAgent.SendText("{BKSP}");
 
         }
-        public static void ClickPersonalNoteCreateButton(AutomationAgent notebookAutomationAgent)
-        {
-            notebookAutomationAgent.Click("PersonalNotesView", "PersonalNoteCreateButton");
-        }
-
-        public static void SetNameToPersonalNote(AutomationAgent notebookAutomationAgent, string personalNoteName)
-        {
-            if (personalNoteName != string.Empty)
-                notebookAutomationAgent.SetText("PersonalNotesView", "PersonalNoteNameTextbox", personalNoteName);
-            else
-                notebookAutomationAgent.SendText("{BKSP}");
-        }
-
+        
         public static void VerifyPersonalNoteFound(AutomationAgent notebookAutomationAgent)
         {
             notebookAutomationAgent.VerifyElementFound("PersonalNotesTopView", "PersonalNoteName");
@@ -175,7 +163,6 @@ namespace Pearson.PSCAutomation._212App
         {
             notebookAutomationAgent.Click("NotebookView", "AlphabetT");
             notebookAutomationAgent.Click("NotebookView", "AlphabetE"); 
-            notebookAutomationAgent.Click("NotebookView", "AlphabetE");
             notebookAutomationAgent.Click("NotebookView", "AlphabetS");
             notebookAutomationAgent.Click("NotebookView", "AlphabetT");
             notebookAutomationAgent.Click("NotebookView", "CloseKeyboard");
@@ -221,7 +208,6 @@ namespace Pearson.PSCAutomation._212App
         {
             notebookAutomationAgent.Click("NotebookView", "AlphabetT");
             notebookAutomationAgent.Click("NotebookView", "AlphabetE"); 
-            notebookAutomationAgent.Click("NotebookView", "AlphabetE");
             notebookAutomationAgent.Click("NotebookView", "AlphabetS");
             notebookAutomationAgent.Click("NotebookView", "AlphabetT");
         }
@@ -240,7 +226,7 @@ namespace Pearson.PSCAutomation._212App
 
         public static void ClickOnSharedWorkIcon(AutomationAgent notebookAutomationAgent)
         {
-            notebookAutomationAgent.Click("TasksTopMenuView", "SharedWorkIcon");
+            notebookAutomationAgent.Click("TasksTopMenuView", "NotebookSharedWorkIcon");
         }
 
         public static void ClickOnReceivedWork(AutomationAgent notebookAutomationAgent)
@@ -282,9 +268,6 @@ namespace Pearson.PSCAutomation._212App
 
         public static int GetCountAssociated(AutomationAgent notebookAutomationAgent, string notesType)
         {
-            if(notesType =="ReceivedNotes")
-            {
-                string text = notebookAutomationAgent.GetElementProperty("NotebookWorkBrowserView", "ReceivedNotebook","text");
             if (notesType == "ReceivedNotes")
             {
                 string text = notebookAutomationAgent.GetElementProperty("NotebookWorkBrowserView", "ReceivedNotebook", "text");
@@ -292,7 +275,6 @@ namespace Pearson.PSCAutomation._212App
             }
             else if (notesType == "PersonalNotes")
             {
-                string text = notebookAutomationAgent.GetElementProperty("NotebookWorkBrowserView", "PersonalNotes","text");
                 string text = notebookAutomationAgent.GetElementProperty("NotebookWorkBrowserView", "PersonalNotes", "text");
                 return int.Parse(text.Substring(text.IndexOf('('), text.IndexOf(')') - text.IndexOf('(')));
             }
@@ -300,12 +282,10 @@ namespace Pearson.PSCAutomation._212App
             {
                 return 0;
             }
-
         }
 
         public static void VerifyPersonalNoteCreateButtonStatus(AutomationAgent notebookAutomationAgent, bool enabled)
-        {
-            Assert.AreEqual<bool>(enabled, bool.Parse(notebookAutomationAgent.GetElementProperty("PersonalNotesView","PersonalNoteCreateButton","enabled")));
+        {            
             Assert.AreEqual<bool>(enabled, bool.Parse(notebookAutomationAgent.GetElementProperty("PersonalNotesView", "PersonalNoteCreateButton", "enabled")));
         }
 

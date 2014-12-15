@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><commands>
 <command enable="true" name="SetDevice(Device)">
 <parameters>
-<parameter defaultValue="ios_app:Lab11_Ipad" description="Device name" name="Device" pattern="(.+)" type="application"/>
+<parameter defaultValue="ios_app:Lab13_Ipad" description="Device name" name="Device" pattern="(.+)" type="application"/>
 </parameters>
 </command>
 <command enable="true" name="Launch(activity, instrument, stopIfRunning)">
@@ -21,10 +21,51 @@
 </command>
 <command enable="true" name="Click(Zone, Element, Index, ClickCount)">
 <parameters>
+<parameter defaultValue="default" description="Select Zone" name="Zone" pattern="(.+)" type="zone"/>
+<parameter defaultValue="GistAnnotationLabel" description="Select Element" name="Element" pattern="(.+)" type="element"/>
+<parameter defaultValue="0" description="Element Order" name="Index" pattern="(\d+)" type="integer"/>
+<parameter defaultValue="1" description="Number of Clicks" name="Click Count" pattern="(\d+)" type="integer"/>
+</parameters>
+</command>
+<command enable="true" name="LongClick(Zone, Element, Index, ClickCount, X, Y)">
+<parameters>
 <parameter defaultValue="default" description="Select Zone" name="Zone" pattern="" type="zone"/>
-<parameter defaultValue="GistAnnotationLabel" description="Select Element" name="Element" pattern="" type="element"/>
+<parameter defaultValue="CourteousImage" description="Select Element" name="Element" pattern="" type="element"/>
 <parameter defaultValue="0" description="Element Order" name="Index" pattern="" type="integer"/>
 <parameter defaultValue="1" description="Number of Clicks" name="Click Count" pattern="" type="integer"/>
+<parameter defaultValue="0" description="Horizontal Offset from Element" name="X" pattern="" type="integer"/>
+<parameter defaultValue="0" description="Vertical Offset from Element" name="Y" pattern="" type="integer"/>
+</parameters>
+</command>
+<command enable="true" name="Click(Zone, Element, Index, ClickCount)">
+<parameters>
+<parameter defaultValue="default" description="Select Zone" name="Zone" pattern="" type="zone"/>
+<parameter defaultValue="HighlightCourteous" description="Select Element" name="Element" pattern="" type="element"/>
+<parameter defaultValue="0" description="Element Order" name="Index" pattern="" type="integer"/>
+<parameter defaultValue="1" description="Number of Clicks" name="Click Count" pattern="" type="integer"/>
+</parameters>
+</command>
+<command enable="true" name="Click(Zone, Element, Index, ClickCount)">
+<parameters>
+<parameter defaultValue="default" description="Select Zone" name="Zone" pattern="" type="zone"/>
+<parameter defaultValue="ShareButton" description="Select Element" name="Element" pattern="" type="element"/>
+<parameter defaultValue="0" description="Element Order" name="Index" pattern="" type="integer"/>
+<parameter defaultValue="1" description="Number of Clicks" name="Click Count" pattern="" type="integer"/>
+</parameters>
+</command>
+<command enable="true" name="Click(Zone, Element, Index, ClickCount)">
+<parameters>
+<parameter defaultValue="default" description="Select Zone" name="Zone" pattern="" type="zone"/>
+<parameter defaultValue="SharedAnnotate" description="Select Element" name="Element" pattern="" type="element"/>
+<parameter defaultValue="0" description="Element Order" name="Index" pattern="" type="integer"/>
+<parameter defaultValue="1" description="Number of Clicks" name="Click Count" pattern="" type="integer"/>
+</parameters>
+</command>
+<command enable="true" name="VerifyElementFound(Zone, Element, Index)">
+<parameters>
+<parameter defaultValue="default" description="Select Zone" name="Zone" pattern="" type="zone"/>
+<parameter defaultValue="SharedAnnotateText" description="Select Element" name="Element" pattern="" type="element"/>
+<parameter defaultValue="0" description="Element Order (=the number of times the element appears more and above the first time)" name="Index" pattern="" type="integer"/>
 </parameters>
 </command>
 </commands>

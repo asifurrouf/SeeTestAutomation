@@ -31,9 +31,41 @@
 <native aiIOS="" alIOS="" class="UIKBKeyView" classBB="" classIOS="" classWP="" contentDescription="" contentWP="" enable="true" enableBB="false" enableIOS="false" enableWP="false" hint="" id="" method="class" methodBB="class" methodIOS="class" methodWP="class" nameWP="" placeholderIOS="" scriptIOS="" text="" textBB="" textIOS="" textWP="" value="UIKBKeyView" xpath="" xpathIOS="" xpathWP=""/>
 <web enable="false" method="" value=""/>
 </obj>
-<obj text="GistAnnotationLabel" version="1">
+<obj text="CourteousImage" version="1">
 <images enable="true">
-<image file="default\GistAnnotationLabel.PNG" jump="1" mainColor="-593002" max="0" min="0" scanner="Advance Similarity" similarity="97"/>
+<image file="default\CourteousImage.PNG" jump="1" mainColor="-40405" max="0" min="0" scanner="Advance Similarity" similarity="97"/>
+</images>
+<text color="2147483647" enable="false" filter="false" ignoreCase="false" regexp="false" sensitivity="10" text=""/>
+<native aiIOS="" alIOS="" class="" classBB="" classIOS="" classWP="" contentDescription="" contentWP="" enable="false" enableBB="false" enableIOS="false" enableWP="false" hint="" id="" method="class" methodBB="class" methodIOS="class" methodWP="class" nameWP="" placeholderIOS="" scriptIOS="" text="" textBB="" textIOS="" textWP="" value="" xpath="" xpathIOS="" xpathWP=""/>
+<web enable="false" method="" value=""/>
+</obj>
+<obj text="HighlightCourteous" version="1">
+<images enable="true">
+<image file="default\HighlightCourteous.PNG" jump="1" mainColor="-1000000" max="0" min="0" scanner="Advance Similarity" similarity="97"/>
+</images>
+<text color="2147483647" enable="false" filter="false" ignoreCase="false" regexp="false" sensitivity="10" text=""/>
+<native aiIOS="" alIOS="" class="" classBB="" classIOS="" classWP="" contentDescription="" contentWP="" enable="false" enableBB="false" enableIOS="false" enableWP="false" hint="" id="" method="class" methodBB="class" methodIOS="class" methodWP="class" nameWP="" placeholderIOS="" scriptIOS="" text="" textBB="" textIOS="" textWP="" value="" xpath="" xpathIOS="" xpathWP=""/>
+<web enable="false" method="" value=""/>
+</obj>
+<obj text="ShareButton" version="1">
+<images enable="true">
+<image file="default\ShareButton.PNG" jump="1" mainColor="-cccccd" max="0" min="0" scanner="Advance Similarity" similarity="97"/>
+</images>
+<text color="2147483647" enable="false" filter="false" ignoreCase="false" regexp="false" sensitivity="10" text=""/>
+<native aiIOS="" alIOS="" class="" classBB="" classIOS="" classWP="" contentDescription="" contentWP="" enable="false" enableBB="false" enableIOS="false" enableWP="false" hint="" id="" method="class" methodBB="class" methodIOS="class" methodWP="class" nameWP="" placeholderIOS="" scriptIOS="" text="" textBB="" textIOS="" textWP="" value="" xpath="" xpathIOS="" xpathWP=""/>
+<web enable="false" method="" value=""/>
+</obj>
+<obj text="SharedAnnotate" version="1">
+<images enable="true">
+<image file="default\SharedAnnotate.PNG" jump="1" mainColor="-cccccd" max="0" min="0" scanner="Advance Similarity" similarity="97"/>
+</images>
+<text color="2147483647" enable="false" filter="false" ignoreCase="false" regexp="false" sensitivity="10" text=""/>
+<native aiIOS="" alIOS="" class="" classBB="" classIOS="" classWP="" contentDescription="" contentWP="" enable="false" enableBB="false" enableIOS="false" enableWP="false" hint="" id="" method="class" methodBB="class" methodIOS="class" methodWP="class" nameWP="" placeholderIOS="" scriptIOS="" text="" textBB="" textIOS="" textWP="" value="" xpath="" xpathIOS="" xpathWP=""/>
+<web enable="false" method="" value=""/>
+</obj>
+<obj text="SharedAnnotateText" version="1">
+<images enable="true">
+<image file="default\SharedAnnotateText.PNG" jump="1" mainColor="-1000000" max="0" min="0" scanner="Advance Similarity" similarity="97"/>
 </images>
 <text color="2147483647" enable="false" filter="false" ignoreCase="false" regexp="false" sensitivity="10" text=""/>
 <native aiIOS="" alIOS="" class="" classBB="" classIOS="" classWP="" contentDescription="" contentWP="" enable="false" enableBB="false" enableIOS="false" enableWP="false" hint="" id="" method="class" methodBB="class" methodIOS="class" methodWP="class" nameWP="" placeholderIOS="" scriptIOS="" text="" textBB="" textIOS="" textWP="" value="" xpath="" xpathIOS="" xpathWP=""/>

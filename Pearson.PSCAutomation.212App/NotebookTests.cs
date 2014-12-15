@@ -623,32 +623,7 @@ namespace Pearson.PSCAutomation._212App
             }
         }
 
-        /// <summary>
-        /// Make sure device is connected with internet. Student and Teacher should be linked with each other and have a common section. 
-        /// Teacher should be the sectioned teacher
-        /// Test Scenari : Create button for Notebook must be in disable when name left blank.
-        /// </summary>
-        [TestMethod()]
-        [TestCategory("Notebook Tests")]
-        [WorkItem(8161)]
-        [Priority(1)]
-        [Owner("Namrita Agarwal(namrita.agarwal)")]
-        public void VerifyCancelButtonDisabled()
-        {
-            using (notebookAutomationAgent = new AutomationAgent("TC8161: Verify that create button is disabled when user enter no name for notebook "))
-            {
-                NavigationCommonMethods.Login(notebookAutomationAgent, "efoster16", "sch00lnet");
-                NavigationCommonMethods.NavigateELATaskfromSytemTrayMenu(notebookAutomationAgent, 6, 1, 1, 4);
-                NotebookCommonMethods.ClickOnNotebookIcon(notebookAutomationAgent);
-                NotebookCommonMethods.NotebookWorkBrowserView(notebookAutomationAgent);
-                NotebookCommonMethods.ClickPersonalNotesLink(notebookAutomationAgent);
-                NotebookCommonMethods.ClickCreateNoteInPersonalNote(notebookAutomationAgent);
-                NotebookCommonMethods.SetNameToPersonalNote(notebookAutomationAgent, string.Empty);
-                NotebookCommonMethods.VerifyPersonalNoteCreateButtonStatus(notebookAutomationAgent, false);
-                NotebookCommonMethods.ClickCancelPersonalNoteCrate(notebookAutomationAgent);
-                NavigationCommonMethods.Logout(notebookAutomationAgent);
-            }
-        }
+       
 
         /// <summary>
         /// Make sure device is connected with internet. Student and Teacher should be linked with each other and have a common section. 

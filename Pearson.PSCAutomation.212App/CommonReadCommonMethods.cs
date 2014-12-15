@@ -66,6 +66,67 @@ namespace Pearson.PSCAutomation._212App
         {
             commonReadAutomationAgent.Click("CommonReadAnnotationsPanelView", "EditButton");
         }
+
+        public static void ClickOnAnnotationLink(AutomationAgent annotationAutomationAgent)
+        {
+            annotationAutomationAgent.Click("CommonReadAnnotationsView", "AnnotationLink");
+        }
+
+        public static void ClickOnCommonRead(AutomationAgent annotationAutomationAgent)
+        {
+            annotationAutomationAgent.Click("CommonReadAnnotationsView", "CommonReadImage");
+        }
+
+        public static void ClickOnTextToAnnotate(AutomationAgent annotationAutomationAgent)
+        {
+            annotationAutomationAgent.LongClick("CommonReadAnnotationsView", "CourteousImage");
+        }
+
+        public static void ClickOnHighlightedAnnotate(AutomationAgent annotationAutomationAgent)
+        {
+            annotationAutomationAgent.LongClick("CommonReadAnnotationsView", "HighlightCourteous");
+        }
+
+        public static void ClickOnShareAnnotateButton(AutomationAgent annotationAutomationAgent)
+        {
+            annotationAutomationAgent.Click("CommonReadAnnotationsView", "ShareAnnotation");
+        }
+
+        public static void ClickOnSharedWorkIcon(AutomationAgent annotationAutomationAgent)
+        {
+            annotationAutomationAgent.Click("TasksTopMenuView", "SharedWorkIcon");
+        }
+
+        public static void ClickOnShareAnnotateAsReceiver(AutomationAgent annotationAutomationAgent)
+        {
+            annotationAutomationAgent.Click("ReceivedWorkView", "LatestAnnotationShare");
+        }
+
+        public static void ClickToDownloadNewAnnotationAsReceiver(AutomationAgent annotationAutomationAgent)
+        {
+            annotationAutomationAgent.Click("ReceivedWorkView", "DownloadAnnotation");
+        }
+
+        public static void ClickOnAnnotationAsReceiver(AutomationAgent annotationAutomationAgent)
+        {
+            annotationAutomationAgent.Click("ReceivedWorkView", "DownloadAnnotation");
+        }
+
+        public static void ClickOnSharedByAnnotation(AutomationAgent annotationAutomationAgent)
+        {
+            annotationAutomationAgent.Click("CommonReadPageView", "SharedAnnotation");
+        }
+
+        public static void VerifySharedAnnotationTextFound(AutomationAgent annotationAutomationAgent)
+        {
+            annotationAutomationAgent.VerifyElementFound("CommonReadPageView", "SharedTextAnnotation");
+        }
+
+        public static void VerifyGistAnnotationLabel(AutomationAgent commonReadAutomationAgent)
+        {
+            commonReadAutomationAgent.VerifyElementFound("CommonReadPageView", "GistAnnotationsLabel");
+        }
+ 
     }
 
     public enum AnnotationType
