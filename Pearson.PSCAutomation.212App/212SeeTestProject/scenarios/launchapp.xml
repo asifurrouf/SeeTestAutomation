@@ -1,22 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?><commands>
 <command enable="true" name="SetDevice(Device)">
 <parameters>
-<parameter defaultValue="ios_app:Lab13-ipadmini" description="Device name" name="Title" pattern="" type="application"/>
+<parameter defaultValue="ios_app:Lab11_Ipad" description="Device name" name="Device" pattern="(.+)" type="application"/>
 </parameters>
 </command>
 <command enable="true" name="Launch(activity, instrument, stopIfRunning)">
 <parameters>
-<parameter defaultValue="com.pearson.commoncore.f-UpgradeTesting" description="The application main activity or URL" name="Activity" pattern="" type="launch"/>
-<parameter defaultValue="true" description="If set to true then will launch in instrument mode" name="Instrument" pattern="" type="bool"/>
-<parameter defaultValue="false" description="If set to true then will stop the running process before launching it" name="Stop if run" pattern="" type="bool"/>
+<parameter defaultValue="com.pearson.commoncore.f-UpgradeTesting" description="The application main activity or URL" name="Activity/URL" pattern="(.+)" type="launch"/>
+<parameter defaultValue="true" description="If set to true then will launch in instrument mode" name="Instrument" pattern="(true|false)" type="bool"/>
+<parameter defaultValue="false" description="If set to true then will stop the running process before launching it" name="Stop If Running" pattern="(true|false)" type="bool"/>
 </parameters>
 </command>
-<command enable="true" name="ElementSendText(Zone, Element, Index, Text)" x="1421" y="687">
+<command enable="true" name="ElementSendText(Zone, Element, Index, Text)">
 <parameters>
-<parameter defaultValue="NATIVE" description="Select Zone" name="Zone" pattern="" type="zone"/>
-<parameter defaultValue="class=UIButton" description="Select Element" name="Element" pattern="" type="element"/>
-<parameter defaultValue="0" description="Element index" name="Index" pattern="" type="integer"/>
-<parameter defaultValue="awhite" description="Text to Send" name="Text" pattern="" type="string"/>
+<parameter defaultValue="NATIVE" description="Select Zone" name="Zone" pattern="(.+)" type="zone"/>
+<parameter defaultValue="class=UIButton" description="Select Element" name="Element" pattern="(.+)" type="element"/>
+<parameter defaultValue="0" description="Element index" name="Index" pattern="(\d+)" type="integer"/>
+<parameter defaultValue="awhite" description="Text to Send" name="Text" pattern="(.*)" type="string"/>
+</parameters>
+</command>
+<command enable="true" name="Click(Zone, Element, Index, ClickCount)">
+<parameters>
+<parameter defaultValue="default" description="Select Zone" name="Zone" pattern="" type="zone"/>
+<parameter defaultValue="GistAnnotationLabel" description="Select Element" name="Element" pattern="" type="element"/>
+<parameter defaultValue="0" description="Element Order" name="Index" pattern="" type="integer"/>
+<parameter defaultValue="1" description="Number of Clicks" name="Click Count" pattern="" type="integer"/>
 </parameters>
 </command>
 </commands>

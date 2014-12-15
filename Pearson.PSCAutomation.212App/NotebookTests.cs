@@ -69,11 +69,11 @@ namespace Pearson.PSCAutomation._212App
         [Priority(1)]
         [Owner("Isha Jain(isha.jain)")]
         public void DeletePageInAscending()
-        { 
+        {
             try
-            { 
+            {
                 using (notebookAutomationAgent = new AutomationAgent("TC8191:Delete Page in Ascending Order from Notebook"))
-                {                    
+                {
                     NavigationCommonMethods.Login(notebookAutomationAgent, Login.GetLogin("Teacher1"));
                     NavigationCommonMethods.NavigateELATaskfromSytemTrayMenu(notebookAutomationAgent, 6, 1, 1, 1);
                     NotebookCommonMethods.ClickOnNotebookIcon(notebookAutomationAgent);
@@ -88,7 +88,7 @@ namespace Pearson.PSCAutomation._212App
                     NotebookCommonMethods.DeleteNotebookPage(notebookAutomationAgent);
                     NavigationCommonMethods.Logout(notebookAutomationAgent);
                 }
-                
+
             }
             catch (AssertFailedException ex)
             {
@@ -103,7 +103,7 @@ namespace Pearson.PSCAutomation._212App
                 notebookAutomationAgent.GetDeviceLog();
                 NavigationCommonMethods.LogoutOnExceptionAndReleaseClient(notebookAutomationAgent);
                 throw ex;
-            }                       
+            }
         }
 
         [TestMethod()]
@@ -228,6 +228,9 @@ namespace Pearson.PSCAutomation._212App
  
                 NavigationCommonMethods.Login(notebookAutomationAgent, "1102524", "sch00lnet"); //student name: Zainab Haver
                 System.Threading.Thread.Sleep(1000);
+
+                NavigationCommonMethods.Login(notebookAutomationAgent, "1102524", "sch00lnet"); //student name: Zainab Haver
+                System.Threading.Thread.Sleep(5000);
                 NavigationCommonMethods.NavigateELATaskfromSytemTrayMenu(notebookAutomationAgent, 6, 1, 1, 4);
                 NotebookCommonMethods.ClickOnNotebookIcon(notebookAutomationAgent);
                 System.Threading.Thread.Sleep(5000);
@@ -590,6 +593,33 @@ namespace Pearson.PSCAutomation._212App
                 NotebookCommonMethods.VerifyTaskNotebookFound(notebookAutomationAgent);
                 NavigationCommonMethods.Logout(notebookAutomationAgent);
 
+            }
+        }
+
+        /// <summary>
+        /// Make sure device is connected with internet. Student and Teacher should be linked with each other and have a common section. 
+        /// Teacher should be the sectioned teacher
+        /// Test Scenari : Create button for Notebook must be in disable when name left blank.
+        /// </summary>
+        [TestMethod()]
+        [TestCategory("Notebook Tests")]
+        [WorkItem(8161)]
+        [Priority(1)]
+        [Owner("Namrita Agarwal(namrita.agarwal)")]
+        public void VerifyCancelButtonDisabled()
+        {
+            using (notebookAutomationAgent = new AutomationAgent("TC8161: Verify that create button is disabled when user enter no name for notebook "))
+            {
+                NavigationCommonMethods.Login(notebookAutomationAgent, "efoster16", "sch00lnet");
+                NavigationCommonMethods.NavigateELATaskfromSytemTrayMenu(notebookAutomationAgent, 6, 1, 1, 4);
+                NotebookCommonMethods.ClickOnNotebookIcon(notebookAutomationAgent);
+                NotebookCommonMethods.NotebookWorkBrowserView(notebookAutomationAgent);
+                NotebookCommonMethods.ClickPersonalNotesLink(notebookAutomationAgent);
+                NotebookCommonMethods.ClickCreateNoteInPersonalNote(notebookAutomationAgent);
+                NotebookCommonMethods.SetNameToPersonalNote(notebookAutomationAgent, string.Empty);
+                NotebookCommonMethods.VerifyPersonalNoteCreateButtonStatus(notebookAutomationAgent, false);
+                NotebookCommonMethods.ClickCancelPersonalNoteCrate(notebookAutomationAgent);
+                NavigationCommonMethods.Logout(notebookAutomationAgent);
             }
         }
 

@@ -102,12 +102,30 @@ namespace Pearson.PSCAutomation._212App
         [Priority(1)]
         [Owner("Kiran Kumar Anantapalli(kiran.anantapalli)")]
         public void LoginAndLogout()
-        {
+        {            
             using (navigationAutomationAgent = new AutomationAgent("TC7352:Login and Logout"))
             {
-                NavigationCommonMethods.Login(navigationAutomationAgent, "apatton1", "sch00lnet");
-                NavigationCommonMethods.Logout(navigationAutomationAgent);
+                try
+                {
+                    NavigationCommonMethods.Login(navigationAutomationAgent, "apatton1", "sch00lnet");
+                    NavigationCommonMethods.Logout(navigationAutomationAgent);
+                }
+                catch (AssertFailedException ex)
+                {
+                    navigationAutomationAgent.CaptureScreenshot(ex.Message);
+                    NavigationCommonMethods.Logout(navigationAutomationAgent);
+                    navigationAutomationAgent.GenerateReportAndReleaseClient();
+                    throw ex;
+                }
+                catch (Exception ex)
+                {
+                    navigationAutomationAgent.CaptureScreenshot(ex.Message);
+                    navigationAutomationAgent.GetDeviceLog();
+                    NavigationCommonMethods.LogoutOnExceptionAndReleaseClient(navigationAutomationAgent);
+                    throw ex;
+                } 
             }
+           
         }
 
         [TestMethod()]
@@ -119,6 +137,7 @@ namespace Pearson.PSCAutomation._212App
             using (navigationAutomationAgent = new AutomationAgent("TC7353: Log in logout2"))
             {
                 NavigationCommonMethods.Login(navigationAutomationAgent, "apatton1", "sch00lnet");
+                Assert.IsTrue(false);
                 NavigationCommonMethods.Logout(navigationAutomationAgent);
 
             }
