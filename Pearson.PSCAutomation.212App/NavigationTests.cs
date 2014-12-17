@@ -175,9 +175,9 @@ namespace Pearson.PSCAutomation._212App
         [Priority(1)]
         [WorkItem(14048)]
         [Owner("Narasimhan (narsimhan.narayanan)")]
-        public void VerifyClassRoster()
+        public void VerifyClassRosterInUnitPreviewOfSectionGrade()
         {
-            using (navigationAutomationAgent = new AutomationAgent("TC14048_1:Verify the class roster should not be displayed in unit preview"))
+            using (navigationAutomationAgent = new AutomationAgent("TC14048:Verify the class roster should not be displayed in unit preview"))
             {
                 try
                 {
@@ -212,9 +212,9 @@ namespace Pearson.PSCAutomation._212App
         [Priority(1)]
         [WorkItem(14048)]
         [Owner("Narasimhan (narsimhan.narayanan)")]
-        public void VerifyClassRosterInLessonBrowser()
+        public void VerifyClassRosterInLessonBrowserOfSectionGrade()
         {
-            using (navigationAutomationAgent = new AutomationAgent("TC14048_2:Verify class roster should not be in Lesson Browser of section grade"))
+            using (navigationAutomationAgent = new AutomationAgent("TC1810:Verify class roster should not be in Lesson Browser of section grade"))
             {
                 try
                 {
@@ -249,9 +249,9 @@ namespace Pearson.PSCAutomation._212App
         [Priority(1)]
         [WorkItem(14048)]
         [Owner("Narasimhan (narsimhan.narayanan)")]
-        public void VerifyClassRosterInLesson()
+        public void VerifyClassRosterInLessonOfSectionGrade()
         {
-            using (navigationAutomationAgent = new AutomationAgent("TC14048_3:Verify the class roster should not be within a Lesson of section grade"))
+            using (navigationAutomationAgent = new AutomationAgent("TC1811:Verify the class roster should not be within a Lesson of section grade"))
             {
                 try
                 {
