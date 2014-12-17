@@ -354,7 +354,23 @@
         <ControlType>Button</ControlType>
         <ControlText>None</ControlText>
       </Control>
+      <Control ControlName="TeacherMode">
+        <Zone>Native</Zone>
+        <Element>accessibilityLabel=button toggle teacher mode nor</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
     </View>
+    <View ViewName="DashboardView">
+      <Control ControlName="ClassRosterLink">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@accessibilityLabel='DKTeacherDashboardRosterELA@2x' and ./preceding-sibling::*[@text='Sec-02 Per-1']]</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      </View>
     <View ViewName="NotebookTopMenuView">
       <Control ControlName="AddNewPage">
         <Zone>Native</Zone>

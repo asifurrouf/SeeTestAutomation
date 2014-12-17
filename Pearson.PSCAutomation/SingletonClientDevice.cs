@@ -13,7 +13,7 @@ namespace Pearson.PSCAutomation.Framework
     public class SingletonClientDevice
     {
         private static string host = ConfigurationManager.AppSettings["Host"].ToString();
-        private static int port = 8889;
+        private static int port = 8890;
         private static string seeTestDeviceName = ConfigurationManager.AppSettings["SeeTestDeviceName"].ToString();
         private static ClientDevice clientDeviceInstance;
         private static Device device = new Device(ConfigurationManager.AppSettings["DeviceName"].ToString(), seeTestDeviceName, ConfigurationManager.AppSettings["ConnectedOver"].ToString(), ConfigurationManager.AppSettings["Version"].ToString());

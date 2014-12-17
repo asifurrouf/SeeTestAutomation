@@ -169,5 +169,115 @@ namespace Pearson.PSCAutomation._212App
                 NavigationCommonMethods.ClickCancelInSelectGrade(navigationAutomationAgent);
             }
         }
+
+        [TestMethod()]
+        [TestCategory("Navigation Tests")]
+        [Priority(1)]
+        [WorkItem(14048)]
+        [Owner("Narasimhan (narsimhan.narayanan)")]
+        public void VerifyClassRoster()
+        {
+            using (navigationAutomationAgent = new AutomationAgent("TC14048_1:Verify the class roster should not be displayed in unit preview"))
+            {
+                try
+                {
+                    NavigationCommonMethods.Login(navigationAutomationAgent, Login.GetLogin("Grade2SectionedTeacher"));
+                    NavigationCommonMethods.NavigateToELA(navigationAutomationAgent);
+                    NavigationCommonMethods.NavigateToELAGrade(navigationAutomationAgent, 2);
+                    NavigationCommonMethods.ClickELAUnitFromUnitLibrary(navigationAutomationAgent, 1);
+                    NavigationCommonMethods.ClickTeacherModeButton(navigationAutomationAgent);
+                    NavigationCommonMethods.VerifyClassRosterLink(navigationAutomationAgent);
+                    NavigationCommonMethods.Logout(navigationAutomationAgent);
+                }
+                catch (AssertFailedException ex)
+                {
+                    navigationAutomationAgent.CaptureScreenshot(ex.Message);
+                    NavigationCommonMethods.Logout(navigationAutomationAgent);
+                    navigationAutomationAgent.GenerateReportAndReleaseClient();
+                    throw ex;
+                }
+                catch (Exception ex)
+                {
+                    navigationAutomationAgent.CaptureScreenshot(ex.Message);
+                    navigationAutomationAgent.GetDeviceLog();
+                    NavigationCommonMethods.LogoutOnExceptionAndReleaseClient(navigationAutomationAgent);
+                    throw ex;
+                }
+            }
+
+        }
+
+        [TestMethod()]
+        [TestCategory("Navigation Tests")]
+        [Priority(1)]
+        [WorkItem(14048)]
+        [Owner("Narasimhan (narsimhan.narayanan)")]
+        public void VerifyClassRosterInLessonBrowser()
+        {
+            using (navigationAutomationAgent = new AutomationAgent("TC14048_2:Verify class roster should not be in Lesson Browser of section grade"))
+            {
+                try
+                {
+                    NavigationCommonMethods.Login(navigationAutomationAgent, Login.GetLogin("Grade2SectionedTeacher"));
+                    NavigationCommonMethods.NavigateToELA(navigationAutomationAgent);
+                    NavigationCommonMethods.NavigateToELAGrade(navigationAutomationAgent, 2);
+                    NavigationCommonMethods.StartELAUnitFromUnitLibrary(navigationAutomationAgent, 1);
+                    NavigationCommonMethods.ClickTeacherModeButton(navigationAutomationAgent);
+                    NavigationCommonMethods.VerifyClassRosterLink(navigationAutomationAgent);
+                    NavigationCommonMethods.Logout(navigationAutomationAgent);
+                }
+                catch (AssertFailedException ex)
+                {
+                    navigationAutomationAgent.CaptureScreenshot(ex.Message);
+                    NavigationCommonMethods.Logout(navigationAutomationAgent);
+                    navigationAutomationAgent.GenerateReportAndReleaseClient();
+                    throw ex;
+                }
+                catch (Exception ex)
+                {
+                    navigationAutomationAgent.CaptureScreenshot(ex.Message);
+                    navigationAutomationAgent.GetDeviceLog();
+                    NavigationCommonMethods.LogoutOnExceptionAndReleaseClient(navigationAutomationAgent);
+                    throw ex;
+                }
+            }
+
+        }
+
+        [TestMethod()]
+        [TestCategory("Navigation Tests")]
+        [Priority(1)]
+        [WorkItem(14048)]
+        [Owner("Narasimhan (narsimhan.narayanan)")]
+        public void VerifyClassRosterInLesson()
+        {
+            using (navigationAutomationAgent = new AutomationAgent("TC14048_3:Verify the class roster should not be within a Lesson of section grade"))
+            {
+                try
+                {
+                    NavigationCommonMethods.Login(navigationAutomationAgent, Login.GetLogin("Grade2SectionedTeacher"));
+                    NavigationCommonMethods.NavigateELATaskfromSytemTrayMenu(navigationAutomationAgent, 2, 1, 1, 1);
+                    NavigationCommonMethods.ClickTeacherModeButton(navigationAutomationAgent);
+                    NavigationCommonMethods.VerifyClassRosterLink(navigationAutomationAgent);
+                    NavigationCommonMethods.Logout(navigationAutomationAgent);
+                }
+                catch (AssertFailedException ex)
+                {
+                    navigationAutomationAgent.CaptureScreenshot(ex.Message);
+                    NavigationCommonMethods.Logout(navigationAutomationAgent);
+                    navigationAutomationAgent.GenerateReportAndReleaseClient();
+                    throw ex;
+                }
+                catch (Exception ex)
+                {
+                    navigationAutomationAgent.CaptureScreenshot(ex.Message);
+                    navigationAutomationAgent.GetDeviceLog();
+                    NavigationCommonMethods.LogoutOnExceptionAndReleaseClient(navigationAutomationAgent);
+                    throw ex;
+                }
+            }
+
+        }
+
     }
 }
