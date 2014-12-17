@@ -104,11 +104,11 @@ namespace Pearson.PSCAutomation._212App
         {
             using (commonReadAutomationAgent = new AutomationAgent("TC1185:Confirmation popup for deleting annotations"))
             {
-                NavigationCommonMethods.Login(commonReadAutomationAgent, "apatton1", "sch00lnet");
-                NavigationCommonMethods.NavigateELATaskfromSytemTrayMenu(commonReadAutomationAgent, 6, 1, 1, 4);
-                CommonReadCommonMethods.OpenCommonRead(commonReadAutomationAgent);
-                //Implement Annotation Type & Selecting specific text from common read
-                CommonReadCommonMethods.CreateAnnotation(commonReadAutomationAgent, AnnotationType.Gist, "Test");
+                //NavigationCommonMethods.Login(commonReadAutomationAgent, "apatton1", "sch00lnet");
+                //NavigationCommonMethods.NavigateELATaskfromSytemTrayMenu(commonReadAutomationAgent, 6, 1, 1, 4);
+                //CommonReadCommonMethods.OpenCommonRead(commonReadAutomationAgent);
+                ////Implement Annotation Type & Selecting specific text from common read
+                //CommonReadCommonMethods.CreateAnnotation(commonReadAutomationAgent, AnnotationType.Gist, "Test");
                 CommonReadCommonMethods.EditAnnotation(commonReadAutomationAgent, AnnotationType.Gist);
 
                 CommonReadCommonMethods.ClickOnDoneButton(commonReadAutomationAgent);
@@ -116,6 +116,9 @@ namespace Pearson.PSCAutomation._212App
             }
         }
 
+        /// <summary>
+        /// Incomplete
+        /// </summary>
         [TestMethod()]
         [TestCategory("Annotation Tests")]
         [WorkItem(8317)]

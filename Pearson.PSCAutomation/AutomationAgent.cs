@@ -233,6 +233,19 @@ namespace Pearson.PSCAutomation.Framework
             client.VerifyElementFound(this.control.Zone, this.control.Element, this.control.Index);
         }
 
+
+        /// <summary>
+        /// Verifies if an Element is found
+        /// </summary>
+        /// <param name="viewName">Provide a valid viewname from controls.xml</param>
+        /// <param name="controlName">Provide a valid controlname under the viewname from controls.xml</param>
+        public void VerifyElementFound(string viewName, string controlName, string dynamicVariable)
+        {
+            System.Threading.Thread.Sleep(WaitTime.DefaultWaitTime);
+            this.PopulateDynamicControl(viewName, controlName, dynamicVariable);
+            client.VerifyElementFound(this.control.Zone, this.control.Element, this.control.Index);
+        }
+
         /// <summary>
         /// Waits of an Element to vanish from the screen
         /// </summary>
@@ -300,6 +313,12 @@ namespace Pearson.PSCAutomation.Framework
             }
             client.ElementSwipe(this.control.Zone, this.control.Element, this.control.Index, direction.ToString(), offSet, swipeTime);
         }
+
+        public void Swipe(Direction direction, int offSet=500)
+        {   
+            client.Swipe(direction.ToString(), offSet);
+        }
+
         public string[] GetAllValues(string viewName, string controlName, string property)
         {
             this.PopulateControl(viewName, controlName);

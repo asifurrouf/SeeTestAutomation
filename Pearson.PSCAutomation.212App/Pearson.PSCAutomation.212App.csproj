@@ -67,6 +67,10 @@
     <Compile Include="NotebookTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CommonReadTests.cs" />
+    <Compile Include="LoginLogoutTests.cs" />
+    <Compile Include="LoginLogoutCommonMethods.cs" />
+    <Compile Include="LessonBrowserTests.cs" />
+    <Compile Include="LessonBrowserCommonMethods.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Pearson.PSCAutomation\Pearson.PSCAutomation.Framework.csproj">
@@ -87,7 +91,13 @@
     <None Include="212SeeTestProject\default\CourteousImage.properties">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="212SeeTestProject\default\DeleteAnnotationButton.properties">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="212SeeTestProject\default\E.properties">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="212SeeTestProject\default\EditAnnotationButton.properties">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="212SeeTestProject\default\HighlightCourteous.properties">
@@ -128,7 +138,13 @@
     <Content Include="212SeeTestProject\default\CourteousImage.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="212SeeTestProject\default\DeleteAnnotationButton.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="212SeeTestProject\default\E.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="212SeeTestProject\default\EditAnnotationButton.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="212SeeTestProject\default\HighlightCourteous.PNG">

@@ -103,7 +103,7 @@ namespace Pearson.PSCAutomation._212App
         [Owner("Kiran Kumar Anantapalli(kiran.anantapalli)")]
         public void LoginAndLogout()
         {            
-            using (navigationAutomationAgent = new AutomationAgent("TC7352:Login and Logout"))
+            using (navigationAutomationAgent = new AutomationAgent("Login and Logout"))
             {
                 try
                 {
@@ -134,7 +134,7 @@ namespace Pearson.PSCAutomation._212App
         [Owner("Kiran Kumar Anantapalli(kiran.anantapalli)")]
         public void LoginAndLogout2()
         {
-            using (navigationAutomationAgent = new AutomationAgent("TC7353: Log in logout2"))
+            using (navigationAutomationAgent = new AutomationAgent("Log in logout2"))
             {
                 NavigationCommonMethods.Login(navigationAutomationAgent, "apatton1", "sch00lnet");
                 Assert.IsTrue(false);
@@ -149,7 +149,7 @@ namespace Pearson.PSCAutomation._212App
         [Owner("Kiran Kumar Anantapalli(kiran.anantapalli)")]
         public void UnitOverviewVerification()
         {
-            using (navigationAutomationAgent = new AutomationAgent("TC7354: Unit Overview verification"))
+            using (navigationAutomationAgent = new AutomationAgent("Unit Overview verification"))
             {
                 NavigationCommonMethods.Login(navigationAutomationAgent, "apatton1", "sch00lnet");
                 NavigationCommonMethods.NavigateToELA(navigationAutomationAgent);
@@ -163,7 +163,7 @@ namespace Pearson.PSCAutomation._212App
         [Owner("Kiran Kumar Anantapalli(kiran.anantapalli)")]
         public void LoginAndCancelAddGrades()
         {
-            using (navigationAutomationAgent = new AutomationAgent("TC7355: Log in and cancel add grades"))
+            using (navigationAutomationAgent = new AutomationAgent("Log in and cancel add grades"))
             {
                 NavigationCommonMethods.Login(navigationAutomationAgent, "awhite", "sch00lnet");
                 NavigationCommonMethods.ClickCancelInSelectGrade(navigationAutomationAgent);

@@ -13,7 +13,7 @@ namespace Pearson.PSCAutomation.Framework
     public class SingletonClientDevice
     {
         private static string host = ConfigurationManager.AppSettings["Host"].ToString();
-        private static int port = 8889;
+        private static int port = int.Parse(ConfigurationManager.AppSettings["Port"].ToString());
         private static string seeTestDeviceName = ConfigurationManager.AppSettings["SeeTestDeviceName"].ToString();
         private static ClientDevice clientDeviceInstance;
         private static Device device = new Device(ConfigurationManager.AppSettings["DeviceName"].ToString(), seeTestDeviceName, ConfigurationManager.AppSettings["ConnectedOver"].ToString(), ConfigurationManager.AppSettings["Version"].ToString());
@@ -48,7 +48,7 @@ namespace Pearson.PSCAutomation.Framework
     }
     public static class WaitTime
     {
-        public const int DefaultWaitTime = 10000;
+        public const int DefaultWaitTime = 3000;
         public static readonly float WaitTimeMultiplier = float.Parse(ConfigurationManager.AppSettings["WaitTimeMultiplier"].ToString());
         public static readonly int SmallWaitTime = (int)(int.Parse(ConfigurationManager.AppSettings["SmallWaitTime"].ToString()) * WaitTimeMultiplier);
         public static readonly int MediumWaitTime = (int)(int.Parse(ConfigurationManager.AppSettings["MediumWaitTime"].ToString()) * WaitTimeMultiplier);
