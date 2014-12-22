@@ -679,5 +679,129 @@ namespace Pearson.PSCAutomation._212App
                 NavigationCommonMethods.Logout(notebookAutomationAgent);
             }
         }
+
+        /// <summary>
+        /// Make sure device is connected with internet. Student and Teacher should be linked with each other and have a common section. 
+        /// Teacher should be the sectioned teacher
+        /// Test Scenari : Draw pop-up with one tap
+        /// </summary>
+        [TestMethod()]
+        [TestCategory("Notebook Tests")]
+        [WorkItem(7092)]
+        [Priority(1)]
+        [Owner("Namrita Agarwal(namrita.agarwal)")]
+        public void VerifyDrawingToolEnable()
+        {
+            using (notebookAutomationAgent = new AutomationAgent("TC7092: Native notebook: Draw pop-up with one tap"))
+            {
+                NavigationCommonMethods.Login(notebookAutomationAgent, "efoster16", "sch00lnet");
+                NavigationCommonMethods.NavigateELATaskfromSytemTrayMenu(notebookAutomationAgent, 6, 1, 1, 4);
+                NotebookCommonMethods.ClickOnNotebookIcon(notebookAutomationAgent);
+                NotebookCommonMethods.ClickPenIconInNotebook(notebookAutomationAgent);
+                NotebookCommonMethods.VerifyPenColorPopup(notebookAutomationAgent, true);
+                NotebookCommonMethods.ClickEraserIconInNotebook(notebookAutomationAgent);
+                NotebookCommonMethods.VerifyEraserPopup(notebookAutomationAgent, true);
+                NavigationCommonMethods.Logout(notebookAutomationAgent);
+            }
+        }
+
+        /// <summary>
+        /// Make sure device is connected with internet. Student and Teacher should be linked with each other and have a common section. 
+        /// Teacher should be the sectioned teacher
+        /// Test Scenari : Closing notebook by tapping on navigation bar button
+        /// </summary>
+        [TestMethod()]
+        [TestCategory("Notebook Tests")]
+        [WorkItem(3082)]
+        [Priority(1)]
+        [Owner("Namrita Agarwal(namrita.agarwal)")]
+        public void NoteBookTopMenuOpenandClosefunctionality()
+        {
+            using (notebookAutomationAgent = new AutomationAgent("TC9082: Closing notebook by tapping on navigation bar button"))
+            {
+              
+                NavigationCommonMethods.Login(notebookAutomationAgent, "efoster16", "sch00lnet");
+                NavigationCommonMethods.NavigateELATaskfromSytemTrayMenu(notebookAutomationAgent, 6, 1, 1, 4);
+                NotebookCommonMethods.ClickOnNotebookIcon(notebookAutomationAgent);
+                NotebookCommonMethods.ClickOnNotebookButton(notebookAutomationAgent,true);
+                NavigationCommonMethods.Logout(notebookAutomationAgent);
+            }
+        }
+
+        /// <summary>
+        /// Make sure device is connected with internet. Student and Teacher should be linked with each other and have a common section. 
+        /// Teacher should be the sectioned teacher
+        /// Test Scenari : Closing notebook by tapping on navigation bar button
+        /// </summary>
+        [TestMethod()]
+        [TestCategory("Notebook Tests")]
+        [WorkItem(5207)]
+        [Priority(1)]
+        [Owner("Namrita Agarwal(namrita.agarwal)")]
+        public void NoteBookTextBoxMovingFunctionality()
+        {
+            using (notebookAutomationAgent = new AutomationAgent("TC5207: Native notebook: Move text region"))
+            {
+
+                NavigationCommonMethods.Login(notebookAutomationAgent, "efoster16", "sch00lnet");
+                NavigationCommonMethods.NavigateELATaskfromSytemTrayMenu(notebookAutomationAgent, 6, 1, 1, 4);
+                NotebookCommonMethods.ClickOnNotebookIcon(notebookAutomationAgent);
+                NotebookCommonMethods.ClickTextIconInNotebook(notebookAutomationAgent);
+                //Assining the coordinate for textbox to be present in notebook
+                NotebookCommonMethods.ClickNoteBookEmptyPage(notebookAutomationAgent,1082,278);
+                NavigationCommonMethods.Logout(notebookAutomationAgent);
+            }
+        }
+
+        /// <summary>
+        /// Make sure device is connected with internet. Student and Teacher should be linked with each other and have a common section. 
+        /// Teacher should be the sectioned teacher
+        /// Test Scenari : Closing notebook by tapping on navigation bar button
+        /// </summary>
+        [TestMethod()]
+        [TestCategory("Notebook Tests")]
+        [WorkItem(5208)]
+        [Priority(1)]
+        [Owner("Namrita Agarwal(namrita.agarwal)")]
+        public void NoteBookTextBoxMoveAndCheckFunctionality()
+        {
+            using (notebookAutomationAgent = new AutomationAgent("TC5208: Native notebook: Editing after moving text region"))
+            {
+
+                NavigationCommonMethods.Login(notebookAutomationAgent, "efoster16", "sch00lnet");
+                NavigationCommonMethods.NavigateELATaskfromSytemTrayMenu(notebookAutomationAgent, 6, 1, 1, 4);
+                NotebookCommonMethods.ClickOnNotebookIcon(notebookAutomationAgent);
+                NotebookCommonMethods.ClickTextIconInNotebook(notebookAutomationAgent);
+                //Assining the coordinate for textbox to be present in notebook
+                NotebookCommonMethods.ClickNoteBookEmptyPage(notebookAutomationAgent, 1082, 278);
+                NavigationCommonMethods.Logout(notebookAutomationAgent);
+            }
+        }
+
+        /// <summary>
+        /// Make sure device is connected with internet. Student and Teacher should be linked with each other and have a common section. 
+        /// Teacher should be the sectioned teacher
+        /// Test Scenari : Closing notebook by tapping on navigation bar button
+        /// </summary>
+        [TestMethod()]
+        [TestCategory("Notebook Tests")]
+        [WorkItem(5209)]
+        [Priority(1)]
+        [Owner("Namrita Agarwal(namrita.agarwal)")]
+        public void NoteBookTextBoxMoveAndEditFunctionality()
+        {
+            using (notebookAutomationAgent = new AutomationAgent("TC5209: Native notebook: Moving text region in edit mode should be impossible"))
+            {
+
+                NavigationCommonMethods.Login(notebookAutomationAgent, "efoster16", "sch00lnet");
+                NavigationCommonMethods.NavigateELATaskfromSytemTrayMenu(notebookAutomationAgent, 6, 1, 1, 4);
+                NotebookCommonMethods.ClickOnNotebookIcon(notebookAutomationAgent);
+                NotebookCommonMethods.ClickTextIconInNotebook(notebookAutomationAgent);
+                //Assining the coordinate for textbox to be present in notebook
+                NotebookCommonMethods.EditMovingTextBox(notebookAutomationAgent, 1082, 278);
+                NotebookCommonMethods.SetPersonalNoteTextBoxtoEmpty(notebookAutomationAgent, string.Empty);
+                NavigationCommonMethods.Logout(notebookAutomationAgent);
+            }
+        }
     }
 }

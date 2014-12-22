@@ -651,7 +651,7 @@
       </Control>
       <Control ControlName="NotebookTextBox">
         <Zone>Native</Zone>
-        <Element>xpath=//*[@class='UIView' and @height>0 and ./*[@text='']]</Element>
+        <Element>xpath=//*[@class='UIView' and ./*[@class='UIView' and ./*[@text='I ']]]</Element>
         <Index>0</Index>
         <ControlType>Label</ControlType>
         <ControlText>None</ControlText>
@@ -754,6 +754,79 @@
         <Element>accessibilityLabel=notebook toolbar pen icon</Element>
         <Index>0</Index>
         <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <!--By Namratha-->
+      <Control ControlName="SelectColorPopup">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@class='UIView' and ./*[@class='UIView' and ./*[@class='UISlider']]]</Element>
+        <Index>0</Index>
+        <ControlType>Panel</ControlType>
+        <ControlText>NA</ControlText>
+      </Control>
+      <Control ControlName="EraserIcon">
+        <Zone>Native</Zone>
+        <Element>accessibilityLabel=notebook toolbar eraser icon</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+       <Control ControlName="ClearPage">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@accessibilityLabel='Clear Page' and @class='UIButton']</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+    </View>
+    <View ViewName="NoteBookTouchView">
+      <Control ControlName="NoteBookTouchScreen">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@class='CCTouchlessView' and ./*[@class='UIView' and ./*[@class='UIView' and ./*[@text='Fight']]]]</Element>
+        <Index>0</Index>
+        <ControlType>TextBox</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="NoteBookTextBoxCursor">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@class='UIView' and @width>0 and ./*[@text='']]</Element>
+        <Index>0</Index>
+        <ControlType>Cursor</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="NoteBookPredictionKeyboard">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@accessibilityLabel='I' and @class='UIKeyboardPredictionCell']</Element>
+        <Index>0</Index>
+        <ControlType>Keyboard</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="NoteBookPredictionKeyboardBackspace">
+        <Zone>Native</Zone>
+        <Element>xpath=(//*[@class='UIKBKeyplaneView']/*[@class='UIKBKeyView'])[12]</Element>
+        <Index>0</Index>
+        <ControlType>BackspaceKey</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="NoteBookTextBoxValue">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@text='I ']</Element>
+        <Index>0</Index>
+        <ControlType>TextBoxValue</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+       <Control ControlName="NoteBookMovedTextBoxValue">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@class='UIView' and ./*[@text='I ']]</Element>
+        <Index>0</Index>
+        <ControlType>TextBoxValue</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="NoteBookEditEmptyTextBox">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@text='']</Element>
+        <Index>0</Index>
+        <ControlType>TextBox</ControlType>
         <ControlText>None</ControlText>
       </Control>
     </View>

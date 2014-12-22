@@ -173,6 +173,11 @@ namespace Pearson.PSCAutomation._212App
             notebookAutomationAgent.Click("NotebookBottomMenuView", "PenIcon");
         }
 
+        public static void ClickEraserIconInNotebook(AutomationAgent notebookAutomationAgent)
+        {
+            notebookAutomationAgent.Click("NotebookBottomMenuView", "EraserIcon");
+        }
+
         public static void VerifyTextInNotebook(AutomationAgent notebookAutomationAgent)
         {
             notebookAutomationAgent.Click("NotebookView", "Enteredtext");
@@ -297,6 +302,64 @@ namespace Pearson.PSCAutomation._212App
         public static void VerifyPersonalNoteTitle(AutomationAgent notebookAutomationAgent, string name)
         {
             Assert.AreEqual<string>(name, notebookAutomationAgent.GetElementProperty("PersonalNotesTopView", "PersonalNoteName", "text"));
+        }
+
+        public static void VerifyPenColorPopup(AutomationAgent notebookAutomationAgent, bool onScreen)
+        {
+            Assert.AreEqual<bool>(onScreen, bool.Parse(notebookAutomationAgent.GetElementProperty("NotebookBottomMenuView", "SelectColorPopup", "onScreen")));
+        }
+
+        public static void VerifyEraserPopup(AutomationAgent notebookAutomationAgent, bool onScreen)
+        {
+            
+            Assert.AreEqual<bool>(onScreen, bool.Parse(notebookAutomationAgent.GetElementProperty("NotebookBottomMenuView", "SelectColorPopup", "onScreen")));
+        
+        }
+
+        public static void ClickOnNotebookButton(AutomationAgent notebookAutomationAgent,bool onScreen )
+        {
+           //
+            Assert.AreEqual<bool>(onScreen, bool.Parse(notebookAutomationAgent.GetElementProperty("NotebookView", "NotebookPanel", "onScreen")));
+        }
+
+        public static void ClickNoteBookEmptyPage(AutomationAgent notebookAutomationAgent, int x, int y)
+        {
+            notebookAutomationAgent.ClickCoordinate(x, y);
+            notebookAutomationAgent.Click("NoteBookTouchView", "NoteBookTextBoxCursor");
+            notebookAutomationAgent.Click("NoteBookTouchView", "NoteBookPredictionKeyboard");
+            Assert.IsNotNull(notebookAutomationAgent.GetElementText("NoteBookTouchView","NoteBookTextBoxValue"));
+            notebookAutomationAgent.ClickCoordinate(x+800, y);
+            notebookAutomationAgent.ClickCoordinate(x, y);
+            notebookAutomationAgent.DragElement("NotebookView", "NotebookTextBox", x, y);
+            Assert.IsNotNull(notebookAutomationAgent.GetElementText("NoteBookTouchView", "NoteBookTextBoxValue"));
+            notebookAutomationAgent.Click("NotebookBottomMenuView", "EraserIcon");
+            notebookAutomationAgent.Click("NotebookBottomMenuView", "ClearPage");
+         }
+        public static void EditMovingTextBox(AutomationAgent notebookAutomationAgent, int x, int y)
+        {
+            notebookAutomationAgent.ClickCoordinate(x, y);
+            notebookAutomationAgent.Click("NoteBookTouchView", "NoteBookTextBoxCursor");
+            notebookAutomationAgent.Click("NoteBookTouchView", "NoteBookPredictionKeyboard");
+            Assert.IsNotNull(notebookAutomationAgent.GetElementText("NoteBookTouchView", "NoteBookTextBoxValue"));
+            notebookAutomationAgent.ClickCoordinate(x + 800, y);
+            notebookAutomationAgent.ClickCoordinate(x, y);
+            notebookAutomationAgent.DragElement("NotebookView", "NotebookTextBox", x, y);
+            Assert.IsNotNull(notebookAutomationAgent.GetElementText("NoteBookTouchView", "NoteBookTextBoxValue"));
+            //xpath for moved text box is copied 
+            notebookAutomationAgent.Click("NoteBookTouchView", "NoteBookMovedTextBoxValue");
+            notebookAutomationAgent.Click("NoteBookTouchView", "NoteBookPredictionKeyboardBackspace");
+            
+          
+        }
+
+        public static void SetPersonalNoteTextBoxtoEmpty(AutomationAgent notebookAutomationAgent, string textBoxValue)
+        {
+            //while((notebookAutomationAgent.GetElementText("NoteBookTouchView", "NoteBookMovedTextBoxValue")!=string.Empty))
+            notebookAutomationAgent.SendText("{BKSP}");
+            notebookAutomationAgent.SendText("{BKSP}");
+            Assert.IsTrue(notebookAutomationAgent.GetElementText("NoteBookTouchView", "NoteBookEditEmptyTextBox") == string.Empty);
+            notebookAutomationAgent.Click("NotebookBottomMenuView", "EraserIcon");
+            notebookAutomationAgent.Click("NotebookBottomMenuView", "ClearPage");
         }
     }
 }
