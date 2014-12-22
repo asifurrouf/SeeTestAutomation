@@ -92,6 +92,13 @@
         <ControlType>TileView</ControlType>
         <ControlText>UNIT ()</ControlText>
       </Control>
+      <Control ControlName="UnitNumber">
+        <Zone>Native</Zone>
+        <Element>text=UNIT ()</Element>
+        <Index>0</Index>
+        <ControlType>TileView</ControlType>
+        <ControlText>UNIT ()</ControlText>
+      </Control>
     </View>
   <View ViewName="UnitOverView">
       <Control ControlName="ELAUnitStartButton">
@@ -108,6 +115,13 @@
         <ControlType>Button</ControlType>
         <ControlText>START</ControlText>
       </Control>
+    <Control ControlName="UnitCard">
+      <Zone>Native</Zone>
+      <Element>xpath=//*[@class='EnglishUnitCardView' and ./*[@text='UNIT ()']]</Element>
+      <Index>0</Index>
+      <ControlType>Image</ControlType>
+      <ControlText>START</ControlText>
+    </Control>
     </View>
   <View ViewName="LessonBrowserView">
       <Control ControlName="ELALessonTile">
@@ -124,6 +138,13 @@
         <ControlType>TileView</ControlType>
         <ControlText>LESSON ()</ControlText>
       </Control>
+    <Control ControlName="LessonBrowserPanel">
+      <Zone>Native</Zone>
+      <Element>xpath=//*[@class='RKGridView' and ./*[@height>0 and ./*[./*[@text='Lesson 4']]]]</Element>
+      <Index>0</Index>
+      <ControlType>PanelView</ControlType>
+      <ControlText>LESSON ()</ControlText>
+    </Control>
     </View>
   <View ViewName="LessonsOverView">
       <Control ControlName="ELALessonStartButton">
@@ -267,8 +288,8 @@
     </View>
     <View ViewName="CommonReadAnnotationsPanelView">
       <Control ControlName="EditButton">
-        <Zone>web</Zone>
-        <Element>xpath=//*[@text='Edit' and @width>0]</Element>
+        <Zone>default</Zone>
+        <Element>EditAnnotationButton</Element>
         <Index>0</Index>
         <ControlType>Button</ControlType>
         <ControlText>Edit</ControlText>
@@ -281,8 +302,8 @@
         <ControlText>Done</ControlText>
       </Control>
       <Control ControlName="DeleteButton">
-        <Zone>web</Zone>
-        <Element>xpath=//*[@text='delete']</Element>
+        <Zone>default</Zone>
+        <Element>DeleteAnnotationButton</Element>
         <Index>0</Index>
         <ControlType>Button</ControlType>
         <ControlText>Delete</ControlText>
@@ -354,7 +375,23 @@
         <ControlType>Button</ControlType>
         <ControlText>None</ControlText>
       </Control>
+      <Control ControlName="TeacherMode">
+        <Zone>Native</Zone>
+        <Element>accessibilityLabel=button toggle teacher mode nor</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
     </View>
+    <View ViewName="DashboardView">
+      <Control ControlName="ClassRosterLink">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@accessibilityLabel='DKTeacherDashboardRosterELA@2x' and ./preceding-sibling::*[@text='Sec-02 Per-1']]</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      </View>
     <View ViewName="NotebookTopMenuView">
       <Control ControlName="AddNewPage">
         <Zone>Native</Zone>
@@ -889,6 +926,36 @@
         <ControlType>Label</ControlType>
         <ControlText>None</ControlText>
       </Control>
+      <Control ControlName="RemoveGradeContinueButton">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@text='Continue' and @class='UILabel']</Element>
+        <Index>0</Index>
+        <ControlType>Label</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+    </View>
+    <View ViewName="DashboardView">
+    <Control ControlName="MoreToExploreButton">
+      <Zone>Native</Zone>
+      <Element>accessibilityLabel=DKTeacherDashboardMoreToExplor</Element>
+      <Index>0</Index>
+      <ControlType>Button</ControlType>
+      <ControlText>None</ControlText>
+    </Control>
+      <Control ControlName="ConceptCornerButton">
+        <Zone>Native</Zone>
+        <Element>accessibilityLabel=DKTeacherDashboardConceptCorne</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="TeacherSupportButton">
+        <Zone>Native</Zone>
+        <Element>accessibilityLabel=DKTeacherDashboardTeacherSuppo</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
     </View>
     <View ViewName="SelectGradeView">
       <Control ControlName="CancelButton">
@@ -915,6 +982,34 @@
       <Control ControlName="GradeButton">
         <Zone>Native</Zone>
         <Element>accessibilityIdentifier=DownloadScreen.Grade()</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>Grade ()</ControlText>
+      </Control>
+      <Control ControlName="AddGradeButton">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@accessibilityLabel='Add grades' and @class='UIButton']</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>Grade ()</ControlText>
+      </Control>
+      <Control ControlName="GradeLabel">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@class='SelectButtonView' and ./*[@text='Grade ()']]</Element>
+        <Index>0</Index>
+        <ControlType>Label</ControlType>
+        <ControlText>Grade ()</ControlText>
+      </Control>
+      <Control ControlName="RemoveGradeButton">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@accessibilityLabel='Remove this grade' and @class='UIButton']</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>Grade ()</ControlText>
+      </Control>
+      <Control ControlName="SelectGradeLabel">
+        <Zone>Native</Zone>
+        <Element>text=Select Grade</Element>
         <Index>0</Index>
         <ControlType>Button</ControlType>
         <ControlText>Grade ()</ControlText>

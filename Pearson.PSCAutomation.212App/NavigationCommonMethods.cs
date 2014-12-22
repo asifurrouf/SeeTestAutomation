@@ -88,10 +88,20 @@ namespace Pearson.PSCAutomation._212App
             navigationAutomationAgent.Click("GradeSelectionMenuView", "MathGradeButton", gradeNumber.ToString());
         }
 
+        public static void ClickOnUnitWithinLesson(AutomationAgent navigationAutomationAgent, int unitNumber)
+        {
+            navigationAutomationAgent.Click("UnitLibraryView", "ELAUnitTile", unitNumber.ToString());
+        }
+
         public static void StartELAUnitFromUnitLibrary(AutomationAgent navigationAutomationAgent, int unitNumber)
         {
             navigationAutomationAgent.Click("UnitLibraryView", "ELAUnitTile", unitNumber.ToString());
             navigationAutomationAgent.Click("UnitOverView", "ELAUnitStartButton", unitNumber.ToString());
+        }
+
+        public static void ClickELAUnitFromUnitLibrary(AutomationAgent navigationAutomationAgent, int unitNumber)
+        {
+            navigationAutomationAgent.Click("UnitLibraryView", "ELAUnitTile", unitNumber.ToString());
         }
 
         public static void StartMathUnitFromUnitLibrary(AutomationAgent navigationAutomationAgent, int unitNumber)
@@ -99,16 +109,28 @@ namespace Pearson.PSCAutomation._212App
             navigationAutomationAgent.Click("UnitLibraryView", "MathUnitTile", unitNumber.ToString());
             navigationAutomationAgent.Click("UnitOverView", "MathUnitStartButton", unitNumber.ToString());
         }
+
+        public static void ClickELALessonFromLessonBrowser(AutomationAgent navigationAutomationAgent, int lessonNumber)
+        {
+            navigationAutomationAgent.Click("LessonBrowserView", "ELALessonTile", lessonNumber.ToString());       
+        }
+
+
+        public static void ClickOnLessonTile(AutomationAgent navigationAutomationAgent, int lessonNumber)
+        {
+            navigationAutomationAgent.Click("LessonBrowserView", "ELALessonTile", lessonNumber.ToString());
+        }
+
         public static void OpenELALessonFromLessonBrowser(AutomationAgent navigationAutomationAgent, int lessonNumber)
         {
             navigationAutomationAgent.Click("LessonBrowserView", "ELALessonTile", lessonNumber.ToString());
-            if (navigationAutomationAgent.WaitforElement("LessonsOverView", "ELALessonStartButton", lessonNumber.ToString()))
-            {
-                navigationAutomationAgent.Click("LessonsOverView", "ELALessonStartButton", lessonNumber.ToString());
-            }
-            else if (navigationAutomationAgent.WaitforElement("LessonsOverView", "ELALessonContinueButton", lessonNumber.ToString()))
+            if (navigationAutomationAgent.WaitforElement("LessonsOverView", "ELALessonContinueButton", lessonNumber.ToString()))
             {
                 navigationAutomationAgent.Click("LessonsOverView", "ELALessonContinueButton", lessonNumber.ToString());
+            }
+            else if (navigationAutomationAgent.WaitforElement("LessonsOverView", "ELALessonStartButton", lessonNumber.ToString()))
+            {
+                navigationAutomationAgent.Click("LessonsOverView", "ELALessonStartButton", lessonNumber.ToString());
             }
             else
             {
@@ -198,5 +220,23 @@ namespace Pearson.PSCAutomation._212App
             }
             navigationAutomationAgent.GenerateReportAndReleaseClient();
         }
+
+        public static void SwipeUnit(AutomationAgent navigationAutomationAgent, Direction direction)
+        {
+            navigationAutomationAgent.Swipe(direction);
+        }
+
+        
+
+        public static void ClickTeacherModeButton(AutomationAgent navigationAutomationAgent)
+        {
+            navigationAutomationAgent.Click("TasksTopMenuView", "TeacherMode");
+        }
+
+         public static void VerifyClassRosterLink(AutomationAgent navigationAutomationAgent)
+        {
+            navigationAutomationAgent.VerifyElementNotFound("DashboardView", "ClassRosterLink");
+        }
+
     }
 }

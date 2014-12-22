@@ -33,7 +33,7 @@ namespace Pearson.PSCAutomation.Framework
             userName = loginElement.Element("UserName").Value;
             password = loginElement.Element("Password").Value;
             userType = (UserType)Enum.Parse(typeof(UserType), loginElement.Element("UserType").Value);
-            string[] gradesStringArray = loginElement.Element("Port").Value.Split(',');
+            string[] gradesStringArray = loginElement.Element("SectionedGrades").Value.Split(',');
             this.sectionedGrades = new int[gradesStringArray.Length];
             for (int i = 0; i < gradesStringArray.Length; i++)
             {

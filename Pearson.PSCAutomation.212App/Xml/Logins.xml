@@ -19,6 +19,12 @@
       <UserType>Student</UserType>
       <SectionedGrades>7,8,9</SectionedGrades>
     </Login>
+      <Login LoginName="Grade2SectionedTeacher">
+        <UserName>sswanson2</UserName>
+        <Password>sch00lnet</Password>
+        <UserType>Teacher</UserType>
+        <SectionedGrades>2</SectionedGrades>
+      </Login>
     </OS>
     <OS OSName="Android">
       <Login LoginName="Teacher1">
