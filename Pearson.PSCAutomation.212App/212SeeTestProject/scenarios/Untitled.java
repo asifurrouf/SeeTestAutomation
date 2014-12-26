@@ -8,7 +8,7 @@ import org.junit.*;
 public class Untitled {
     private String host = "localhost";
     private int port = 8889;
-    private String projectBaseDirectory = "C:\\Users\\Pearson\\Documents\\SeeTestAutomation\\Pearson.PSCAutomation.212App\\212SeeTestProject";
+    private String projectBaseDirectory = "C:\\Users\\Automation\\Documents\\SeeTestAutomation\\Pearson.PSCAutomation.212App\\212SeeTestProject";
     protected Client client = null;
 
     @Before
@@ -20,7 +20,7 @@ public class Untitled {
 
     @Test
     public void testlaunchapp(){
-        client.setDevice("ios_app:Lab13_Ipad");
+        client.setDevice("ios_app:HCL-Kiran");
         client.launch("com.pearson.commoncore.f-UpgradeTesting", true, false);
         client.elementSendText("NATIVE", "class=UIButton", 0, "awhite");
         client.click("default", "GistAnnotationLabel", 0, 1);
@@ -29,8 +29,17 @@ public class Untitled {
         client.click("default", "ShareButton", 0, 1);
         client.click("default", "SharedAnnotate", 0, 1);
         client.verifyElementFound("default", "SharedAnnotateText", 0);
-        client.elementSendText("", "", 0, "");
-        client.swipe("Up", 0, 500);
+        client.click("default", "NewWordItem", 0, 1);
+        client.click("default", "VellumModeClear", 0, 1);
+        client.verifyElementFound("default", "VellumModeClearAll", 0);
+        client.dragCoordinates(1050, 600, 1150, 600, 2000);
+        client.dragCoordinates(1050, 600, 1100, 700, 2000);
+        client.dragCoordinates(1100, 700, 1150, 600, 2000);
+        client.dragCoordinates(1050, 600, 1100, 500, 2000);
+        client.dragCoordinates(1100, 500, 1150, 600, 2000);
+        client.dragCoordinates(1100, 700, 1100, 500, 2000);
+        client.verifyElementFound("default", "DiamondImageDrawnInCR", 0);
+        client.sendText("{BKSP}");
     }
 
     @After

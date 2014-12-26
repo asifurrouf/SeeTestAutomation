@@ -12,7 +12,7 @@ namespace Experitest
     {
         private string host = "localhost";
         private int port = 8889;
-        private string projectBaseDirectory = "C:\\Users\\Pearson\\Documents\\SeeTestAutomation\\Pearson.PSCAutomation.212App\\212SeeTestProject";
+        private string projectBaseDirectory = "C:\\Users\\Automation\\Documents\\SeeTestAutomation\\Pearson.PSCAutomation.212App\\212SeeTestProject";
         protected Client client = null;
         
         [TestInitialize()]
@@ -26,7 +26,7 @@ namespace Experitest
         [TestMethod]
         public void Testlaunchapp()
         {
-            client.SetDevice("ios_app:Lab13_Ipad");
+            client.SetDevice("ios_app:HCL-Kiran");
             client.Launch("com.pearson.commoncore.f-UpgradeTesting", true, false);
             client.ElementSendText("NATIVE", "class=UIButton", 0, "awhite");
             client.Click("default", "GistAnnotationLabel", 0, 1);
@@ -35,8 +35,17 @@ namespace Experitest
             client.Click("default", "ShareButton", 0, 1);
             client.Click("default", "SharedAnnotate", 0, 1);
             client.VerifyElementFound("default", "SharedAnnotateText", 0);
-            client.ElementSendText("", "", 0, "");
-            client.Swipe("Up", 0, 500);
+            client.Click("default", "NewWordItem", 0, 1);
+            client.Click("default", "VellumModeClear", 0, 1);
+            client.VerifyElementFound("default", "VellumModeClearAll", 0);
+            client.DragCoordinates(1050, 600, 1150, 600, 2000);
+            client.DragCoordinates(1050, 600, 1100, 700, 2000);
+            client.DragCoordinates(1100, 700, 1150, 600, 2000);
+            client.DragCoordinates(1050, 600, 1100, 500, 2000);
+            client.DragCoordinates(1100, 500, 1150, 600, 2000);
+            client.DragCoordinates(1100, 700, 1100, 500, 2000);
+            client.VerifyElementFound("default", "DiamondImageDrawnInCR", 0);
+            client.SendText("{BKSP}");
         }
 
         [TestCleanup()]

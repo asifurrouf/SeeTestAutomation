@@ -80,7 +80,7 @@ namespace Pearson.PSCAutomation._212App
 
         public static void NavigateToMathGrade(AutomationAgent navigationAutomationAgent, int gradeNumber)
         {
-            NavigateToELA(navigationAutomationAgent);
+            NavigateToMath(navigationAutomationAgent);
             if (gradeNumber > 11 && gradeNumber < 2)
             {
                 Assert.Fail("Grade entered (" + gradeNumber.ToString() + ") is invalid");
@@ -191,8 +191,7 @@ namespace Pearson.PSCAutomation._212App
         }
 
         public static void NavigateMathTaskfromSytemTrayMenu(AutomationAgent navigationAutomationAgent, int gradeNumber, int unitNumber, int lessonNumber, int taskNumber)
-        {
-            NavigateToMath(navigationAutomationAgent);
+        {            
             NavigateToMathGrade(navigationAutomationAgent, gradeNumber);
             StartMathUnitFromUnitLibrary(navigationAutomationAgent, unitNumber);
             OpenMathLessonFromLessonBrowser(navigationAutomationAgent, lessonNumber);

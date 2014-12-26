@@ -94,13 +94,40 @@
     <None Include="212SeeTestProject\default\DeleteAnnotationButton.properties">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="212SeeTestProject\default\DiamondImageDrawnInCR.properties">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="212SeeTestProject\default\DoneAnnotationButton.properties">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="212SeeTestProject\default\DropdownSelector.properties">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="212SeeTestProject\default\E.properties">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="212SeeTestProject\default\EditAnnotationButton.properties">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="212SeeTestProject\default\GistAnnotationsSticky.properties">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="212SeeTestProject\default\GistItem.properties">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="212SeeTestProject\default\Highlighedtext.properties">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="212SeeTestProject\default\HighlightCourteous.properties">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="212SeeTestProject\default\New Word.properties">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="212SeeTestProject\default\NewThinkingItem.properties">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="212SeeTestProject\default\OtherItem.properties">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="212SeeTestProject\default\S.properties">
@@ -118,6 +145,21 @@
     <None Include="212SeeTestProject\default\T.properties">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="212SeeTestProject\default\VellumModeClear.properties">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="212SeeTestProject\default\VellumModeClearAll.properties">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="212SeeTestProject\default\VellumModeEraserTool.properties">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="212SeeTestProject\default\VellumModePenPopups.properties">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="212SeeTestProject\default\VellumModePenTool.properties">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="212SeeTestProject\statistics.data">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -131,6 +173,7 @@
   <ItemGroup>
     <Content Include="212SeeTestProject\default.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="212SeeTestProject\default\CloseKeyboard.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -141,13 +184,40 @@
     <Content Include="212SeeTestProject\default\DeleteAnnotationButton.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="212SeeTestProject\default\DiamondImageDrawnInCR.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="212SeeTestProject\default\DoneAnnotationButton.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="212SeeTestProject\default\DropdownSelector.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="212SeeTestProject\default\E.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="212SeeTestProject\default\EditAnnotationButton.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="212SeeTestProject\default\GistAnnotationsSticky.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="212SeeTestProject\default\GistItem.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="212SeeTestProject\default\Highlighedtext.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="212SeeTestProject\default\HighlightCourteous.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="212SeeTestProject\default\New Word.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="212SeeTestProject\default\NewThinkingItem.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="212SeeTestProject\default\OtherItem.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="212SeeTestProject\default\S.PNG">
@@ -163,6 +233,21 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="212SeeTestProject\default\T.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="212SeeTestProject\default\VellumModeClear.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="212SeeTestProject\default\VellumModeClearAll.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="212SeeTestProject\default\VellumModeEraserTool.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="212SeeTestProject\default\VellumModePenPopups.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="212SeeTestProject\default\VellumModePenTool.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="212SeeTestProject\scenarios\AutomationUI.java">

@@ -99,6 +99,20 @@
         <ControlType>TileView</ControlType>
         <ControlText>UNIT ()</ControlText>
       </Control>
+    <Control ControlName="RemoveGrade">
+        <Zone>Native</Zone>
+        <Element>accessibilityLabel=Remove this grade</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="AddGrades">
+        <Zone>Native</Zone>
+        <Element>accessibilityLabel=Add grades</Element>
+        <Index>0</Index>
+        <ControlType>ButtonLabel</ControlType>
+        <ControlText>Add grades</ControlText>
+      </Control>
     </View>
   <View ViewName="UnitOverView">
       <Control ControlName="ELAUnitStartButton">
@@ -144,6 +158,13 @@
       <Index>0</Index>
       <ControlType>PanelView</ControlType>
       <ControlText>LESSON ()</ControlText>
+    </Control>
+  <Control ControlName="LessonNumber">
+      <Zone>Native</Zone>
+      <Element>accessibilityIdentifier=ScreenHeader.TitleLabel</Element>
+      <Index>0</Index>
+      <ControlType>Label</ControlType>
+      <ControlText>None</ControlText>
     </Control>
     </View>
   <View ViewName="LessonsOverView">
@@ -227,7 +248,63 @@
         <Index>0</Index>
         <ControlType>Button</ControlType>
         <ControlText>None</ControlText>
-      </Control>      
+      </Control>
+    <Control ControlName="NotebookTopViewIcon">
+        <Zone>Native</Zone>
+        <Element>accessibilityLabel=notebook</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
+     </Control>
+
+     
+
+ <Control ControlName="NotebookTopViewIcon2">
+        <Zone>Native</Zone>
+        <Element>accessibilityIdentifier=LessonScreen.CloseNotebookButton</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+  
+
+    <Control ControlName="NotebookHighlightedTopViewIcon">
+        <Zone>Native</Zone>
+        <Element>accessibilityIdentifier=notebook-on-ela</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+
+
+ <Control ControlName="SelectPhoto">
+        <Zone>Native</Zone>
+        <Element>xpath=(//*[@class='PUPhotoView'])[()]</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+    <Control ControlName="UsePhoto">
+        <Zone>Native</Zone>
+        <Element>accessibilityLabel=Use</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+   <Control ControlName="ResizePhoto">
+        <Zone>Native</Zone>
+        <Element>xpath=(//*[@class='CCResizeRegionView']/*/*[@class='UIImageView' and ./parent::*[@class='UIView']])[1]</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+ <Control ControlName="PhotoRegion">
+        <Zone>Native</Zone>
+        <Element>accessibilityIdentifier=Notebook.Region.ResizeView</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
     </View>
     <View ViewName="CommonReadSideMenuView">
       <Control ControlName="VellumMode">
@@ -243,12 +320,68 @@
         <Index>0</Index>
         <ControlType>Button</ControlType>
         <ControlText>None</ControlText>
-      </Control>      
+      </Control>  
+    <Control ControlName="VellumModePenTool">
+        <Zone>default</Zone>
+        <Element>VellumModePenTool</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+    <Control ControlName="VellumModePenPopups">
+        <Zone>default</Zone>
+        <Element>VellumModePenPopups</Element>
+        <Index>0</Index>
+        <ControlType>Panel</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+    <Control ControlName="VellumModeClear">
+        <Zone>default</Zone>
+        <Element>VellumModeClear</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+       <Control ControlName="VellumModeClearAll">
+        <Zone>default</Zone>
+        <Element>VellumModeClearAll</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>Clear All</ControlText>
+      </Control>
+      <Control ControlName="DiamondImageDrawnInCR">
+        <Zone>default</Zone>
+        <Element>DiamondImageDrawnInCR</Element>
+        <Index>0</Index>
+        <ControlType>Image</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="AnnotationsLayerMessage">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@accessibilityLabel='Highlight &amp; Annotation Layer:']</Element>
+        <Index>0</Index>
+        <ControlType>Label</ControlType>
+        <ControlText>Highlight &amp; Annotation Layer:</ControlText>
+      </Control>
+      <Control ControlName="AnnotationsLayerOn">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@accessibilityLabel='ON']</Element>
+        <Index>0</Index>
+        <ControlType>Label</ControlType>
+        <ControlText>ON</ControlText>
+      </Control>
+      <Control ControlName="AnnotationsLayerOff">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@accessibilityLabel='OFF']</Element>
+        <Index>0</Index>
+        <ControlType>Label</ControlType>
+        <ControlText>OFF</ControlText>
+      </Control>
     </View>
     <View ViewName="CommonReadPageView">
-      <Control ControlName="GistAnnotationsLabel">
+      <Control ControlName="GistAnnotationsSticky">
         <Zone>default</Zone>
-        <Element>GistAnnotationLabel</Element>
+        <Element>GistAnnotationsSticky</Element>
         <Index>0</Index>
         <ControlType>Label</ControlType>
         <ControlText>None</ControlText>
@@ -269,13 +402,55 @@
       </Control>
     </View>
     <View ViewName="CommonReadContextMenuView">
-      <Control ControlName="AnnotateLabel">
+      <Control ControlName="AnnotateButton">
         <Zone>Native</Zone>
-        <Element>xpath=//*[@accessibilityLabel='Annotate' and @text='Annotate']</Element>
+        <Element>xpath=//*[@accessibilityLabel='Annotate' and @class='UICalloutBarButton']</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>Annotate</ControlText>
+      </Control>
+      <Control ControlName="CopyButton">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@accessibilityLabel='Copy' and @class='UICalloutBarButton']</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>Copy</ControlText>
+      </Control>
+      <Control ControlName="HighlightButton">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@accessibilityLabel='Highlight' and @class='UICalloutBarButton']</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>Highlight</ControlText>
+      </Control>
+      <Control ControlName="DeleteHighlightButton">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@accessibilityLabel='Delete Highlight' and @class='UICalloutBarButton']</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>Delete Highlight</ControlText>
+      </Control>
+      <Control ControlName="DefineButton">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@accessibilityLabel='Define' and @class='UICalloutBarButton']</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>Define</ControlText>
+      </Control>  
+    <Control ControlName="ExistingAnnotatioinMessage">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@text='There is already an existing highlight or annotation.']</Element>
         <Index>0</Index>
         <ControlType>Label</ControlType>
-        <ControlText>None</ControlText>
+        <ControlText>There is already an existing highlight or annotation.</ControlText>
       </Control>
+    <Control ControlName="OkButton">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@accessibilityLabel='Ok' and @class='UIButton']</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>Ok</ControlText>
+      </Control> 
     </View>
     <View ViewName="CommonReadContentView">
       <Control ControlName="CommonReadContent">
@@ -283,6 +458,20 @@
         <Element>xpath=//*[@class='CommonReadWebView' and ./*[./*[@text]]]</Element>
         <Index>0</Index>
         <ControlType>Label</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+     <Control ControlName="RightArrow">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@accessibilityIdentifier='CommonRead.Nav.Next']</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="LeftArrow">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@accessibilityIdentifier='CommonRead.Nav.Previous']</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
         <ControlText>None</ControlText>
       </Control>
     </View>
@@ -295,8 +484,8 @@
         <ControlText>Edit</ControlText>
       </Control>
       <Control ControlName="DoneButton">
-        <Zone>web</Zone>
-        <Element>xpath=//*[@text='done']</Element>
+        <Zone>default</Zone>
+        <Element>DoneAnnotationButton</Element>
         <Index>0</Index>
         <ControlType>Button</ControlType>
         <ControlText>Done</ControlText>
@@ -307,6 +496,62 @@
         <Index>0</Index>
         <ControlType>Button</ControlType>
         <ControlText>Delete</ControlText>
+      </Control>
+     <Control ControlName="TimeStampLabel">
+        <Zone>web</Zone>
+        <Element>xpath=//*[@text='()']</Element>
+        <Index>0</Index>
+        <ControlType>Label</ControlType>
+        <ControlText>Done</ControlText>
+      </Control>
+    <Control ControlName="GistItem">
+        <Zone>web</Zone>
+        <Element>xpath=//*[@text='Gist' and @width>0]</Element>
+        <Index>0</Index>
+        <ControlType>Label</ControlType>
+        <ControlText>Gist</ControlText>
+      </Control>
+     <Control ControlName="NewWordItem">
+        <Zone>web</Zone>
+        <Element>xpath=//*[@text='New Word']</Element>
+        <Index>0</Index>
+        <ControlType>Label</ControlType>
+        <ControlText>New Word</ControlText>
+      </Control>
+     <Control ControlName="OtherItem">
+        <Zone>web</Zone>
+        <Element>xpath=//*[@text='Other']</Element>
+        <Index>0</Index>
+        <ControlType>Label</ControlType>
+        <ControlText>Other</ControlText>
+      </Control>
+    <Control ControlName="NewThinkingItem">
+        <Zone>web</Zone>
+        <Element>xpath=//*[@text='New Thinking']</Element>
+        <Index>0</Index>
+        <ControlType>Label</ControlType>
+        <ControlText>New Thinking</ControlText>
+      </Control>
+    <Control ControlName="CancelButton">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@accessibilityLabel='Cancel' and @class='UIButton']</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>Cancel</ControlText>
+      </Control>
+    <Control ControlName="ContinueButton">
+        <Zone>web</Zone>
+        <Element>xpath=//*[@accessibilityLabel='Continue' and @class='UIButton']</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>Continue</ControlText>
+      </Control>
+    <Control ControlName="AnnotateText">
+        <Zone>TEXT</Zone>
+        <Element>()</Element>
+        <Index>0</Index>
+        <ControlType>Text</ControlType>
+        <ControlText>None</ControlText>
       </Control>
     </View>
     <View ViewName="CommonReadAnnotationsView">
@@ -338,11 +583,32 @@
         <ControlType>Image</ControlType>
         <ControlText>None</ControlText>
       </Control>
+      <Control ControlName="TextToAnnotate">
+        <Zone>TEXT</Zone>
+        <Element>()</Element>
+        <Index>0</Index>
+        <ControlType>Text</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
       <Control ControlName="AnnotationLink">
         <Zone>Native</Zone>
         <Element>xpath=//*[@accessibilityLabel='Annotate' and @class='UICalloutBarButton']</Element>
         <Index>0</Index>
         <ControlType>Label</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="AnnotationsTextEntered">
+        <Zone>web</Zone>
+        <Element>xpath=//*[@value='()']</Element>
+        <Index>0</Index>
+        <ControlType>TextArea</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="AnnotationsTextSaved">
+        <Zone>web</Zone>
+        <Element>xpath=//*[@text='()']</Element>
+        <Index>0</Index>
+        <ControlType>TextArea</ControlType>
         <ControlText>None</ControlText>
       </Control>
       <Control ControlName="ShareAnnotation">
@@ -431,6 +697,13 @@
       <Control ControlName="CommentIcon">
         <Zone>Native</Zone>
         <Element>xpath=//*[@accessibilityLabel='shared notebook comments icon ']</Element>
+        <Index>0</Index>
+        <ControlType>Label</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+    <Control ControlName="NotebookTitleWithPageNumber">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@accessibilityLabel='()']</Element>
         <Index>0</Index>
         <ControlType>Label</ControlType>
         <ControlText>None</ControlText>
@@ -543,6 +816,20 @@
       <Control ControlName="WorkBrowserIcon">
         <Zone>Native</Zone>
         <Element>accessibilityLabel=notebook browser nonshared rec</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+       <Control ControlName="SharedWorkBrowserIcon">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@accessibilityLabel='notebook browser shared receiv']</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="TaskNoteBookButton">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@accessibilityLabel='Introductory Demonstration' and @class='UIButton']</Element>
         <Index>0</Index>
         <ControlType>Button</ControlType>
         <ControlText>None</ControlText>
@@ -793,13 +1080,19 @@
         <ControlType>Button</ControlType>
         <ControlText>None</ControlText>
       </Control>
-      <!--By Namratha-->
       <Control ControlName="SelectColorPopup">
         <Zone>Native</Zone>
         <Element>xpath=//*[@class='UIView' and ./*[@class='UIView' and ./*[@class='UISlider']]]</Element>
         <Index>0</Index>
         <ControlType>Panel</ControlType>
         <ControlText>NA</ControlText>
+      </Control>
+       <Control ControlName="EraseSlider">
+        <Zone>Native</Zone>
+        <Element>accessibilityLabel=Clear Page</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
       </Control>
       <Control ControlName="EraserIcon">
         <Zone>Native</Zone>
@@ -808,11 +1101,112 @@
         <ControlType>Button</ControlType>
         <ControlText>None</ControlText>
       </Control>
+       <Control ControlName="WrenchIcon">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@accessibilityLabel='notebook toolbar tools icon']</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="WrenchIconSubMenuPanel">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@class='UIView' and ./*[@class='CCNotebookToolsSubmenuView']]</Element>
+        <Index>0</Index>
+        <ControlType>Panel</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
        <Control ControlName="ClearPage">
         <Zone>Native</Zone>
         <Element>xpath=//*[@accessibilityLabel='Clear Page' and @class='UIButton']</Element>
         <Index>0</Index>
         <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+    <Control ControlName="GraphingTool">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@accessibilityLabel='Graphing Tool']</Element>
+        <Index>0</Index>
+        <ControlType>Panel</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="UndoRedoIcon">
+          <Zone>Native</Zone>
+          <Element>accessibilityLabel=notebook toolbar undo redo ico</Element>
+          <Index>0</Index>
+          <ControlType>Button</ControlType>
+          <ControlText>None</ControlText>
+        </Control>
+      <Control ControlName="UndoIcon">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@accessibilityLabel='Undo icon inactive']</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="RedoIcon">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@accessibilityLabel='Redo icon inactive']</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="DrawingIcon">
+        <Zone>Native</Zone>
+        <Element>accessibilityLabel=notebook toolbar pen icon</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="NotebookTextBoxRegion">
+        <Zone>Native</Zone>
+        <Element>accessibilityIdentifier=Notebook.Region.ResizeView</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="NotebookDrawRegion">
+        <Zone>Native</Zone>
+        <Element>accessibilityIdentifier=Notebook.DrawRegion</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="DrawingIconPopup">
+        <Zone>Native</Zone>
+        <Element>accessibilityIdentifier=Notebook.Toolbar.Draw.Slider</Element>
+        <Index>0</Index>
+        <ControlType>Button</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+    <Control ControlName="DivLessonTemplate">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@class='CCTouchlessView' and ./*[@accessibilityLabel='notebook toolbar fullscreen ic'] and ./*[@class='UIView']]</Element>
+      <Index>0</Index> 
+       <ControlType>DIV</ControlType> 
+       <ControlText>None</ControlText> 
+</Control>
+<Control ControlName="NotebookBackgroundBlack"> 
+       <Zone>Native</Zone>
+        <Element>accessibilityIdentifier=background-black</Element>
+        <Index>0</Index> 
+       <ControlType>Image</ControlType>  
+      <ControlText>None</ControlText>
+</Control>
+ <Control ControlName="HandIconHighlightImage">  
+      <Zone>Native</Zone>
+        <Element>accessibilityIdentifier=NotebookKit Images/notebook_toolbar_hand_icon_highlight.png</Element> 
+       <Index>0</Index>
+        <ControlType>Image</ControlType>
+        <ControlText>None</ControlText>
+</Control>
+
+    </View>
+    <View ViewName="NotebookDrawView">
+      <Control ControlName="DrawViewPanel">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@class='CCNotebookDrawView']</Element>
+        <Index>0</Index>
+        <ControlType>Panel</ControlType>
         <ControlText>None</ControlText>
       </Control>
     </View>
@@ -864,6 +1258,13 @@
         <Element>xpath=//*[@text='']</Element>
         <Index>0</Index>
         <ControlType>TextBox</ControlType>
+        <ControlText>None</ControlText>
+      </Control>
+      <Control ControlName="NoteBookRegionPanel">
+        <Zone>Native</Zone>
+        <Element>xpath=//*[@accessibilityIdentifier[starts-with(.,'Notebook.Region.')]]</Element>
+        <Index>0</Index>
+        <ControlType>Panel</ControlType>
         <ControlText>None</ControlText>
       </Control>
     </View>

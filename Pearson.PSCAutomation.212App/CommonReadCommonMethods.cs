@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Pearson.PSCAutomation.Framework;
 using experitestClient;
 
@@ -33,19 +34,38 @@ namespace Pearson.PSCAutomation._212App
 
         public  static void ClickOnGistAnnotationsSideLabel(AutomationAgent commonReadAutomationAgent)
         {
-            commonReadAutomationAgent.Click("CommonReadPageView", "GistAnnotationsLabel");
+            commonReadAutomationAgent.Click("CommonReadPageView", "GistAnnotationsSticky");
         }
 
-        public static void VerifyAnnotationsPanelExists(AutomationAgent commonReadAutomationAgent)
+        public static void VerifyAnnotationEditButtonExists(AutomationAgent commonReadAutomationAgent)
         {
             commonReadAutomationAgent.VerifyElementNotFound("CommonReadAnnotationsPanelView", "EditButton");
         }
 
         public static void CreateAnnotation(AutomationAgent commonReadAutomationAgent, AnnotationType annotationType, string annotationText)
         {
-            commonReadAutomationAgent.LongClick("CommonReadContentView", "CommonReadContent");
+            commonReadAutomationAgent.LongClick("CommonReadAnnotationsView", "CourteousImage");
             commonReadAutomationAgent.Sleep();
-            commonReadAutomationAgent.Click("CommonReadContextMenuView", "AnnotateLabel");
+            commonReadAutomationAgent.Click("CommonReadContextMenuView", "AnnotateButton");
+            commonReadAutomationAgent.Sleep();
+            commonReadAutomationAgent.SendText(annotationText);
+        }
+
+        public static void CreateAnnotation(AutomationAgent commonReadAutomationAgent, AnnotationType annotationType, string textToAnnotate, string annotationText)
+        {
+            commonReadAutomationAgent.LongClick("CommonReadAnnotationsView", "TextToAnnotate", textToAnnotate);
+            commonReadAutomationAgent.Sleep();
+            commonReadAutomationAgent.Click("CommonReadContextMenuView", "AnnotateButton");
+            commonReadAutomationAgent.Sleep();
+            commonReadAutomationAgent.SendText(annotationText);
+        }
+
+
+        public static void SelectTextAndCreateAnnotation(AutomationAgent commonReadAutomationAgent, AnnotationType annotationType, string textToSelect, string annotationText)
+        {
+            commonReadAutomationAgent.LongClick("CommonReadAnnotationsView", "TextToAnnotate", textToSelect);
+            commonReadAutomationAgent.Sleep();
+            commonReadAutomationAgent.Click("CommonReadContextMenuView", "AnnotateButton");
             commonReadAutomationAgent.Sleep();
             commonReadAutomationAgent.SendText(annotationText);
         }
@@ -54,7 +74,6 @@ namespace Pearson.PSCAutomation._212App
         {
             ClickOnGistAnnotationsSideLabel(commonReadAutomationAgent);
             ClickEditButton(commonReadAutomationAgent);
-            ClickDeleteButton(commonReadAutomationAgent);
         }
 
         public static void ClickDeleteButton(AutomationAgent commonReadAutomationAgent)
@@ -65,6 +84,7 @@ namespace Pearson.PSCAutomation._212App
         public static void ClickEditButton(AutomationAgent commonReadAutomationAgent)
         {
             commonReadAutomationAgent.Click("CommonReadAnnotationsPanelView", "EditButton");
+            commonReadAutomationAgent.Sleep();
         }
 
         public static void ClickOnAnnotationLink(AutomationAgent annotationAutomationAgent)
@@ -122,11 +142,171 @@ namespace Pearson.PSCAutomation._212App
             annotationAutomationAgent.VerifyElementFound("CommonReadPageView", "SharedTextAnnotation");
         }
 
-        public static void VerifyGistAnnotationLabel(AutomationAgent commonReadAutomationAgent)
+        public static void VerifyGistAnnotationStickyExists(AutomationAgent commonReadAutomationAgent)
         {
-            commonReadAutomationAgent.VerifyElementFound("CommonReadPageView", "GistAnnotationsLabel");
+            commonReadAutomationAgent.VerifyElementFound("CommonReadPageView", "GistAnnotationsSticky");
         }
- 
+
+        public static void VerifyGistAnnotationStickyNotExists(AutomationAgent commonReadAutomationAgent)
+        {
+            commonReadAutomationAgent.VerifyElementNotFound("CommonReadPageView", "GistAnnotationsSticky");
+        }
+
+        public static void ClickOnLeftArrow(AutomationAgent commonReadAutomationAgent)
+        {
+            commonReadAutomationAgent.Click("CommonReadContentView", "LeftArrow");
+        }
+
+        public static void ClickOnRightArrow(AutomationAgent commonReadAutomationAgent)
+        {
+            commonReadAutomationAgent.Click("CommonReadContentView", "RightArrow");
+        }
+
+        public static void VerifyTimeStamp(AutomationAgent commonReadAutomationAgent, string dateTime)
+        {
+            commonReadAutomationAgent.VerifyElementFound("CommonReadAnnotationsPanelView", "TimeStampLabel", dateTime);
+        }
+
+        public static void VerifyAnnotationTextFound(AutomationAgent commonReadAutomationAgent, string enteredText)
+        {
+            commonReadAutomationAgent.VerifyElementFound("CommonReadAnnotationsView", "AnnotationsTextEntered", enteredText);
+        }
+
+
+        public static void ClickCancelButton(AutomationAgent commonReadAutomationAgent)
+        {
+            commonReadAutomationAgent.Click("CommonReadAnnotationsPanelView", "CancelButton");
+        }
+
+        public static void ClickContinueButton(AutomationAgent commonReadAutomationAgent)
+        {
+            commonReadAutomationAgent.Click("CommonReadAnnotationsPanelView", "ContinueButton");
+        }
+
+        public static void ClickonPenTool(AutomationAgent commonReadAutomationAgent)
+        {
+            commonReadAutomationAgent.Click("CommonReadSideMenuView", "VellumModePenTool");
+        }
+
+        public static void ClickOnPenOptionsPopup(AutomationAgent commonReadAutomationAgent)
+        {
+            commonReadAutomationAgent.Click("CommonReadSideMenuView", "VellumModePenPopups");
+        }
+
+        public static void ClickClearAllButton(AutomationAgent commonReadAutomationAgent)
+        {
+            commonReadAutomationAgent.Click("CommonReadSideMenuView", "VellumModeClearAll");
+        }
+
+        public static void ClickClearButton(AutomationAgent commonReadAutomationAgent)
+        {
+            commonReadAutomationAgent.Click("CommonReadSideMenuView", "VellumModeClear");
+        }
+
+        public static void VerifyClearAllButton(AutomationAgent commonReadAutomationAgent)
+        {
+            commonReadAutomationAgent.VerifyElementFound("CommonReadSideMenuView", "VellumModeClearAll");
+        }
+        
+        public static void DrawDiamondImage(AutomationAgent commonReadAutomationAgent, int startingX1, int startingY1)
+        {
+            commonReadAutomationAgent.DrawDiamondImage(startingX1, startingY1);
+        }
+        
+        public static void VerifyDiamondImageExistsInCR(AutomationAgent commonReadAutomationAgent)
+        {
+            commonReadAutomationAgent.VerifyElementFound("CommonReadSideMenuView", "DiamondImageDrawnInCR");
+        }
+
+        public static void VerifyDiamondImageNotExistsInCR(AutomationAgent commonReadAutomationAgent)
+        {
+            commonReadAutomationAgent.VerifyElementNotFound("CommonReadSideMenuView", "DiamondImageDrawnInCR");
+        }
+
+        public static void LongClickOnText(AutomationAgent commonReadAutomationAgent, string textToAnnotate)
+        {
+            commonReadAutomationAgent.LongClick("CommonReadAnnotationsView", "TextToAnnotate", textToAnnotate);
+            commonReadAutomationAgent.Sleep();
+        }
+
+        public  static void VerifyAnnotateButton(AutomationAgent commonReadAutomationAgent)
+        {
+            commonReadAutomationAgent.VerifyElementFound("CommonReadContextMenuView", "AnnotateButton");
+        }
+
+        public static void ClickAnnotationsLayerToggleButton(AutomationAgent commonReadAutomationAgent)
+        {
+            commonReadAutomationAgent.Click("CommonReadSideMenuView", "AnnotationButton");
+        }
+
+        public static void VerifyAnnotationsOffMessage(AutomationAgent commonReadAutomationAgent)
+        {
+            //Assert.AreEqual<string>("Highlight & Annotation Layer: OFF", commonReadAutomationAgent.GetElementProperty("CommonReadSideMenuView", "AnnotationsLayerMessage", "text",10) + " " + commonReadAutomationAgent.GetElementProperty("CommonReadSideMenuView", "AnnotationsLayerOff", "text",10));
+            Assert.AreEqual<string>("Highlight & Annotation Layer:", commonReadAutomationAgent.GetElementProperty("CommonReadSideMenuView", "AnnotationsLayerMessage", "text", 10));
+            commonReadAutomationAgent.Click("CommonReadSideMenuView", "AnnotationButton");
+            commonReadAutomationAgent.Click("CommonReadSideMenuView", "AnnotationButton");
+            Assert.AreEqual<string>("OFF", commonReadAutomationAgent.GetElementProperty("CommonReadSideMenuView", "AnnotationsLayerOff", "text", 10));
+        }
+
+        public static void VerifyAnnotationsOnMessage(AutomationAgent commonReadAutomationAgent)
+        {
+            //Assert.AreEqual<string>("Highlight & Annotation Layer: ON", commonReadAutomationAgent.GetElementProperty("CommonReadSideMenuView", "AnnotationsLayerMessage", "text",10) + " " + commonReadAutomationAgent.GetElementProperty("CommonReadSideMenuView", "AnnotationsLayerOn", "text",10));
+            Assert.AreEqual<string>("Highlight & Annotation Layer:", commonReadAutomationAgent.GetElementProperty("CommonReadSideMenuView", "AnnotationsLayerMessage", "text", 10));
+            commonReadAutomationAgent.Click("CommonReadSideMenuView", "AnnotationButton");
+            commonReadAutomationAgent.Click("CommonReadSideMenuView", "AnnotationButton");
+            Assert.AreEqual<string>("ON", commonReadAutomationAgent.GetElementProperty("CommonReadSideMenuView", "AnnotationsLayerOn", "text", 10));
+        }
+
+        public static void VerifyClearButtonExists(AutomationAgent commonReadAutomationAgent)
+        {
+            commonReadAutomationAgent.VerifyElementFound("CommonReadSideMenuView", "VellumModeClear");
+        }
+
+        public static void ClickOnAnnotatedText(AutomationAgent commonReadAutomationAgent, string annotatedText)
+        {
+            commonReadAutomationAgent.Click("CommonReadAnnotationsView", "TextToAnnotate", annotatedText);
+            commonReadAutomationAgent.Sleep();
+        }
+
+        public static void AppendToAnnotationText(AutomationAgent commonReadAutomationAgent, string addedText)
+        {
+            commonReadAutomationAgent.SendText(addedText);
+        }
+
+        public static void VerifyAnnotationTextSaved(AutomationAgent commonReadAutomationAgent, string savedText)
+        {
+            commonReadAutomationAgent.VerifyElementFound("CommonReadAnnotationsView", "AnnotationsTextSaved", savedText);
+        }
+
+        public static void ClickCopyButton(AutomationAgent commonReadAutomationAgent)
+        {
+            commonReadAutomationAgent.Click("CommonReadContextMenuView", "CopyButton");
+        }
+
+        public static void ClickAnnotateButton(AutomationAgent commonReadAutomationAgent)
+        {
+            commonReadAutomationAgent.Click("CommonReadContextMenuView", "AnnotateButton");
+        }
+
+        internal static void PasteText(AutomationAgent commonReadAutomationAgent)
+        {
+            commonReadAutomationAgent.SendText("{PASTE}");
+        }
+
+        public static void ClickOkButton(AutomationAgent commonReadAutomationAgent)
+        {
+            commonReadAutomationAgent.Click("CommonReadContextMenuView", "OkButton");
+        }
+
+        public static void VerifyExistingAnnotationMessage(AutomationAgent commonReadAutomationAgent)
+        {
+            commonReadAutomationAgent.VerifyElementFound("CommonReadContextMenuView", "ExistingAnnotatioinMessage");
+        }
+
+        public static void ClickHighlightButton(AutomationAgent commonReadAutomationAgent)
+        {
+            commonReadAutomationAgent.Click("CommonReadContextMenuView", "HighlightButton");
+        }
     }
 
     public enum AnnotationType

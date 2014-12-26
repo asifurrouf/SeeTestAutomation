@@ -4,24 +4,28 @@
       <Login LoginName="Teacher1">
         <UserName>apatton1</UserName>
         <Password>sch00lnet</Password>
+        <PersonName>ApattonName</PersonName>
         <UserType>Teacher</UserType>
         <SectionedGrades>8,9,10</SectionedGrades>
       </Login>
       <Login LoginName="Teacher2">
         <UserName>jgrimm2</UserName>
         <Password>sch00lnet</Password>
+        <PersonName>ApattonName</PersonName>
         <UserType>Teacher</UserType>
         <SectionedGrades>7,8,9,10</SectionedGrades>
       </Login>
       <Login LoginName="Student1">
       <UserName>1027005</UserName>
       <Password>sch00lnet</Password>
+      <PersonName>ApattonName</PersonName>
       <UserType>Student</UserType>
       <SectionedGrades>7,8,9</SectionedGrades>
     </Login>
       <Login LoginName="Grade2SectionedTeacher">
         <UserName>sswanson2</UserName>
         <Password>sch00lnet</Password>
+        <PersonName>ApattonName</PersonName>
         <UserType>Teacher</UserType>
         <SectionedGrades>2</SectionedGrades>
       </Login>
@@ -30,18 +34,21 @@
       <Login LoginName="Teacher1">
         <UserName>apatton1</UserName>
         <Password>sch00lnet</Password>
+        <PersonName>ApattonName</PersonName>
         <UserType>Teacher</UserType>
         <SectionedGrades>8,9,10</SectionedGrades>
       </Login>
       <Login LoginName="Teacher2">
         <UserName>ajgrimm2</UserName>
         <Password>sch00lnet</Password>
+        <PersonName>ApattonName</PersonName>
         <UserType>Teacher</UserType>
         <SectionedGrades>7,8,9</SectionedGrades>
       </Login>
       <Login LoginName="Student1">
         <UserName>1027005</UserName>
         <Password>sch00lnet</Password>
+        <PersonName>ApattonName</PersonName>
         <UserType>Student</UserType>
         <SectionedGrades>7,8,9</SectionedGrades>
       </Login>

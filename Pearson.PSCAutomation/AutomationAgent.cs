@@ -276,6 +276,16 @@ namespace Pearson.PSCAutomation.Framework
             return client.ElementGetProperty(this.control.Zone, this.control.Element, this.control.Index, property);
         }
 
+        public string GetElementProperty(string viewName, string controlName, string property, string dynamicvalue, int waitTime = WaitTime.DefaultWaitTime)
+        {
+            this.PopulateDynamicControl(viewName, controlName, dynamicvalue);
+            if (client.WaitForElement(this.control.Zone, this.control.Element, this.control.Index, WaitTime.SmallWaitTime))
+            {
+                // If statement
+            }
+            return client.ElementGetProperty(this.control.Zone, this.control.Element, this.control.Index, property);
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -284,7 +294,7 @@ namespace Pearson.PSCAutomation.Framework
         /// <param name="property"></param>
         /// <param name="value"></param>
         /// <param name="waitTime"></param>
-        public void GetElementProperty(string viewName, string controlName, string property, string value, int waitTime = WaitTime.DefaultWaitTime)
+        public void SetElementProperty(string viewName, string controlName, string property, string value, int waitTime = WaitTime.DefaultWaitTime)
         {
             this.PopulateControl(viewName, controlName);
             if (client.WaitForElement(this.control.Zone, this.control.Element, this.control.Index, WaitTime.SmallWaitTime))
@@ -297,6 +307,16 @@ namespace Pearson.PSCAutomation.Framework
         public void LongClick(string viewName, string controlName, int clickCount=1, int X=0, int Y=0)
         {
             this.PopulateControl(viewName, controlName);
+            if (client.WaitForElement(this.control.Zone, this.control.Element, this.control.Index, WaitTime.SmallWaitTime))
+            {
+                // If statement
+            }
+            client.LongClick(this.control.Zone, this.control.Element, this.control.Index, clickCount, X, Y);
+        }
+
+        public void LongClick(string viewName, string controlName, string dynamicVariable, int clickCount = 1, int X = 0, int Y = 0)
+        {
+            this.PopulateDynamicControl(viewName, controlName, dynamicVariable);
             if (client.WaitForElement(this.control.Zone, this.control.Element, this.control.Index, WaitTime.SmallWaitTime))
             {
                 // If statement
@@ -387,6 +407,25 @@ namespace Pearson.PSCAutomation.Framework
         public bool PinchOut(int xCoordinate = 0, int yCoordinate = 0, int pinchRadius = 100)
         {
             return client.Pinch(false, xCoordinate, yCoordinate, pinchRadius);
+        }
+
+        public void Drag(int fromX1, int fromY1, int toX2, int toY2, int dragTime = 1000)
+        {
+            client.DragCoordinates(fromX1, fromY1, toX2, toY2, dragTime);
+        }
+
+        public void DrawDiamondImage(int x1, int y1, int length=100)
+        {
+            int x2 = x1 + length;
+            int y2 = y1 + length;
+            int x3 = x1 + length / 2;
+            int y3 = y1 - length;
+            Drag(x1, y1, x2, y1);
+            Drag(x3, y3, x3, y2);
+            Drag(x2, y1, x3, y3);
+            Drag(x3, y3, x1, y1);
+            Drag(x1, y1, x3, y2);
+            Drag(x3, y2, x2, y1);
         }
         public void InstallApp(string path)
         {

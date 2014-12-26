@@ -1,4 +1,4 @@
-#Tue Dec 16 10:51:45 EST 2014
+#Thu Dec 25 13:48:30 EST 2014
 mobile=true
 platform=GENERIC
 default.ios.user=root
@@ -6,6 +6,6 @@ lastZone=default
 default.ios.password=alpine
 translator=C\# MSTest
 version=2
-app.name=ios_app\:Lab13_Ipad
+app.name=ios_app\:Lab11
 last.test=launchapp
 description=

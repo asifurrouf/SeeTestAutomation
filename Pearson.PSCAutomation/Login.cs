@@ -15,6 +15,7 @@ namespace Pearson.PSCAutomation.Framework
         private string userName;
         private string password;
         private UserType userType;
+        private string personName;
         private string loginName;
         private int[] sectionedGrades;
 
@@ -32,6 +33,7 @@ namespace Pearson.PSCAutomation.Framework
             loginName = loginElement.Attribute("LoginName").Value;
             userName = loginElement.Element("UserName").Value;
             password = loginElement.Element("Password").Value;
+            personName = loginElement.Element("PersonName").Value;
             userType = (UserType)Enum.Parse(typeof(UserType), loginElement.Element("UserType").Value);
             string[] gradesStringArray = loginElement.Element("SectionedGrades").Value.Split(',');
             this.sectionedGrades = new int[gradesStringArray.Length];
@@ -71,6 +73,13 @@ namespace Pearson.PSCAutomation.Framework
             get
             {
                 return this.password;
+            }
+        }
+        public string PersonName
+        {
+            get
+            {
+                return this.personName;
             }
         }
         public UserType UserType
